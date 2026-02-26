@@ -227,7 +227,7 @@ export default function Endorsements() {
                   </label>
                   <input
                     className={styles.formInput} id="contactEmail" name="contactEmail" type="email"
-                    placeholder="For our records only — not published"
+                    placeholder="For our records only. The records are not published"
                     value={form.contactEmail} onChange={handleChange}
                   />
                   <p className={styles.formNote}>Not displayed publicly.</p>

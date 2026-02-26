@@ -80,7 +80,7 @@ const issues = [
     cardClass: styles => styles.issueCard,
     flagClass: 'noise', flag: 'Problem 3 · Noise',
     title: <>24 Hours a Day,<br />7 Days a Week. <em>Forever.</em></>,
-    body: <>Data centers never sleep. Cooling systems the size of houses run continuously on rooftops four stories above your fields. When it's hot — which is when you're trying to sleep with your windows open — they run loudest. There is no off switch.</>,
+    body: <>Data centers never sleep. Cooling systems the size of houses run continuously on rooftops four stories above your fields. When it's hot, which is when you're trying to sleep with your windows open, they run loudest. There is no off switch.</>,
     facts: [
       <>HVAC cooling towers produce <b>55–85 dB continuously,</b> comparable to heavy traffic or background music, every hour of every day. (<a href="https://gerrymcgovern.com/data-centers-are-noisy-as-hell/" target="_blank" rel="noopener">Gerry McGovern / Data Center Knowledge</a>)</>,
       <>Diesel backup generators reach <b>100 dB during testing and outages,</b> enough to cause hearing damage with prolonged exposure. (<a href="https://consumerfed.org/in-the-shadow-of-big-tech-part-3-the-real-harms-felt-by-communities-on-the-frontlines/" target="_blank" rel="noopener">Consumer Federation of America, Oct 2025</a>)</>,
@@ -93,7 +93,7 @@ const issues = [
     cardClass: styles => styles.issueCard,
     flagClass: 'karst', flag: 'Problem 4 · Geology',
     title: <>Frederick County Sits on<br /><em>Hollow Ground</em></>,
-    body: <>Most of Frederick County is underlain by karst — a landscape of dissolved limestone riddled with caves, sinkholes, and underground rivers. It's what makes the Shenandoah Valley beautiful. It's also what makes industrial-scale groundwater consumption here uniquely catastrophic.</>,
+    body: <>Most of Frederick County is underlain by karst, a landscape of dissolved limestone riddled with caves, sinkholes, and underground rivers. It's what makes the Shenandoah Valley beautiful. It's also what makes industrial-scale groundwater consumption here uniquely catastrophic.</>,
     facts: [
       <>USGS geologists have specifically mapped <b>Frederick County's karst terrain.</b> Sinkholes occur in all carbonate rock units across the county, especially near faults. (<a href="https://www.science.gov/topicpages/f/frederick+county+virginia" target="_blank" rel="noopener">USGS / Science.gov</a>)</>,
       <>Karst aquifers cannot filter contaminants. Polluted water travels <b>miles through underground conduits, sometimes in a single day,</b> directly to wells and springs. (<a href="https://caveconservancyofvirginia.org/karst/" target="_blank" rel="noopener">Cave Conservancy of Virginia</a>)</>,

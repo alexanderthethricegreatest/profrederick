@@ -55,7 +55,7 @@ export default function Forums() {
 
         {/* ── Intro ── */}
         <div className={`${styles.sectionIntro} fade-up`} ref={fadeRef}>
-          These forums are billed as "Public Information and Engagement." But the presenting organizations — the Virginia Economic Development Partnership, the Frederick County EDA, FirstEnergy/Potomac Edison, REC, and SVEC — are not neutral parties. Each has a financial or institutional interest in seeing data center development proceed. Understanding those interests is not cynicism. It is the minimum standard for informed participation.
+          These forums are billed as "Public Information and Engagement." But the presenting organizations the Virginia Economic Development Partnership, the Frederick County EDA, FirstEnergy/Potomac Edison, REC, and SVEC are not neutral parties. Each has a financial or institutional interest in seeing data center development proceed. Understanding those interests is not cynicism. It is the minimum standard for informed participation.
         </div>
 
         {/* ── VEDP ── */}
@@ -106,7 +106,7 @@ export default function Forums() {
         {/* ── Utilities header ── */}
         <span className={styles.sectionLabel}>The Utilities</span>
         <h2 className={styles.sectionTitle}>Your Power Bills Are Their Growth Engine</h2>
-        <p className={styles.sectionIntro}>The three utilities presenting at the forums — FirstEnergy/Potomac Edison, REC, and SVEC — are not disinterested infrastructure providers. Each has a direct financial relationship with the data center industry. Their presentations will focus on "reliability" and "capacity." Here is what that language actually means for you.</p>
+        <p className={styles.sectionIntro}>The three utilities presenting at the forums (FirstEnergy/Potomac Edison, REC, and SVEC) are not disinterested infrastructure providers. Each has a direct financial relationship with the data center industry. Their presentations will focus on "reliability" and "capacity." Here is what that language actually means for you.</p>
 
         {/* ── FirstEnergy ── */}
         <div className={`${styles.profileBlock} fade-up`} ref={fadeRef}>
