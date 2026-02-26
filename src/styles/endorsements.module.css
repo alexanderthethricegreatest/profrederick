@@ -1,0 +1,204 @@
+/* ── Hero ────────────────────────────────── */
+.hero {
+  position: relative; z-index: 1;
+  padding: 120px 48px 64px;
+  border-bottom: 1px solid var(--rule);
+  max-width: 900px; margin: 0 auto;
+}
+.heroLabel {
+  font-size: 10px; font-weight: 700; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--barn);
+  display: block; margin-bottom: 14px;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 900; line-height: 1.1;
+  color: var(--ink); margin-bottom: 20px;
+}
+.hero h1 em { font-style: italic; color: var(--barn); }
+.heroDeck {
+  font-family: 'Lora', serif;
+  font-size: 17px; line-height: 1.75;
+  color: var(--ink-3); max-width: 660px; margin-bottom: 28px;
+}
+.heroDeck strong { color: var(--ink); font-weight: 600; }
+
+.forumBanner {
+  background: var(--ink);
+  border-left: 4px solid var(--gold-lt);
+  padding: 16px 20px; max-width: 660px;
+}
+.forumBannerLabel {
+  font-size: 9px; font-weight: 700; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--gold-lt);
+  display: block; margin-bottom: 6px;
+}
+.forumBanner p {
+  font-family: 'Lora', serif;
+  font-size: 13px; line-height: 1.65;
+  color: rgba(244,239,228,0.85);
+}
+.forumBanner p strong { color: var(--cream); }
+
+/* ── Main Layout ─────────────────────────── */
+.main {
+  position: relative; z-index: 1;
+  max-width: 900px; margin: 0 auto;
+  padding: 0 48px 80px;
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 48px; align-items: start;
+}
+
+/* ── Endorsement Wall ────────────────────── */
+.wallCol { padding-top: 48px; }
+.sectionRule {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 24px;
+}
+.sectionRuleLabel {
+  font-size: 9px; font-weight: 700; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--ink-3); white-space: nowrap;
+}
+.sectionRuleLine { flex: 1; height: 1px; background: var(--rule); }
+
+.countDisplay {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px; font-weight: 900;
+  color: var(--barn); line-height: 1; margin-bottom: 4px;
+}
+.countLabel {
+  font-size: 10px; font-weight: 700; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--ink-3);
+  margin-bottom: 32px; display: block;
+}
+
+.endorsementsList { display: flex; flex-direction: column; gap: 16px; }
+.endorsementCard {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--barn);
+  padding: 18px 20px;
+}
+.endorsementOrg {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px; font-weight: 700;
+  color: var(--ink); margin-bottom: 4px;
+}
+.endorsementMeta {
+  font-size: 9px; font-weight: 700; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--barn);
+  margin-bottom: 10px; display: flex; gap: 12px; align-items: center;
+}
+.endorsementMeta span { color: var(--rule-dark); }
+.endorsementStatement {
+  font-family: 'Lora', serif;
+  font-size: 13px; line-height: 1.7;
+  color: var(--ink-3); font-style: italic;
+}
+.endorsementDate {
+  font-size: 9px; color: var(--rule-dark);
+  font-weight: 600; letter-spacing: .1em;
+  text-transform: uppercase; margin-top: 10px; display: block;
+}
+
+.emptyState {
+  text-align: center; padding: 40px 20px;
+  border: 1px dashed var(--rule);
+}
+.emptyState p {
+  font-family: 'Lora', serif;
+  font-size: 14px; color: var(--ink-3);
+  line-height: 1.7; font-style: italic;
+}
+.loadingState {
+  text-align: center; padding: 32px;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3);
+}
+
+/* ── Form ────────────────────────────────── */
+.formCol { padding-top: 48px; }
+.formCard {
+  background: var(--ink); padding: 32px 28px;
+  position: sticky; top: 72px;
+}
+.formCardLabel {
+  font-size: 9px; font-weight: 700; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--gold-lt);
+  display: block; margin-bottom: 10px;
+}
+.formCard h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px; font-weight: 700;
+  color: var(--cream); margin-bottom: 16px; line-height: 1.2;
+}
+.formCard h2 em { font-style: italic; color: var(--barn); }
+.formCardDeck {
+  font-family: 'Lora', serif;
+  font-size: 13px; line-height: 1.65;
+  color: rgba(196,184,154,0.7); margin-bottom: 24px;
+  border-bottom: 1px solid rgba(196,184,154,0.15); padding-bottom: 20px;
+}
+
+.formGroup { margin-bottom: 16px; }
+.formLabel {
+  display: block;
+  font-size: 10px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: rgba(196,184,154,0.6); margin-bottom: 6px;
+}
+.formLabel span { color: var(--barn); }
+.formInput, .formSelect, .formTextarea {
+  width: 100%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(196,184,154,0.2);
+  color: var(--cream);
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 14px; padding: 10px 14px;
+  outline: none; transition: border-color .2s;
+  -webkit-appearance: none;
+}
+.formInput::placeholder, .formTextarea::placeholder { color: rgba(196,184,154,0.3); }
+.formInput:focus, .formSelect:focus, .formTextarea:focus { border-color: var(--gold-lt); }
+.formSelect {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C49A2A' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 12px center; padding-right: 36px;
+}
+.formSelect option { background: var(--ink-2); color: var(--cream); }
+.formTextarea { resize: vertical; min-height: 100px; line-height: 1.6; }
+.formNote { font-size: 10px; color: rgba(196,184,154,0.4); margin-top: 4px; line-height: 1.5; }
+
+.formSubmit {
+  width: 100%; background: var(--barn); color: var(--cream);
+  border: none; cursor: pointer;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 12px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; padding: 14px; margin-top: 8px;
+  transition: background .2s;
+}
+.formSubmit:hover { background: var(--barn-dark); }
+.formSubmit:disabled { opacity: .5; cursor: not-allowed; }
+
+.formSuccess { text-align: center; padding: 24px 0; }
+.formSuccessIcon { font-size: 32px; margin-bottom: 12px; display: block; }
+.formSuccess h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px; font-weight: 700; color: var(--cream); margin-bottom: 10px;
+}
+.formSuccess p {
+  font-family: 'Lora', serif;
+  font-size: 13px; line-height: 1.65; color: rgba(196,184,154,0.7);
+}
+
+.formError {
+  background: rgba(139,46,26,0.2); border: 1px solid var(--barn);
+  color: #ffb3a0; font-size: 12px; padding: 10px 14px; margin-top: 10px;
+}
+
+/* ── Responsive ──────────────────────────── */
+@media (max-width: 860px) {
+  .hero { padding: 100px 20px 48px; }
+  .main { grid-template-columns: 1fr; padding: 0 20px 60px; }
+  .formCol { order: -1; }
+}
