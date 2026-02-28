@@ -184,14 +184,14 @@ export default function Forums() {
             <p>The 120-minute format allocates roughly 60 minutes to presentations by the industry's partners and roughly 60 minutes to "Community Questions," with a 2-to-3-minute limit per speaker. That means 20 to 30 residents will have the opportunity to speak. Questions submitted in advance allow presenters to consolidate concerns into vague reassurances about "grid reliability" and "tax benefits."</p>
             <p>The county's own planning staff acknowledged in January 2026 that the fact sheet they presented was a "tip-of-the-iceberg" review.<Cite r="ref-15" /> Site-specific data is withheld under nondisclosure agreements negotiated between the EDA and developers before the public is ever informed. By the time a project reaches a public hearing, most of the terms are already set.</p>
             <div className={styles.warningBox}>
-              <p><b>Attend. Speak. Make your 2 minutes count.</b> But understand that the forum is not designed to stop anything. The petition, the supervisors' contact tool, and the November 2026 elections are where decisions actually get made. Use tonight as a place to ask the questions that do not have comfortable answers. The questions in our <Link href="/documents" style={{color:'var(--barn)',fontWeight:700}}>Resources section</Link> were written exactly for that purpose.</p>
+              <p><b>Attend. Speak. Make your 2 minutes count.</b> But understand that the forum is not designed to stop anything. The petition, the supervisors' contact tool, and the November 2026 elections are where decisions actually get made. Use the next forum as a place to ask the questions that do not have comfortable answers. The questions in our <Link href="/documents" style={{color:'var(--barn)',fontWeight:700}}>Resources section</Link> were written exactly for that purpose.</p>
             </div>
           </div>
         </div>
 
         {/* ── CTA ── */}
         <div className={`${styles.pageCta} fade-up`} ref={fadeRef}>
-          <div className={styles.pageCtaText}><strong>Your name matters.</strong> Over 100 Frederick County residents have already signed. Add yours before tonight's forum.</div>
+          <div className={styles.pageCtaText}><strong>Your name matters.</strong> Over 400 Frederick County residents have already signed. Add yours before the next forum.</div>
           <Link href="/petition" className={styles.pageCtaBtn}>Sign the Petition →</Link>
         </div>
 

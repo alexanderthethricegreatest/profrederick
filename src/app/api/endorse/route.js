@@ -50,8 +50,8 @@ export async function POST(request) {
     })
 
     if (error) {
-      console.error('Supabase insert error:', error)
-      return NextResponse.json({ error: 'Failed to save endorsement.' }, { status: 500 })
+      console.error('Supabase insert error:', JSON.stringify(error))
+      return NextResponse.json({ error: `Failed to save endorsement: ${error.message}` }, { status: 500 })
     }
 
     return NextResponse.json({ success: true }, { status: 200 })

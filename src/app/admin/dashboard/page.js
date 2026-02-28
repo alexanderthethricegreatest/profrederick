@@ -284,6 +284,88 @@ function EndorsementsTab({ endorsements, onApprove, onDelete }) {
     </div>
   )
 }
+// ── Community Events Tab ───────────────────────────────────────────────────────
+
+function CommunityEventsTab({ events, onApprove, onDelete }) {
+  const pending  = events?.filter(e => !e.approved) ?? []
+  const approved = events?.filter(e =>  e.approved) ?? []
+
+  function formatDate(dateStr) {
+    if (!dateStr) return '—'
+    const d = new Date(dateStr + 'T00:00:00')
+    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+  }
+
+  return (
+    <div>
+      <div className="page-title">Community Events</div>
+      <div className="page-sub">Review and approve community-submitted events</div>
+
+      {!events && <div className="loading">Loading...</div>}
+
+      {/* Pending */}
+      <div className="card" style={{marginBottom:24}}>
+        <div className="card-title">Pending Review <span className="nav-badge" style={{marginLeft:8}}>{pending.length}</span></div>
+        {pending.length === 0 && <div className="empty">No pending events.</div>}
+        {pending.length > 0 && (
+          <table className="tbl">
+            <thead><tr>
+              <th>Event</th><th>Date</th><th>Location</th><th>Organizer</th><th>Submitted</th><th>Actions</th>
+            </tr></thead>
+            <tbody>
+              {pending.map(e => (
+                <tr key={e.id}>
+                  <td>
+                    <strong>{e.title}</strong>
+                    <div style={{fontSize:11,color:'#64748b',marginTop:2,maxWidth:280}}>{e.description}</div>
+                    {e.external_link && <a href={e.external_link} target="_blank" rel="noopener" style={{fontSize:11,color:'#3b82f6'}}>Link →</a>}
+                  </td>
+                  <td>{formatDate(e.date)}{e.time ? ` · ${e.time}` : ''}</td>
+                  <td style={{fontSize:12}}>{e.location}</td>
+                  <td style={{fontSize:12}}>
+                    {e.organizer_name}<br />
+                    <span style={{color:'#64748b'}}>{e.organizer_email}</span>
+                  </td>
+                  <td style={{fontSize:11,color:'#64748b'}}>{new Date(e.created_at).toLocaleDateString()}</td>
+                  <td>
+                    <button className="approve-btn" onClick={() => onApprove(e.id)}>Approve</button>
+                    <button className="delete-btn" onClick={() => onDelete(e.id)}>Delete</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </div>
+
+      {/* Approved */}
+      <div className="card">
+        <div className="card-title">Approved <span style={{color:'#64748b',fontWeight:400}}>({approved.length})</span></div>
+        {approved.length === 0 && <div className="empty">No approved events yet.</div>}
+        {approved.length > 0 && (
+          <table className="tbl">
+            <thead><tr>
+              <th>Event</th><th>Date</th><th>Location</th><th>Organizer</th><th>Actions</th>
+            </tr></thead>
+            <tbody>
+              {approved.map(e => (
+                <tr key={e.id}>
+                  <td><strong>{e.title}</strong></td>
+                  <td>{formatDate(e.date)}{e.time ? ` · ${e.time}` : ''}</td>
+                  <td style={{fontSize:12}}>{e.location}</td>
+                  <td style={{fontSize:12}}>{e.organizer_name}</td>
+                  <td>
+                    <button className="delete-btn" onClick={() => onDelete(e.id)}>Delete</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </div>
+    </div>
+  )
+}
 
 // ── News Tab ──────────────────────────────────────────────────────────────────
 
@@ -370,6 +452,7 @@ export default function AdminDashboard() {
   const [sessionReady, setSessionReady] = useState(false)
   const [signatures, setSignatures]   = useState(null)
   const [endorsements, setEndorsements] = useState(null)
+  const [communityEvents, setCommunityEvents] = useState(null)
 
   useEffect(() => {
     // Redirect to login if no valid session
@@ -390,24 +473,48 @@ export default function AdminDashboard() {
   }, [])
 
   async function loadData() {
-    const [sigsRes, endRes] = await Promise.all([
+    const [sigsRes, endRes, evtRes] = await Promise.all([
       supabase.from('signatures').select('name, district, created_at').order('created_at', { ascending: false }),
       supabase.from('endorsements').select('*').order('created_at', { ascending: false }),
+      supabase.from('community_events').select('*').order('created_at', { ascending: false }),
     ])
     if (!sigsRes.error) setSignatures(sigsRes.data)
     if (!endRes.error)  setEndorsements(endRes.data)
+    if (!evtRes.error)  setCommunityEvents(evtRes.data)
   }
 
-  async function handleApprove(id) {
-    await supabase.from('endorsements').update({ approved: true }).eq('id', id)
-    setEndorsements(prev => prev.map(e => e.id === id ? { ...e, approved: true } : e))
-  }
+ async function adminAction(action, table, id) {
+  const { data: { session } } = await supabase.auth.getSession()
+  const res = await fetch('/api/admin/action', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ action, table, id, token: session.access_token }),
+  })
+  return res.ok
+}
 
-  async function handleDelete(id) {
-    if (!confirm('Delete this endorsement?')) return
-    await supabase.from('endorsements').delete().eq('id', id)
-    setEndorsements(prev => prev.filter(e => e.id !== id))
-  }
+async function handleApprove(id) {
+  const ok = await adminAction('approve', 'endorsements', id)
+  if (ok) setEndorsements(prev => prev.map(e => e.id === id ? { ...e, approved: true } : e))
+}
+
+async function handleDelete(id) {
+  if (!confirm('Delete this endorsement?')) return
+  const ok = await adminAction('delete', 'endorsements', id)
+  if (ok) setEndorsements(prev => prev.filter(e => e.id !== id))
+}
+
+async function handleEventApprove(id) {
+  const ok = await adminAction('approve', 'community_events', id)
+  if (ok) setCommunityEvents(prev => prev.map(e => e.id === id ? { ...e, approved: true } : e))
+}
+
+async function handleEventDelete(id) {
+  if (!confirm('Delete this event?')) return
+  const ok = await adminAction('delete', 'community_events', id)
+  if (ok) setCommunityEvents(prev => prev.filter(e => e.id !== id))
+}
+  
 
   async function handleSignOut() {
     await supabase.auth.signOut()
@@ -415,10 +522,12 @@ export default function AdminDashboard() {
   }
 
   const pendingCount = endorsements?.filter(e => !e.approved).length ?? 0
+  const pendingEventsCount = communityEvents?.filter(e => !e.approved).length ?? 0
 
   const TABS = [
     { key: 'signatures',   label: 'Signatures',   icon: '✍' },
     { key: 'endorsements', label: 'Endorsements',  icon: '🏛', badge: pendingCount || null },
+    { key: 'community-events', label: 'Community Events',   icon: '📅', badge: pendingEventsCount || null },
     { key: 'news',         label: 'Post Update',   icon: '📡' },
   ]
 
@@ -458,7 +567,8 @@ export default function AdminDashboard() {
         </div>
 
         <div className="content">
-          {tab === 'signatures'   && <SignaturesTab signatures={signatures} />}
+          {tab === 'signatures'   && <SignaturesTab signatures={signatures} />} 
+          {tab === 'community-events' && <CommunityEventsTab events={communityEvents} onApprove={handleEventApprove} onDelete={handleEventDelete} />}
           {tab === 'endorsements' && <EndorsementsTab endorsements={endorsements} onApprove={handleApprove} onDelete={handleDelete} />}
           {tab === 'news'         && <NewsTab supabase={supabase} />}
         </div>

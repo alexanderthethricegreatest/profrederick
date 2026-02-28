@@ -10,11 +10,14 @@ export default function Nav() {
 
   const links = [
     { href: '/',              label: 'Home' },
+    { href: '/about',         label: 'About' },
     { href: '/faq',          label: 'FAQ' },
     { href: '/documents',    label: 'Resources' },
     { href: '/forums',       label: "Who's Behind the Forums?" },
     { href: '/news',      label: 'News' },
+    { href: '/events',    label: 'Community Events' },
     { href: '/endorsements', label: 'Endorsements' },
+    { href: '/volunteer', label: 'Volunteer' },
   ]
 
   return (

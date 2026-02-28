@@ -79,23 +79,28 @@ export default function Endorsements() {
 
     setSubmitting(true)
 
-    const { error: insertError } = await supabase.from('endorsements').insert({
-      org_name: form.orgName,
-      org_type: form.orgType,
-      person_name: form.contactName,
-      person_title: form.contactTitle || null,
-      contact_email: form.contactEmail,
-      comment: form.statement,
-      approved: false, // requires manual approval in Supabase dashboard
+      const res = await fetch('/api/endorse', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          orgName: form.orgName,
+          orgType: form.orgType,
+          contactName: form.contactName,
+          contactTitle: form.contactTitle || null,
+          contactEmail: form.contactEmail,
+          statement: form.statement,
+      }),
     })
 
-    if (insertError) {
-      setError('Something went wrong. Please try again or email info@protectfrederick.org.')
-      setSubmitting(false)
-      return
-    }
+      const data = await res.json()
 
-    setSubmitted(true)
+      if (!res.ok) {
+        setError(data.error || 'Something went wrong. Please try again or email info@protectfrederick.org.')
+        setSubmitting(false)
+      return
+  }
+
+  setSubmitted(true)
   }
 
   return (
@@ -252,7 +257,7 @@ export default function Endorsements() {
                   onClick={handleSubmit}
                   disabled={submitting}
                 >
-                  {submitting ? 'Submitting...' : 'Add Our Endorsement'}
+                  {submitting ? 'Submitting...' : 'Add Your Endorsement'}
                 </button>
               </>
             )}
