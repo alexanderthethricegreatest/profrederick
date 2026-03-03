@@ -1,6 +1,5 @@
 import './globals.css'
-import Nav from '@/components/nav'
-import Footer from '@/components/footer'
+import SiteChrome from '@/components/SiteChrome'
 
 export default function RootLayout({ children }) {
   return (
@@ -14,9 +13,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        <Nav />
-        <main>{children}</main>
-        <Footer />
+        <SiteChrome><main>{children}</main></SiteChrome>
       </body>
     </html>
   )

@@ -1,5 +1,9 @@
+import { usePathname } from 'next/navigation'
+
 export default function Footer() {
-  return (
+   const pathname = usePathname()
+     if (pathname?.startsWith('/admin')) return null
+  return ( 
     <footer>
       <div>
         <div className="footer-name">Frederick County, Virginia</div>

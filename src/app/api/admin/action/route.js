@@ -35,6 +35,23 @@ export async function POST(req) {
     console.error('Admin action error:', err)
     return NextResponse.json({ error: err.message }, { status: 500 })
   }
+}  
+
+export async function GET(req) {
+  const { searchParams } = new URL(req.url)
+  const token = searchParams.get('token')
+  const table = searchParams.get('table')
+
+  const { data: { user }, error: authError } = await supabaseAdmin.auth.getUser(token)
+  if (authError || !user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+
+  if (!['endorsements', 'community_events'].includes(table)) {
+    return NextResponse.json({ error: 'Invalid table' }, { status: 400 })
+  }
+
+  const { data, error } = await supabaseAdmin.from(table).select('*').order('created_at', { ascending: false })
+  if (error) return NextResponse.json({ error: error.message }, { status: 500 })
+  return NextResponse.json({ data })
 }
 
 
