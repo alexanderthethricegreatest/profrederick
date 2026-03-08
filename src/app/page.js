@@ -223,7 +223,7 @@ export default function Home() {
       {/* ── Hero ── */}
       <section className={styles.hero}>
         <div className={styles.heroLeft}>
-          <div className={styles.heroDateline}>Frederick County, Virginia · February 2026</div>
+          <div className={styles.heroDateline}>Frederick County, Virginia · March 2026</div>
           <h1 className={styles.heroHeadline}>
             Know the Facts<br />
             on <em>Data</em>

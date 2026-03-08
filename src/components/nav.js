@@ -55,6 +55,8 @@ export default function Nav() {
     { href: '/faq',       label: 'FAQ' },
     { href: '/forums',    label: "Who's Behind the Forums?" },
     { href: '/documents', label: 'Learning Resources & Media' },
+    { href: '/comprehensive-plan', label: 'The 2050 Plan' },
+    { href: '/the-board',          label: 'The Board'}, 
   ]
 
   const resourcesItems = [
@@ -73,7 +75,7 @@ export default function Nav() {
     ...resourcesItems,
     { href: '/news',               label: 'News' },
     { href: '/events',             label: 'Events' },
-    { href: '/comprehensive-plan', label: 'The 2050 Plan' },
+    { href: '/sign-order',         label: 'Request A Sign' },
     ...communityItems,
   ]
 
@@ -81,8 +83,8 @@ export default function Nav() {
     <>
       <nav>
         <div className="nav-left">
-          <div className="nav-title">Frederick County, Virginia</div>
-          <div className="nav-sub">Community Forum · February 2026</div>
+          <div className="nav-title">Protect Frederick County</div>
+          <div className="nav-sub">Community Forum · March 2026</div>
         </div>
 
         <div className="nav-links">
@@ -92,7 +94,7 @@ export default function Nav() {
           <Dropdown label="Resources" items={resourcesItems} pathname={pathname} />
           <Link href="/news"   className={`nav-link${pathname === '/news'   ? ' active' : ''}`}>News</Link>
           <Link href="/events" className={`nav-link${pathname === '/events' ? ' active' : ''}`}>Events</Link>
-          <Link href="/comprehensive-plan" className={`nav-link${pathname === '/comprehensive-plan' ? ' active' : ''}`}>The 2050 Plan</Link>
+          <Link href="/sign-order" className={`nav-link${pathname === '/sign-order' ? ' active' : ''}`}>Request A Sign</Link>
           <Dropdown label="Community" items={communityItems} pathname={pathname} />
         </div>
 
@@ -124,7 +126,7 @@ export default function Nav() {
 
         <Link href="/news" className={pathname === '/news' ? 'active' : ''} onClick={() => setMenuOpen(false)}>News</Link>
         <Link href="/events" className={pathname === '/events' ? 'active' : ''} onClick={() => setMenuOpen(false)}>Events</Link>
-        <Link href="/comprehensive-plan" className={pathname === '/comprehensive-plan' ? 'active' : ''} onClick={() => setMenuOpen(false)}>The 2050 Plan</Link>
+        <Link href="/sign-order" className={pathname === '/sign-order' ? 'active' : ''} onClick={() => setMenuOpen(false)}>Request A Sign</Link>
 
         <div className="mobile-group-label">Community</div>
         {communityItems.map(({ href, label }) => (

@@ -9,7 +9,7 @@ const FLYERS = [
     description: 'A plain-language explainer on what data centers are, what they require, and why their placement in Frederick County matters.',
     category: 'Explainer',
     pages: '1 page',
-    file: null, // replace with '/flyers/what-are-data-centers.pdf'
+    file: '/flyers/what-are-data-centers.pdf', // replace with '/flyers/what-are-data-centers.pdf'
     preview: null,
   },
   {

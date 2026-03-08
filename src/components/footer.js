@@ -6,8 +6,8 @@ export default function Footer() {
   return ( 
     <footer>
       <div>
-        <div className="footer-name">Frederick County, Virginia</div>
-        <div className="footer-tag">Know the Facts · February 2026</div>
+        <div className="footer-name">Protect Frederick County</div>
+        <div className="footer-tag">Know the Facts · March 2026</div>
       </div>
       <div className="footer-sources">
         <strong>Sources:</strong> Virginia SCC Order (Nov. 2025) · Dominion Energy 2024–2025
