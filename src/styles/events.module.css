@@ -10,7 +10,7 @@
 .heroInner { max-width: 760px; margin: 0 auto; padding: 0 32px; }
 
 .heroLabel {
-  font-size: 9px; font-weight: 700; letter-spacing: .22em;
+  font-size: 10px; font-weight: 700; letter-spacing: .22em;
   text-transform: uppercase; color: var(--gold-lt);
   margin-bottom: 16px;
 }
@@ -24,7 +24,7 @@
 
 .heroDeck {
   font-size: 16px; line-height: 1.65;
-  color: rgba(244,239,228,0.72);
+  color: color-mix(in srgb, var(--cream) 72%, transparent);
   margin-bottom: 24px; max-width: 600px;
 }
 .heroDeck a { color: var(--gold-lt); text-decoration: underline; }
@@ -32,7 +32,7 @@
 .heroMeta {
   display: flex; align-items: center; gap: 8px;
   font-size: 11px; letter-spacing: .1em;
-  text-transform: uppercase; color: rgba(244,239,228,0.4);
+  text-transform: uppercase; color: color-mix(in srgb, var(--cream) 40%, transparent);
 }
 .heroMetaDot {
   width: 6px; height: 6px; border-radius: 50%;
@@ -65,7 +65,7 @@
 .catSupervisors { background: var(--barn); }
 .catPlanning    { background: var(--forest); }
 .catEda         { background: var(--gold); }
-.catDatacenter  { background: #8B2E1A; }
+.catDatacenter  { background: var(--barn); }
 .catCommittee   { background: var(--ink-3); }
 
 /* ── Events Section ─────────────────────────────────────────── */
@@ -96,7 +96,7 @@
 
 .eventCard {
   display: flex; align-items: center; gap: 0;
-  background: var(--white, #fff);
+  background: var(--white);
   border: 1px solid var(--cream-3);
   border-left: 4px solid var(--ink-3);
   text-decoration: none; color: inherit;
@@ -113,7 +113,7 @@
 .cat-supervisors { border-left-color: var(--barn); }
 .cat-planning    { border-left-color: var(--forest); }
 .cat-eda         { border-left-color: var(--gold); }
-.cat-datacenter  { border-left-color: #C0392B; }
+.cat-datacenter  { border-left-color: var(--barn); }
 .cat-committee   { border-left-color: var(--ink-3); }
 .cat-other       { border-left-color: var(--cream-3); }
 
@@ -155,14 +155,14 @@
 .catDot-supervisors { background: var(--barn); }
 .catDot-planning    { background: var(--forest); }
 .catDot-eda         { background: var(--gold); }
-.catDot-datacenter  { background: #C0392B; }
+.catDot-datacenter  { background: var(--barn); }
 .catDot-committee   { background: var(--ink-3); }
 .catDot-other       { background: var(--cream-3); }
 
 .cancelledBadge {
   margin-left: 8px; padding: 1px 6px;
   background: var(--cream-3); border-radius: 2px;
-  font-size: 9px; color: var(--ink-3);
+  font-size: 10px; color: var(--ink-3);
 }
 
 .eventTitle {
@@ -220,7 +220,7 @@
 }
 .ctaInner p {
   font-size: 15px; line-height: 1.65;
-  color: rgba(244,239,228,0.65);
+  color: color-mix(in srgb, var(--cream) 65%, transparent);
   margin-bottom: 28px;
 }
 .ctaButtons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
@@ -228,7 +228,7 @@
 /* ── Community Events Section ────────────────────────────────── */
 .communitySection {
   background: var(--cream-2);
-  border-top: 3px double var(--rule-dark, #c4b89a);
+  border-top: 3px double var(--rule-dark);
   padding: 64px 0 80px;
 }
 .communityInner { max-width: 900px; margin: 0 auto; padding: 0 32px; }
@@ -239,7 +239,7 @@
   margin-bottom: 36px; flex-wrap: wrap;
 }
 .communityLabel {
-  font-size: 9px; font-weight: 700; letter-spacing: .22em;
+  font-size: 10px; font-weight: 700; letter-spacing: .22em;
   text-transform: uppercase; color: var(--barn);
   margin-bottom: 8px;
 }
@@ -274,12 +274,12 @@
 .formNote { font-size: 13px; color: var(--ink-3); margin-bottom: 24px; }
 
 .formError {
-  background: #fff0ee; border: 1px solid var(--barn);
+  background: color-mix(in srgb, var(--barn) 8%, var(--cream)); border: 1px solid var(--barn);
   color: var(--barn); padding: 10px 14px;
   font-size: 13px; margin-bottom: 18px;
 }
 .formSuccess {
-  background: #eef6ee; border: 1px solid var(--forest);
+  background: color-mix(in srgb, var(--forest) 8%, var(--cream)); border: 1px solid var(--forest);
   color: var(--forest); padding: 14px 18px;
   font-size: 14px; font-weight: 600;
   margin-bottom: 32px;
@@ -295,7 +295,7 @@
   text-transform: uppercase; color: var(--ink-3);
 }
 .formField input, .formField textarea {
-  border: 1px solid var(--cream-3); background: var(--white, #fff);
+  border: 1px solid var(--cream-3); background: var(--white);
   padding: 10px 12px; font-size: 14px; color: var(--ink);
   font-family: inherit; outline: none;
   transition: border-color .15s;

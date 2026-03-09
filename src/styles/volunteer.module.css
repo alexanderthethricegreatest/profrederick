@@ -10,7 +10,7 @@
 .heroInner { max-width: 760px; margin: 0 auto; padding: 0 32px 56px; }
 
 .heroEyebrow {
-  font-size: 9px; font-weight: 700; letter-spacing: .22em;
+  font-size: 10px; font-weight: 700; letter-spacing: .22em;
   text-transform: uppercase; color: var(--gold-lt);
   margin-bottom: 16px;
 }
@@ -23,11 +23,11 @@
 .heroTitle em { font-style: italic; color: var(--gold-lt); }
 .heroDeck {
   font-size: 16px; line-height: 1.65;
-  color: rgba(244,239,228,0.7); max-width: 580px;
+  color: color-mix(in srgb, var(--cream) 70%, transparent); max-width: 580px;
 }
 
 .heroStats {
-  border-top: 1px solid rgba(196,184,154,0.2);
+  border-top: 1px solid color-mix(in srgb, var(--rule) 20%, transparent);
   display: flex; align-items: center;
   max-width: 760px; margin: 0 auto;
   padding: 0 32px;
@@ -44,12 +44,12 @@
 }
 .heroStatLabel {
   font-size: 10px; font-weight: 700; letter-spacing: .12em;
-  text-transform: uppercase; color: rgba(244,239,228,0.4);
+  text-transform: uppercase; color: color-mix(in srgb, var(--cream) 40%, transparent);
   margin-top: 4px;
 }
 .heroStatDiv {
   width: 1px; height: 40px;
-  background: rgba(196,184,154,0.2);
+  background: color-mix(in srgb, var(--rule) 20%, transparent);
   margin-right: 48px;
 }
 
@@ -68,7 +68,7 @@
 .formSub { font-size: 15px; color: var(--ink-3); }
 
 .formError {
-  background: #fff0ee; border: 1px solid var(--barn);
+  background: color-mix(in srgb, var(--barn) 8%, var(--cream)); border: 1px solid var(--barn);
   border-left: 3px solid var(--barn);
   color: var(--barn); padding: 12px 16px;
   font-size: 13px; margin-bottom: 24px;
@@ -89,7 +89,7 @@
 .labelNote { font-weight: 400; text-transform: none; letter-spacing: 0; font-size: 11px; }
 
 .input {
-  border: 1px solid var(--cream-3); background: white;
+  border: 1px solid var(--cream-3); background: var(--white);
   padding: 11px 14px; font-size: 14px; color: var(--ink);
   font-family: inherit; outline: none;
   transition: border-color .15s; width: 100%;
@@ -106,7 +106,7 @@ textarea.input { resize: vertical; }
 .activityCard {
   display: flex; flex-direction: column; gap: 4px;
   padding: 14px 16px; text-align: left;
-  background: white; border: 1px solid var(--cream-3);
+  background: var(--white); border: 1px solid var(--cream-3);
   cursor: pointer; transition: border-color .15s, background .15s;
 }
 .activityCard:hover { border-color: var(--ink-3); }
@@ -127,7 +127,7 @@ textarea.input { resize: vertical; }
   font-size: 11px; color: var(--ink-3); line-height: 1.4;
   transition: color .15s;
 }
-.activityChecked .activityDesc { color: rgba(244,239,228,0.55); }
+.activityChecked .activityDesc { color: color-mix(in srgb, var(--cream) 55%, transparent); }
 
 .submitBtn {
   background: var(--barn); color: var(--cream);
@@ -143,7 +143,7 @@ textarea.input { resize: vertical; }
 /* ── Why Section ─────────────────────────────────────────────── */
 .whySection {
   background: var(--cream-2);
-  border-top: 3px double var(--rule-dark, #c4b89a);
+  border-top: 3px double var(--rule-dark);
   padding: 64px 0 80px;
 }
 .whyInner { max-width: 900px; margin: 0 auto; padding: 0 32px; }
@@ -190,7 +190,7 @@ textarea.input { resize: vertical; }
 }
 .successDeck {
   font-size: 16px; line-height: 1.65;
-  color: rgba(244,239,228,0.7); margin-bottom: 36px;
+  color: color-mix(in srgb, var(--cream) 70%, transparent); margin-bottom: 36px;
 }
 .successActions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 

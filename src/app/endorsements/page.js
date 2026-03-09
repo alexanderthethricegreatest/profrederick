@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { createBrowserClient } from '@supabase/ssr'
 import styles from '@/styles/endorsements.module.css'
+import useCountUp from '@/hooks/useCountUp'
 
 const ORG_TYPES = [
   'Agricultural / Farm',
@@ -103,6 +104,8 @@ export default function Endorsements() {
   setSubmitted(true)
   }
 
+  const [animatedCount, countRef] = useCountUp(endorsements?.length ?? 0)
+
   return (
     <>
       {/* ── Hero ── */}
@@ -134,8 +137,8 @@ export default function Endorsements() {
             <div className={styles.sectionRuleLine}></div>
           </div>
 
-          <div className={styles.countDisplay}>
-            {endorsements === null ? '—' : endorsements.length}
+          <div className={styles.countDisplay} ref={countRef}>
+            {endorsements === null ? '—' : animatedCount}
           </div>
           <span className={styles.countLabel}>Organizations on Record</span>
 
@@ -149,7 +152,7 @@ export default function Endorsements() {
               </div>
             )}
             {endorsements && endorsements.map((e, i) => (
-              <div key={i} className={styles.endorsementCard}>
+              <div key={i} className={`${styles.endorsementCard} fade-up`}>
                 <div className={styles.endorsementOrg}>{e.org_name}</div>
                 <div className={styles.endorsementMeta}>
                   {e.org_type}

@@ -232,39 +232,39 @@ export default function EventsPage() {
               {formError && <div className={styles.formError}>{formError}</div>}
               <div className={styles.formGrid}>
                 <div className={styles.formField} style={{gridColumn:'1/-1'}}>
-                  <label>Event Name *</label>
-                  <input name="title" value={form.title} onChange={handleChange}
+                  <label htmlFor="evt-title">Event Name *</label>
+                  <input id="evt-title" name="title" value={form.title} onChange={handleChange}
                     placeholder="e.g. Door-to-door canvassing in Red Bud District" />
                 </div>
                 <div className={styles.formField} style={{gridColumn:'1/-1'}}>
-                  <label>Description *</label>
-                  <textarea name="description" value={form.description} onChange={handleChange}
+                  <label htmlFor="evt-desc">Description *</label>
+                  <textarea id="evt-desc" name="description" value={form.description} onChange={handleChange}
                     rows={3} placeholder="What is this event? What should people bring or know?" />
                 </div>
                 <div className={styles.formField}>
-                  <label>Date *</label>
-                  <input name="date" type="date" value={form.date} onChange={handleChange} />
+                  <label htmlFor="evt-date">Date *</label>
+                  <input id="evt-date" name="date" type="date" value={form.date} onChange={handleChange} />
                 </div>
                 <div className={styles.formField}>
-                  <label>Time</label>
-                  <input name="time" value={form.time} onChange={handleChange} placeholder="e.g. 6:00 PM" />
+                  <label htmlFor="evt-time">Time</label>
+                  <input id="evt-time" name="time" value={form.time} onChange={handleChange} placeholder="e.g. 6:00 PM" />
                 </div>
                 <div className={styles.formField} style={{gridColumn:'1/-1'}}>
-                  <label>Location *</label>
-                  <input name="location" value={form.location} onChange={handleChange} placeholder="Address or venue name" />
+                  <label htmlFor="evt-location">Location *</label>
+                  <input id="evt-location" name="location" value={form.location} onChange={handleChange} placeholder="Address or venue name" />
                 </div>
                 <div className={styles.formField}>
-                  <label>Your Name *</label>
-                  <input name="organizer_name" value={form.organizer_name} onChange={handleChange} placeholder="Organizer name" />
+                  <label htmlFor="evt-organizer-name">Your Name *</label>
+                  <input id="evt-organizer-name" name="organizer_name" value={form.organizer_name} onChange={handleChange} placeholder="Organizer name" />
                 </div>
                 <div className={styles.formField}>
-                  <label>Your Email *</label>
-                  <input name="organizer_email" type="email" value={form.organizer_email} onChange={handleChange}
+                  <label htmlFor="evt-organizer-email">Your Email *</label>
+                  <input id="evt-organizer-email" name="organizer_email" type="email" value={form.organizer_email} onChange={handleChange}
                     placeholder="Not displayed publicly" />
                 </div>
                 <div className={styles.formField} style={{gridColumn:'1/-1'}}>
-                  <label>External Link</label>
-                  <input name="external_link" value={form.external_link} onChange={handleChange}
+                  <label htmlFor="evt-link">External Link</label>
+                  <input id="evt-link" name="external_link" value={form.external_link} onChange={handleChange}
                     placeholder="Facebook event, Eventbrite, etc. (optional)" />
                 </div>
               </div>

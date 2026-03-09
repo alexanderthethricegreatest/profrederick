@@ -90,8 +90,9 @@ export default function SignOrderPage() {
             <Image
               src="/images/yard-sign.jpg"
               alt="No Data Centers — protectfrederick.org yard sign"
-              width={600}
-              height={480}
+              width={0}
+              height={0}
+              sizes="100vw"
               className={styles.signPhoto}
               priority
             />
@@ -108,16 +109,18 @@ export default function SignOrderPage() {
 
               <div className={styles.fieldGroup}>
                 <div className={styles.field}>
-                  <label className={styles.label}>Full Name <span className={styles.req}>*</span></label>
+                  <label htmlFor="so-name" className={styles.label}>Full Name <span className={styles.req}>*</span></label>
                   <input
+                    id="so-name"
                     className={styles.input}
                     type="text" placeholder="Jane Smith"
                     value={form.name} onChange={set('name')}
                   />
                 </div>
                 <div className={styles.field}>
-                  <label className={styles.label}>Email Address <span className={styles.req}>*</span></label>
+                  <label htmlFor="so-email" className={styles.label}>Email Address <span className={styles.req}>*</span></label>
                   <input
+                    id="so-email"
                     className={styles.input}
                     type="email" placeholder="jane@example.com"
                     value={form.email} onChange={set('email')}
@@ -127,16 +130,17 @@ export default function SignOrderPage() {
 
               <div className={styles.fieldGroup}>
                 <div className={styles.field}>
-                  <label className={styles.label}>Phone Number <span className={styles.req}>*</span></label>
+                  <label htmlFor="so-phone" className={styles.label}>Phone Number <span className={styles.req}>*</span></label>
                   <input
+                    id="so-phone"
                     className={styles.input}
                     type="tel" placeholder="(540) 555-0100"
                     value={form.phone} onChange={set('phone')}
                   />
                 </div>
                 <div className={styles.field}>
-                  <label className={styles.label}>District <span className={styles.req}>*</span></label>
-                  <select className={styles.input} value={form.district} onChange={set('district')}>
+                  <label htmlFor="so-district" className={styles.label}>District <span className={styles.req}>*</span></label>
+                  <select id="so-district" className={styles.input} value={form.district} onChange={set('district')}>
                     <option value="">Select your district…</option>
                     {DISTRICTS.map(d => <option key={d} value={d}>{d}</option>)}
                   </select>
@@ -152,8 +156,9 @@ export default function SignOrderPage() {
               </p>
 
               <div className={styles.field}>
-                <label className={styles.label}>Street Address <span className={styles.req}>*</span></label>
+                <label htmlFor="so-address" className={styles.label}>Street Address <span className={styles.req}>*</span></label>
                 <input
+                  id="so-address"
                   className={styles.input}
                   type="text" placeholder="123 Apple Blossom Ln"
                   value={form.address} onChange={set('address')}
@@ -162,16 +167,18 @@ export default function SignOrderPage() {
 
               <div className={styles.fieldGroup}>
                 <div className={styles.field}>
-                  <label className={styles.label}>City / Town <span className={styles.req}>*</span></label>
+                  <label htmlFor="so-city" className={styles.label}>City / Town <span className={styles.req}>*</span></label>
                   <input
+                    id="so-city"
                     className={styles.input}
                     type="text" placeholder="Stephens City"
                     value={form.city} onChange={set('city')}
                   />
                 </div>
                 <div className={styles.field} style={{maxWidth: '140px'}}>
-                  <label className={styles.label}>ZIP <span className={styles.req}>*</span></label>
+                  <label htmlFor="so-zip" className={styles.label}>ZIP <span className={styles.req}>*</span></label>
                   <input
+                    id="so-zip"
                     className={styles.input}
                     type="text" placeholder="22655"
                     value={form.zip} onChange={set('zip')}
@@ -184,8 +191,8 @@ export default function SignOrderPage() {
               <div className={styles.formSectionLabel}>Order Details</div>
 
               <div className={styles.field}>
-                <label className={styles.label}>How many signs? <span className={styles.req}>*</span></label>
-                <select className={styles.input} value={form.quantity} onChange={set('quantity')}>
+                <label htmlFor="so-quantity" className={styles.label}>How many signs? <span className={styles.req}>*</span></label>
+                <select id="so-quantity" className={styles.input} value={form.quantity} onChange={set('quantity')}>
                   {Array.from({ length: 100 }, (_, i) => i + 1).map(n => (
                     <option key={n} value={String(n)}>{n}</option>
                   ))}
@@ -193,8 +200,8 @@ export default function SignOrderPage() {
               </div>
 
               <div className={styles.field}>
-                <label className={styles.label}>Pay it forward — sponsor signs for neighbors <span className={styles.optional}>(optional)</span></label>
-                <select className={styles.input} value={form.sponsorQty} onChange={set('sponsorQty')}>
+                <label htmlFor="so-sponsor" className={styles.label}>Pay it forward — sponsor signs for neighbors <span className={styles.optional}>(optional)</span></label>
+                <select id="so-sponsor" className={styles.input} value={form.sponsorQty} onChange={set('sponsorQty')}>
                   <option value="0">None</option>
                   {Array.from({ length: 100 }, (_, i) => i + 1).map(n => (
                     <option key={n} value={String(n)}>{n} sign{n > 1 ? 's' : ''}</option>
@@ -206,8 +213,9 @@ export default function SignOrderPage() {
               </div>
 
               <div className={styles.field}>
-                <label className={styles.label}>Anything else we should know? <span className={styles.optional}>(optional)</span></label>
+                <label htmlFor="so-message" className={styles.label}>Anything else we should know? <span className={styles.optional}>(optional)</span></label>
                 <textarea
+                  id="so-message"
                   className={`${styles.input} ${styles.textarea}`}
                   placeholder="Gate code, best time to deliver, accessibility notes…"
                   value={form.message} onChange={set('message')}

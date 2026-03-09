@@ -91,6 +91,6 @@ export async function GET() {
     return NextResponse.json({ events: allEvents })
   } catch (err) {
     console.error('FCVA scrape error:', err)
-    return NextResponse.json({ events: [], error: err.message }, { status: 500 })
+    return NextResponse.json({ events: [] }, { status: 500 })
   }
 }

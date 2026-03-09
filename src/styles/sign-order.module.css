@@ -10,7 +10,7 @@
 }
 .heroInner { max-width: 780px; margin: 0 auto; }
 .eyebrow {
-  font-size: 9px; font-weight: 700; letter-spacing: .22em;
+  font-size: 10px; font-weight: 700; letter-spacing: .22em;
   text-transform: uppercase; color: var(--barn); margin-bottom: 14px;
 }
 .heroTitle {
@@ -21,7 +21,7 @@
 .heroDeck {
   font-family: 'Lora', serif;
   font-size: 15px; line-height: 1.75;
-  color: rgba(196,184,154,0.7); max-width: 560px;
+  color: color-mix(in srgb, var(--rule) 70%, transparent); max-width: 560px;
 }
 
 /* ── Form section ── */
@@ -33,12 +33,12 @@
 }
 
 /* ── Sign preview ── */
-.signPreview { position: sticky; top: 76px; }
+.signPreview { position: sticky; top: 72px; }
 .signPhoto {
   width: 100% !important;
   height: auto !important;
   display: block;
-  box-shadow: 0 4px 24px rgba(42,33,24,0.18);
+  box-shadow: 0 4px 24px color-mix(in srgb, var(--ink) 18%, transparent);
   margin-bottom: 14px;
 }
 .previewNote {
@@ -50,7 +50,7 @@
 .form { display: flex; flex-direction: column; gap: 32px; }
 .formSection2 { display: flex; flex-direction: column; gap: 16px; }
 .formSectionLabel {
-  font-size: 9px; font-weight: 700; letter-spacing: .2em;
+  font-size: 10px; font-weight: 700; letter-spacing: .2em;
   text-transform: uppercase; color: var(--barn);
   padding-bottom: 10px; border-bottom: 1px solid var(--rule);
 }
@@ -68,37 +68,33 @@
   text-transform: uppercase; color: var(--ink-3);
 }
 .req { color: var(--barn); }
-.optional { font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--rule-dark); }
+.optional { font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--ink-3); }
 
 .input {
-  background: var(--white, #FDFAF5);
+  background: var(--white);
   border: 1px solid var(--rule);
   padding: 11px 14px;
   font-family: 'Source Sans 3', sans-serif;
   font-size: 14px; color: var(--ink);
   outline: none; width: 100%;
-  transition: border-color .15s;
+  transition: border-color .15s, box-shadow .15s;
   appearance: none;
 }
-.input:focus { border-color: var(--barn); }
+.input:focus {
+  border-color: var(--barn);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--barn) 15%, transparent);
+  outline: none;
+}
 .input::placeholder { color: var(--rule-dark); }
 select.input { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239B8C72' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; cursor: pointer; }
 .textarea { resize: vertical; min-height: 80px; }
 
-/* ── Quantity selector ── */
-.qtyRow { display: flex; gap: 8px; flex-wrap: wrap; }
-.qtyBtn {
-  width: 44px; height: 44px;
-  background: var(--white, #FDFAF5);
-  border: 1px solid var(--rule);
-  font-family: 'Source Sans 3', sans-serif;
-  font-size: 14px; font-weight: 600; color: var(--ink-3);
-  cursor: pointer; transition: all .15s;
-}
-.qtyBtn:hover { border-color: var(--barn); color: var(--barn); }
-.qtyActive {
-  background: var(--barn); border-color: var(--barn);
-  color: var(--cream);
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-6px); }
+  40%       { transform: translateX(6px); }
+  60%       { transform: translateX(-4px); }
+  80%       { transform: translateX(4px); }
 }
 
 /* ── Submit ── */
@@ -107,6 +103,7 @@ select.input { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://ww
   border-left: 4px solid var(--barn);
   padding: 12px 16px;
   font-size: 13px; color: var(--ink-3); line-height: 1.6;
+  animation: shake .35s ease;
 }
 .submitBtn {
   background: var(--barn); color: var(--cream);
@@ -115,12 +112,17 @@ select.input { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://ww
   font-size: 14px; font-weight: 700;
   letter-spacing: .1em; text-transform: uppercase;
   padding: 16px 32px; width: 100%;
-  transition: background .2s;
+  transition: background .2s, transform .15s, box-shadow .2s;
 }
-.submitBtn:hover:not(:disabled) { background: var(--barn-dark); }
+.submitBtn:hover:not(:disabled) {
+  background: var(--barn-dark);
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--barn) 35%, transparent);
+  transform: translateY(-1px);
+}
+.submitBtn:active:not(:disabled) { transform: translateY(0); box-shadow: none; }
 .submitBtn:disabled { opacity: .6; cursor: not-allowed; }
 .formFooter {
-  font-size: 10.5px; line-height: 1.65; color: var(--rule-dark);
+  font-size: 10.5px; line-height: 1.65; color: var(--ink-3);
   text-align: center;
 }
 
@@ -151,7 +153,6 @@ select.input { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://ww
   .hero { padding: 56px 24px 48px; }
   .formSection { padding: 48px 24px; }
   .formWrap { grid-template-columns: 1fr; gap: 40px; }
-  .signPreview { position: static; }
-  .signCard { max-width: 220px; margin: 0 auto 14px; }
+  .signPreview { position: static; max-width: 280px; margin: 0 auto; }
   .fieldGroup { grid-template-columns: 1fr; }
 }

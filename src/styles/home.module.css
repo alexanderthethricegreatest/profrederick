@@ -4,11 +4,25 @@
   display: grid; grid-template-columns: 1fr 1fr;
   background: var(--ink); position: relative; overflow: hidden;
 }
+/* Ambient drifting gradient — GPU-composited, no layout impact */
+.hero::after {
+  content: '';
+  position: absolute; inset: -20%;
+  background: radial-gradient(
+    ellipse 55% 45% at 50% 50%,
+    color-mix(in srgb, var(--forest) 18%, transparent),
+    transparent 70%
+  );
+  pointer-events: none; z-index: 0;
+  animation: heroAmbient 22s ease-in-out infinite;
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) { .hero::after { animation: none; } }
 .heroLeft {
   padding: 60px 56px 60px 64px;
   display: flex; flex-direction: column; justify-content: center;
-  position: relative; z-index: 2;
-  border-right: 1px solid rgba(196,184,154,0.12);
+  position: relative; z-index: 1;
+  border-right: 1px solid color-mix(in srgb, var(--rule) 12%, transparent);
 }
 .heroDateline {
   font-size: 10px; font-weight: 600;
@@ -31,15 +45,15 @@
 .heroDeck {
   font-family: 'Lora', serif;
   font-size: 16px; line-height: 1.8;
-  color: rgba(244,239,228,0.62);
+  color: color-mix(in srgb, var(--cream) 62%, transparent);
   margin: 28px 0 40px; max-width: 480px;
 }
-.heroDeck b { color: rgba(244,239,228,0.85); }
+.heroDeck b { color: color-mix(in srgb, var(--cream) 85%, transparent); }
 .heroActions { display: flex; gap: 14px; flex-wrap: wrap; }
 
 .heroRight {
-  position: relative;
-  background: linear-gradient(160deg, rgba(45,74,45,0.3) 0%, rgba(42,33,24,0.85) 65%), var(--ink-2);
+  position: relative; z-index: 1;
+  background: linear-gradient(160deg, color-mix(in srgb, var(--forest) 30%, transparent) 0%, color-mix(in srgb, var(--ink) 85%, transparent) 65%), var(--ink-2);
   display: flex; flex-direction: column; justify-content: center;
   padding: 48px; overflow: hidden;
 }
@@ -47,14 +61,14 @@
   position: absolute; bottom: 0; left: 0; right: 0; opacity: 0.22; height: 45%;
 }
 .forumLabel {
-  font-size: 9px; font-weight: 700; letter-spacing: .22em;
+  font-size: 10px; font-weight: 700; letter-spacing: .22em;
   text-transform: uppercase; color: var(--gold-lt);
   margin-bottom: 14px; position: relative; z-index: 2;
 }
 .forumCard {
   position: relative; z-index: 2;
-  background: rgba(244,239,228,0.05);
-  border: 1px solid rgba(196,184,154,0.18);
+  background: color-mix(in srgb, var(--cream) 5%, transparent);
+  border: 1px solid color-mix(in srgb, var(--rule) 18%, transparent);
   border-left: 3px solid var(--barn);
   padding: 18px 22px; margin-bottom: 10px;
 }
@@ -64,7 +78,7 @@
   font-size: 20px; font-weight: 700;
   color: var(--cream); display: block; margin-bottom: 4px;
 }
-.forumLoc { font-size: 13px; color: rgba(244,239,228,0.52); }
+.forumLoc { font-size: 13px; color: color-mix(in srgb, var(--cream) 52%, transparent); }
 .forumTime {
   display: block; margin-top: 6px;
   font-size: 11px; font-weight: 600;
@@ -73,7 +87,7 @@
 .heroFcva {
   position: relative; z-index: 2;
   margin-top: 14px; font-size: 11px;
-  font-style: italic; color: rgba(196,184,154,0.35);
+  color: color-mix(in srgb, var(--rule) 35%, transparent);
 }
 
 /* ── Stats ───────────────────────────────── */
@@ -81,10 +95,6 @@
   background: var(--white);
   padding-bottom: 72px;
   border-bottom: 3px double var(--rule-dark);
-}
-.statsGrid {
-  display: grid; grid-template-columns: repeat(3,1fr);
-  border: 1px solid var(--rule); border-top: none;
 }
 .statCard {
   padding: 34px 30px;
@@ -97,7 +107,7 @@
 .statCard:nth-child(3n) { border-right: none; }
 .statCard:nth-last-child(-n+3) { border-bottom: none; }
 .statTag {
-  font-size: 8.5px; font-weight: 700;
+  font-size: 10px; font-weight: 700;
   letter-spacing: .16em; text-transform: uppercase;
   color: var(--ink-3); margin-bottom: 10px;
   padding-bottom: 8px; border-bottom: 1px solid var(--rule);
@@ -115,9 +125,10 @@
 .statNum.gold   { color: var(--gold); }
 .statLabel { font-size: 13px; line-height: 1.65; color: var(--ink-2); }
 .statLabel b { font-weight: 700; color: var(--ink); }
-.statSource { font-size: 10px; color: var(--rule-dark); margin-top: 12px; font-style: italic; }
-.statSource a { color: var(--rule-dark); text-decoration: underline; text-underline-offset: 2px; }
+.statSource { font-size: 10px; color: var(--ink-3); margin-top: 12px; font-style: italic; }
+.statSource a { color: var(--ink-3); text-decoration: underline; text-underline-offset: 2px; }
 .statSource a:hover { color: var(--barn); }
+.statGroup:hover .statGroupHeader { background: var(--cream-2); }
 
 /* ── Issues ──────────────────────────────── */
 .issuesSection {
@@ -128,14 +139,14 @@
 .issuesGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
 .issueCard { padding: 48px 44px; background: var(--white); }
 .issueFlag {
-  display: inline-block; font-size: 9px; font-weight: 700;
+  display: inline-block; font-size: 10px; font-weight: 700;
   letter-spacing: .18em; text-transform: uppercase;
   padding: 5px 12px; margin-bottom: 20px;
 }
 .issueFlag.water  { background: var(--forest); color: var(--cream); }
 .issueFlag.power  { background: var(--barn);   color: var(--cream); }
-.issueFlag.noise  { background: #3d2a1a; color: #d4a96a; }
-.issueFlag.karst  { background: #1a2e20; color: #7db87d; }
+.issueFlag.noise  { background: var(--ink-2); color: var(--gold-lt); }
+.issueFlag.karst  { background: var(--forest); color: var(--cream); }
 .issueTitle {
   font-family: 'Playfair Display', serif;
   font-size: 29px; font-weight: 900; line-height: 1.1;
@@ -158,104 +169,40 @@
 .issueFacts li:last-child { border-bottom: none; }
 .issueFacts li::before {
   content: '◆'; position: absolute; left: 0;
-  font-size: 7px; top: 15px; color: var(--barn);
+  font-size: 10px; top: 13px; color: var(--barn);
 }
 .issueCard.waterCard .issueFacts li::before { color: var(--forest); }
 .issueFacts li b { font-weight: 700; color: var(--ink); }
 .issueFacts a { color: var(--barn); text-decoration: underline; text-underline-offset: 2px; font-weight: 600; }
 .issueFacts a:hover { color: var(--barn-dark); }
 
-/* ── FAQ ─────────────────────────────────── */
-.faqItem { background: var(--white); border: 1px solid var(--rule); }
-.faqQ {
-  width: 100%; text-align: left; background: none; border: none;
-  padding: 22px 28px; cursor: pointer;
-  font-family: 'Lora', serif; font-size: 15px; font-weight: 600;
-  color: var(--ink); display: flex; justify-content: space-between;
-  align-items: center; gap: 16px; line-height: 1.4;
-}
-.faqQ:hover { background: var(--cream-2); }
-.faqIcon { font-size: 22px; font-weight: 300; color: var(--barn); flex-shrink: 0; transition: transform .2s; }
-.faqQ.open .faqIcon { transform: rotate(45deg); }
-.faqA {
-  display: none; padding: 0 28px 24px;
-  font-size: 14px; line-height: 1.8; color: var(--ink-2);
-  border-top: 1px solid var(--rule);
-}
-.faqA p { padding-top: 18px; }
-.faqA.open { display: block; }
-
-/* ── News ────────────────────────────────── */
-.newsItem {
-  background: var(--cream-2);
-  border: 1px solid var(--rule);
-  padding: 28px 32px;
-  display: block;
-}
-.newsDate {
-  font-size: 11px; font-weight: 700; letter-spacing: .1em;
-  text-transform: uppercase; color: var(--barn); padding-top: 3px;
-  line-height: 1.4;
-}
-.newsTitle {
-  font-family: 'Playfair Display', serif; font-size: 17px;
-  font-weight: 700; color: var(--ink); margin-bottom: 8px;
-}
-.newsBody { font-size: 13px; line-height: 1.7; color: var(--ink-2); }
-
 /* ── Neighbors ───────────────────────────── */
 .neighborsSection { background: var(--ink); padding-bottom: 72px; }
 .neighborsGrid {
   display: grid; grid-template-columns: repeat(3,1fr);
-  border: 1px solid rgba(196,184,154,0.13);
+  border: 1px solid color-mix(in srgb, var(--rule) 13%, transparent);
   margin-bottom: 36px;
 }
 .neighborCard {
   padding: 36px 30px;
-  border-right: 1px solid rgba(196,184,154,0.1);
-  background: rgba(244,239,228,0.03);
+  border-right: 1px solid color-mix(in srgb, var(--rule) 10%, transparent);
+  background: color-mix(in srgb, var(--cream) 3%, transparent);
   transition: background .18s;
 }
 .neighborCard:last-child { border-right: none; }
-.neighborCard:hover { background: rgba(244,239,228,0.055); }
+.neighborCard:hover { background: color-mix(in srgb, var(--cream) 5.5%, transparent); }
 .neighborName {
   font-family: 'Playfair Display', serif;
   font-size: 20px; font-weight: 700;
   color: var(--cream); margin-bottom: 3px;
 }
 .neighborTag {
-  display: block; font-size: 9px; font-weight: 700;
+  display: block; font-size: 10px; font-weight: 700;
   letter-spacing: .18em; text-transform: uppercase;
   color: var(--gold-lt); margin-bottom: 16px;
 }
-.neighborBody { font-size: 13px; line-height: 1.75; color: rgba(244,239,228,0.58); }
-.neighborBody b { color: rgba(244,239,228,0.85); font-weight: 600; }
-
-/* ── Pull Quote ──────────────────────────── */
-.pullQuote {
-  padding: 46px 56px;
-  border: 1px solid rgba(196,184,154,0.12);
-  border-left: 4px solid var(--barn);
-  background: rgba(139,46,26,0.07);
-  position: relative;
-}
-.pqGlyph {
-  font-family: 'Playfair Display', serif;
-  font-size: 90px; line-height: 1;
-  color: rgba(139,46,26,0.16);
-  position: absolute; top: 8px; left: 24px;
-}
-.pqText {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: clamp(18px,2.2vw,26px); line-height: 1.55;
-  color: var(--cream); margin-bottom: 18px; position: relative;
-}
-.pqCite {
-  font-size: 10px; font-weight: 700;
-  letter-spacing: .12em; text-transform: uppercase;
-  color: rgba(196,184,154,0.45);
-}
+.neighborBody { font-size: 13px; line-height: 1.75; color: color-mix(in srgb, var(--cream) 58%, transparent); }
+.neighborBody b { color: color-mix(in srgb, var(--cream) 85%, transparent); font-weight: 600; }
 
 /* ── Action ──────────────────────────────── */
 .actionSection {
@@ -287,9 +234,9 @@
 .toolCol { background: var(--forest); }
 .toolInner { padding: 40px 36px; }
 .toolEyebrow {
-  font-size: 9px; font-weight: 700;
+  font-size: 10px; font-weight: 700;
   letter-spacing: .2em; text-transform: uppercase;
-  color: rgba(235,242,235,0.48); margin-bottom: 10px;
+  color: var(--gold-lt); margin-bottom: 10px;
 }
 .toolTitle {
   font-family: 'Playfair Display', serif;
@@ -298,18 +245,18 @@
 }
 .toolSub {
   font-size: 13px; line-height: 1.7;
-  color: rgba(235,242,235,0.55); margin-bottom: 24px;
-  padding-bottom: 20px; border-bottom: 1px solid rgba(235,242,235,0.1);
+  color: color-mix(in srgb, var(--cream) 55%, transparent); margin-bottom: 24px;
+  padding-bottom: 20px; border-bottom: 1px solid color-mix(in srgb, var(--cream) 10%, transparent);
 }
 .toolInput {
-  width: 100%; background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(235,242,235,0.18);
+  width: 100%; background: color-mix(in srgb, white 7%, transparent);
+  border: 1px solid color-mix(in srgb, var(--cream) 18%, transparent);
   color: var(--cream); font-family: 'Source Sans 3', sans-serif;
   font-size: 14px; padding: 13px 16px;
   outline: none; margin-bottom: 10px; transition: border-color .2s;
 }
 .toolInput:focus { border-color: var(--gold-lt); }
-.toolInput::placeholder { color: rgba(235,242,235,0.28); }
+.toolInput::placeholder { color: color-mix(in srgb, var(--cream) 28%, transparent); }
 .toolBtn {
   width: 100%; background: var(--barn); color: var(--cream);
   border: none; font-family: 'Source Sans 3', sans-serif;
@@ -320,44 +267,44 @@
 .toolBtn:hover { background: var(--barn-dark); }
 .toolResult {
   display: none; margin-top: 14px; padding: 14px 16px;
-  background: rgba(255,255,255,0.05);
+  background: color-mix(in srgb, white 5%, transparent);
   border-left: 3px solid var(--gold-lt);
   font-size: 13px; line-height: 1.75;
-  color: rgba(235,242,235,0.8);
+  color: color-mix(in srgb, var(--cream) 80%, transparent);
 }
 .toolResult.show { display: block; }
-.toolResult a { color: var(--gold-lt); font-weight: 600; }
+.toolResult a { color: var(--cream); font-weight: 600; }
 .toolResult strong { color: var(--cream); display: block; margin-bottom: 2px; }
 .toolNote {
   margin-top: 14px; padding: 14px 16px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(235,242,235,0.08);
+  background: color-mix(in srgb, white 4%, transparent);
+  border: 1px solid color-mix(in srgb, var(--cream) 8%, transparent);
   font-size: 12px; line-height: 1.65;
-  color: rgba(235,242,235,0.48);
+  color: color-mix(in srgb, var(--cream) 48%, transparent);
 }
-.toolNote a { color: var(--gold-lt); font-weight: 600; }
-.toolNote strong { display: block; font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: rgba(235,242,235,0.65); margin-bottom: 4px; }
+.toolNote a { color: var(--cream); font-weight: 600; }
+.toolNote strong { display: block; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: color-mix(in srgb, var(--cream) 65%, transparent); margin-bottom: 4px; }
 
 /* ── Petition CTA ────────────────────────── */
 .petitionSection {
   background: var(--forest);
   padding: 0 0 72px;
-  border-bottom: 3px double rgba(196,184,154,0.2);
+  border-bottom: 3px double color-mix(in srgb, var(--rule) 20%, transparent);
 }
-.petitionSection .broadsheet-header { border-color: rgba(196,184,154,0.15); }
-.petitionSection .bh-vol { color: rgba(196,184,154,0.45); }
+.petitionSection .broadsheet-header { border-color: color-mix(in srgb, var(--rule) 15%, transparent); }
+.petitionSection .bh-vol { color: color-mix(in srgb, var(--rule) 45%, transparent); }
 .petitionSection .broadsheet-header h2 { color: var(--cream); }
 .petitionSection .broadsheet-header h2 em { color: var(--gold-lt); }
-.petitionSection .broadsheet-header .bh-deck { color: rgba(244,239,228,0.55); }
-.petitionSection :global(.broadsheet-header) { border-color: rgba(196,184,154,0.15); }
-.petitionSection :global(.bh-vol) { color: rgba(196,184,154,0.45); }
+.petitionSection .broadsheet-header .bh-deck { color: color-mix(in srgb, var(--cream) 55%, transparent); }
+.petitionSection :global(.broadsheet-header) { border-color: color-mix(in srgb, var(--rule) 15%, transparent); }
+.petitionSection :global(.bh-vol) { color: color-mix(in srgb, var(--rule) 45%, transparent); }
 .petitionSection :global(.broadsheet-header h2) { color: var(--cream); }
 .petitionSection :global(.broadsheet-header h2 em) { color: var(--gold-lt); }
-.petitionSection :global(.bh-deck) { color: rgba(244,239,228,0.55); }
+.petitionSection :global(.bh-deck) { color: color-mix(in srgb, var(--cream) 55%, transparent); }
 .petitionCtaGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
 .petitionCtaCard {
-  background: rgba(244,239,228,0.05);
-  border: 1px solid rgba(196,184,154,0.12);
+  background: color-mix(in srgb, var(--cream) 5%, transparent);
+  border: 1px solid color-mix(in srgb, var(--rule) 12%, transparent);
   padding: 44px 40px;
 }
 .petitionCtaCard.highlight {
@@ -365,7 +312,7 @@
   display: flex; flex-direction: column; justify-content: center;
 }
 .petitionCountLabel {
-  font-size: 9px; font-weight: 700;
+  font-size: 10px; font-weight: 700;
   letter-spacing: .22em; text-transform: uppercase;
   color: var(--gold-lt); margin-bottom: 10px;
 }
@@ -376,10 +323,10 @@
   display: block; margin-bottom: 6px;
 }
 .petitionCountSub {
-  font-size: 13px; color: rgba(244,239,228,0.55);
+  font-size: 13px; color: color-mix(in srgb, var(--cream) 55%, transparent);
   margin-bottom: 32px; line-height: 1.5;
 }
-.petitionCountSub b { color: rgba(244,239,228,0.8); }
+.petitionCountSub b { color: color-mix(in srgb, var(--cream) 80%, transparent); }
 .btnPetition {
   display: inline-flex; align-items: center; gap: 10px;
   background: var(--cream); color: var(--barn);
@@ -397,17 +344,17 @@
 .petitionWhyList { list-style: none; }
 .petitionWhyList li {
   font-size: 13.5px; line-height: 1.7;
-  color: rgba(244,239,228,0.65);
+  color: color-mix(in srgb, var(--cream) 65%, transparent);
   padding: 10px 0 10px 22px;
-  border-bottom: 1px solid rgba(196,184,154,0.1);
+  border-bottom: 1px solid color-mix(in srgb, var(--rule) 10%, transparent);
   position: relative;
 }
 .petitionWhyList li:last-child { border-bottom: none; }
 .petitionWhyList li::before {
   content: '◆'; position: absolute; left: 0;
-  font-size: 7px; top: 14px; color: var(--gold-lt);
+  font-size: 10px; top: 12px; color: var(--gold-lt);
 }
-.petitionWhyList li b { color: rgba(244,239,228,0.9); font-weight: 600; }
+.petitionWhyList li b { color: color-mix(in srgb, var(--cream) 90%, transparent); font-weight: 600; }
 
 /* ── Share ───────────────────────────────── */
 .shareSection { background: var(--barn); padding: 56px 0; text-align: center; }
@@ -420,7 +367,7 @@
 .shareSub {
   font-family: 'Lora', serif;
   font-size: 15px; line-height: 1.6;
-  color: rgba(244,239,228,0.6); margin-bottom: 30px;
+  color: color-mix(in srgb, var(--cream) 60%, transparent); margin-bottom: 30px;
 }
 .shareButtons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 .shareBtn {
@@ -432,9 +379,9 @@
   text-decoration: none; transition: opacity .2s, transform .15s;
 }
 .shareBtn:hover { opacity: .86; transform: translateY(-1px); }
-.shareFacebook { background: #1877F2; color: white; }
+.shareFacebook { background: #1877F2; color: var(--white); }
 .shareTwitter  { background: var(--ink); color: var(--cream); }
-.shareCopy     { background: rgba(255,255,255,0.14); color: var(--cream); border: 1px solid rgba(255,255,255,0.28) !important; }
+.shareCopy     { background: color-mix(in srgb, white 14%, transparent); color: var(--cream); border: 1px solid color-mix(in srgb, white 28%, transparent) !important; }
 .shareCopy.copied { background: var(--forest); border-color: var(--forest) !important; }
 
 /* ── Responsive ──────────────────────────── */
@@ -442,19 +389,11 @@
   .hero { grid-template-columns: 1fr; }
   .heroLeft { padding: 64px 24px; }
   .heroRight { min-height: 260px; padding: 32px 24px; }
-  .statsGrid { grid-template-columns: 1fr 1fr; }
-  .statsGrid .statCard:nth-child(2n) { border-right: none; }
-  .statsGrid .statCard:nth-child(3n) { border-right: 1px solid var(--rule); }
   .issuesGrid,
   .actionGrid,
   .petitionCtaGrid { grid-template-columns: 1fr; }
   .neighborsGrid { grid-template-columns: 1fr; }
-  .neighborCard { border-right: none !important; border-bottom: 1px solid rgba(196,184,154,0.1); }
-  .pullQuote { padding: 36px 28px; }
-}
-@media (max-width: 540px) {
-  .statsGrid { grid-template-columns: 1fr; }
-  .statsGrid .statCard { border-right: none !important; } 
+  .neighborCard { border-right: none !important; border-bottom: 1px solid color-mix(in srgb, var(--rule) 10%, transparent); }
 }
 
 /* ── Stat Groups (accordion) ─────────────────────────────── */
@@ -489,7 +428,7 @@
   flex-wrap: wrap;
 }
 .statGroupTag {
-  font-size: 9px; font-weight: 700; letter-spacing: .2em;
+  font-size: 10px; font-weight: 700; letter-spacing: .2em;
   text-transform: uppercase; padding: 3px 10px;
   white-space: nowrap;
 }
@@ -501,7 +440,7 @@
   font-size: 14px; color: var(--ink-3);
 }
 .statGroupChevron {
-  font-size: 16px; color: var(--rule-dark); flex-shrink: 0;
+  font-size: 16px; color: var(--ink-3); flex-shrink: 0;
 }
 .statGroupCards {
   display: grid;

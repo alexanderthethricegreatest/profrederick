@@ -15,8 +15,8 @@
     -45deg,
     transparent,
     transparent 40px,
-    rgba(196,184,154,0.015) 40px,
-    rgba(196,184,154,0.015) 41px
+    color-mix(in srgb, var(--rule) 1.5%, transparent) 40px,
+    color-mix(in srgb, var(--rule) 1.5%, transparent) 41px
   );
 }
 .heroInner {
@@ -24,7 +24,7 @@
   position: relative; z-index: 1;
 }
 .heroEyebrow {
-  font-size: 9px; font-weight: 700; letter-spacing: .22em;
+  font-size: 10px; font-weight: 700; letter-spacing: .22em;
   text-transform: uppercase; color: var(--gold-lt);
   margin-bottom: 20px;
 }
@@ -73,7 +73,7 @@
 .stakesInner { max-width: 960px; margin: 0 auto; padding: 0 32px; }
 
 .stakesLabel {
-  font-size: 9px; font-weight: 700; letter-spacing: .22em;
+  font-size: 10px; font-weight: 700; letter-spacing: .22em;
   text-transform: uppercase; color: var(--gold-lt);
   margin-bottom: 14px;
 }
@@ -89,15 +89,11 @@
   gap: 2px;
 }
 .stakeCard {
-  background: rgba(244,239,228,0.04);
-  border: 1px solid rgba(196,184,154,0.12);
+  background: color-mix(in srgb, var(--cream) 4%, transparent);
+  border: 1px solid color-mix(in srgb, var(--rule) 12%, transparent);
   padding: 32px;
 }
-.stakeCard:hover { background: rgba(244,239,228,0.07); }
-.stakeIcon {
-  font-size: 20px; color: var(--gold-lt);
-  margin-bottom: 14px; display: block;
-}
+.stakeCard:hover { background: color-mix(in srgb, var(--cream) 7%, transparent); }
 .stakeCard h3 {
   font-family: 'Playfair Display', serif;
   font-size: 20px; font-weight: 700;
@@ -105,7 +101,7 @@
 }
 .stakeCard p {
   font-size: 14px; line-height: 1.7;
-  color: rgba(244,239,228,0.62);
+  color: color-mix(in srgb, var(--cream) 62%, transparent);
 }
 
 /* ── How ─────────────────────────────────────────────────────── */
@@ -113,7 +109,7 @@
 .howInner { max-width: 760px; margin: 0 auto; padding: 0 32px; }
 
 .howLabel {
-  font-size: 9px; font-weight: 700; letter-spacing: .22em;
+  font-size: 10px; font-weight: 700; letter-spacing: .22em;
   text-transform: uppercase; color: var(--barn);
   margin-bottom: 14px;
 }
@@ -134,8 +130,11 @@
   display: flex; gap: 32px;
   padding: 28px 0;
   border-bottom: 1px solid var(--cream-3);
+  transition: background .15s;
+  margin: 0 -16px; padding-left: 16px; padding-right: 16px;
 }
 .howStep:last-child { border-bottom: none; }
+.howStep:hover { background: var(--cream-2); }
 .howStepNum {
   font-family: 'Playfair Display', serif;
   font-size: 42px; font-weight: 700;
@@ -153,14 +152,14 @@
 /* ── Vision ──────────────────────────────────────────────────── */
 .vision {
   background: var(--cream-2);
-  border-top: 3px double var(--rule-dark, #c4b89a);
-  border-bottom: 3px double var(--rule-dark, #c4b89a);
+  border-top: 3px double var(--rule-dark);
+  border-bottom: 3px double var(--rule-dark);
   padding: 72px 0;
 }
 .visionInner { max-width: 680px; margin: 0 auto; padding: 0 32px; }
 
 .visionLabel {
-  font-size: 9px; font-weight: 700; letter-spacing: .22em;
+  font-size: 10px; font-weight: 700; letter-spacing: .22em;
   text-transform: uppercase; color: var(--barn);
   margin-bottom: 14px;
 }
@@ -194,7 +193,7 @@
 }
 .ctaInner p {
   font-size: 15px; line-height: 1.65;
-  color: rgba(244,239,228,0.65); margin-bottom: 32px;
+  color: color-mix(in srgb, var(--cream) 65%, transparent); margin-bottom: 32px;
 }
 .ctaButtons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 

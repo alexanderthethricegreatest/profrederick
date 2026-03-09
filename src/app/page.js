@@ -182,7 +182,6 @@ export default function Home() {
     const { count, error } = await supabase
       .from('signatures')
       .select('*', { count: 'exact', head: true })
-    console.log('count:', count, 'error:', error)
     setPetitionCount(count?.toLocaleString() ?? '0')
   } catch (e) {
     console.error('fetchCount error:', e)
@@ -350,7 +349,9 @@ export default function Home() {
                 <div className={styles.toolEyebrow}>Find Your Representative</div>
                 <div className={styles.toolTitle}>Contact Your Board Supervisor</div>
                 <div className={styles.toolSub}>Enter your address, town, or district name to find your Frederick County Board of Supervisors rep and contact them before the forum.</div>
+                <label htmlFor="supervisor-search" style={{position:'absolute',width:'1px',height:'1px',overflow:'hidden',clip:'rect(0 0 0 0)',whiteSpace:'nowrap'}}>Enter your address or district</label>
                 <input
+                  id="supervisor-search"
                   type="text"
                   className={styles.toolInput}
                   placeholder="e.g. Stephens City, Gainesboro, Back Creek…"

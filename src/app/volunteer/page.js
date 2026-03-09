@@ -132,13 +132,13 @@ export default function VolunteerPage() {
           {/* Name + Email */}
           <div className={styles.fieldRow}>
             <div className={styles.field}>
-              <label className={styles.label}>Full Name *</label>
-              <input className={styles.input} name="name" value={form.name}
+              <label className={styles.label} htmlFor="vol-name">Full Name *</label>
+              <input className={styles.input} id="vol-name" name="name" value={form.name}
                 onChange={handleChange} placeholder="Your name" />
             </div>
             <div className={styles.field}>
-              <label className={styles.label}>Email *</label>
-              <input className={styles.input} name="email" type="email" value={form.email}
+              <label className={styles.label} htmlFor="vol-email">Email *</label>
+              <input className={styles.input} id="vol-email" name="email" type="email" value={form.email}
                 onChange={handleChange} placeholder="your@email.com" />
             </div>
           </div>
@@ -146,13 +146,13 @@ export default function VolunteerPage() {
           {/* Phone + District */}
           <div className={styles.fieldRow}>
             <div className={styles.field}>
-              <label className={styles.label}>Phone</label>
-              <input className={styles.input} name="phone" type="tel" value={form.phone}
+              <label className={styles.label} htmlFor="vol-phone">Phone</label>
+              <input className={styles.input} id="vol-phone" name="phone" type="tel" value={form.phone}
                 onChange={handleChange} placeholder="(540) 000-0000" />
             </div>
             <div className={styles.field}>
-              <label className={styles.label}>Your District *</label>
-              <select className={styles.input} name="district" value={form.district} onChange={handleChange}>
+              <label className={styles.label} htmlFor="vol-district">Your District *</label>
+              <select className={styles.input} id="vol-district" name="district" value={form.district} onChange={handleChange}>
                 <option value="">Select your district…</option>
                 {DISTRICTS.map(d => <option key={d} value={d}>{d}</option>)}
               </select>
@@ -161,8 +161,8 @@ export default function VolunteerPage() {
 
           {/* Activities */}
           <div className={styles.fieldBlock}>
-            <label className={styles.label}>How do you want to help? * <span className={styles.labelNote}>(select all that apply)</span></label>
-            <div className={styles.activityGrid}>
+            <label className={styles.label} id="vol-activities-label">How do you want to help? * <span className={styles.labelNote}>(select all that apply)</span></label>
+            <div className={styles.activityGrid} role="group" aria-labelledby="vol-activities-label">
               {ACTIVITIES.map(a => {
                 const checked = form.activities.includes(a.id)
                 return (
@@ -183,8 +183,8 @@ export default function VolunteerPage() {
 
           {/* Message */}
           <div className={styles.fieldBlock}>
-            <label className={styles.label}>Anything else? <span className={styles.labelNote}>(optional)</span></label>
-            <textarea className={styles.input} name="message" value={form.message}
+            <label className={styles.label} htmlFor="vol-message">Anything else? <span className={styles.labelNote}>(optional)</span></label>
+            <textarea className={styles.input} id="vol-message" name="message" value={form.message}
               onChange={handleChange} rows={3}
               placeholder="Skills, availability, questions, or anything you want us to know" />
           </div>

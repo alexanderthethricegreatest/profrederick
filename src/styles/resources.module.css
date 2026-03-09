@@ -2,24 +2,24 @@
 .pageHeader {
   background: var(--ink);
   padding: 120px 48px 56px;
-  border-bottom: 3px double rgba(196,184,154,0.3);
+  border-bottom: 3px double color-mix(in srgb, var(--rule) 30%, transparent);
   text-align: center;
 }
 .pageHeaderVol {
-  font-size: 9px; font-weight: 700; letter-spacing: .22em;
+  font-size: 10px; font-weight: 700; letter-spacing: .22em;
   text-transform: uppercase; color: var(--gold-lt);
   margin-bottom: 18px;
 }
 .pageHeader h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 52px; font-weight: 900; line-height: 1.05;
+  font-size: clamp(32px, 5vw, 52px); font-weight: 900; line-height: 1.05;
   color: var(--cream); margin-bottom: 18px;
 }
 .pageHeader h1 em { font-style: italic; }
 .pageHeaderDeck {
   font-family: 'Lora', serif;
   font-size: 16px; line-height: 1.75;
-  color: rgba(196,184,154,0.75);
+  color: color-mix(in srgb, var(--rule) 75%, transparent);
   max-width: 620px; margin: 0 auto;
 }
 
@@ -38,13 +38,13 @@
 }
 .catFlag {
   display: inline-block;
-  font-size: 9px; font-weight: 700; letter-spacing: .18em;
+  font-size: 10px; font-weight: 700; letter-spacing: .18em;
   text-transform: uppercase; padding: 5px 12px; flex-shrink: 0;
 }
 .catFlag.video    { background: var(--barn);   color: var(--cream); }
 .catFlag.virginia { background: var(--forest);  color: var(--cream); }
-.catFlag.national { background: #3d2a1a;        color: #d4a96a; }
-.catFlag.reports  { background: #1a2e20;        color: #7db87d; }
+.catFlag.national { background: var(--ink-2);    color: var(--gold-lt); }
+.catFlag.reports  { background: var(--forest);   color: var(--cream); }
 .catFlag.organize { background: var(--gold);    color: var(--cream); }
 .catTitle {
   font-family: 'Playfair Display', serif;
@@ -78,12 +78,12 @@
 }
 .videoPlayBtn {
   width: 64px; height: 64px;
-  background: rgba(139,46,26,0.9); border-radius: 50%;
+  background: color-mix(in srgb, var(--barn) 90%, transparent); border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
 }
 .videoInfo { padding: 20px 22px 24px; }
 .videoSource {
-  font-size: 9px; font-weight: 700; letter-spacing: .16em;
+  font-size: 10px; font-weight: 700; letter-spacing: .16em;
   text-transform: uppercase; color: var(--barn); margin-bottom: 8px;
 }
 .videoSource a { color: var(--barn); }
@@ -104,7 +104,7 @@
 }
 .articleCard:hover { background: var(--cream-2); }
 .articleMeta {
-  font-size: 9px; font-weight: 700; letter-spacing: .16em;
+  font-size: 10px; font-weight: 700; letter-spacing: .16em;
   text-transform: uppercase; color: var(--barn); margin-bottom: 10px;
 }
 .articleTitle {
@@ -130,7 +130,7 @@
 }
 .reportCard:hover { background: var(--cream-2); }
 .reportLabel {
-  font-size: 9px; font-weight: 700; letter-spacing: .14em;
+  font-size: 10px; font-weight: 700; letter-spacing: .14em;
   text-transform: uppercase; color: var(--forest);
   padding-top: 3px; line-height: 1.4;
 }
@@ -150,7 +150,7 @@
 }
 .orgCard:hover { background: var(--cream-2); }
 .orgType {
-  font-size: 9px; font-weight: 700; letter-spacing: .16em;
+  font-size: 10px; font-weight: 700; letter-spacing: .16em;
   text-transform: uppercase; color: var(--gold); margin-bottom: 12px;
 }
 .orgName {
@@ -173,7 +173,7 @@
 }
 .sourceCard { background: var(--white); border: 1px solid var(--rule); padding: 24px 26px; }
 .sourceCardLabel {
-  font-size: 9px; font-weight: 700; letter-spacing: .18em;
+  font-size: 10px; font-weight: 700; letter-spacing: .18em;
   text-transform: uppercase; color: var(--forest); margin-bottom: 10px;
 }
 .sourceList { list-style: none; display: flex; flex-direction: column; gap: 10px; }

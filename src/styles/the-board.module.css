@@ -7,7 +7,7 @@
 
 /* ── Shared typography ── */
 .eyebrow {
-  font-size: 9px; font-weight: 700; letter-spacing: .22em;
+  font-size: 10px; font-weight: 700; letter-spacing: .22em;
   text-transform: uppercase; color: var(--barn); margin-bottom: 16px;
 }
 .body {
@@ -30,22 +30,22 @@
 .heroBody p {
   font-family: 'Lora', serif;
   font-size: 15px; line-height: 1.8;
-  color: rgba(196,184,154,0.75); margin-bottom: 14px;
+  color: color-mix(in srgb, var(--rule) 75%, transparent); margin-bottom: 14px;
 }
 .disclaimer {
   font-size: 13px; line-height: 1.75;
-  color: rgba(196,184,154,0.6);
+  color: color-mix(in srgb, var(--rule) 60%, transparent);
   border-left: 3px solid var(--barn);
   padding: 12px 16px; margin-bottom: 24px;
 }
-.disclaimer strong { color: rgba(196,184,154,0.85); }
+.disclaimer strong { color: color-mix(in srgb, var(--rule) 85%, transparent); }
 .sourceNote {
   font-size: 11px; line-height: 1.7;
-  color: rgba(196,184,154,0.4);
+  color: color-mix(in srgb, var(--rule) 40%, transparent);
   padding-top: 20px;
-  border-top: 1px solid rgba(196,184,154,0.1);
+  border-top: 1px solid color-mix(in srgb, var(--rule) 10%, transparent);
 }
-.sourceNote strong { color: rgba(196,184,154,0.55); }
+.sourceNote strong { color: color-mix(in srgb, var(--rule) 55%, transparent); }
 
 /* ── Jump nav ── */
 .jumpNav {
@@ -59,8 +59,8 @@
   padding: 0;
 }
 .jumpLabel {
-  font-size: 9px; font-weight: 700; letter-spacing: .18em;
-  text-transform: uppercase; color: var(--rule-dark); flex-shrink: 0;
+  font-size: 10px; font-weight: 700; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--ink-3); flex-shrink: 0;
 }
 .jumpLink {
   font-size: 11px; font-weight: 600; letter-spacing: .08em;
@@ -85,7 +85,7 @@
   color: var(--barn);
 }
 .profileTag {
-  font-size: 9px; font-weight: 700; letter-spacing: .14em;
+  font-size: 10px; font-weight: 700; letter-spacing: .14em;
   text-transform: uppercase; color: var(--ink-3);
 }
 .profileName {
@@ -109,7 +109,7 @@
   padding: 16px 18px; margin: 24px 0;
 }
 .disclosureLabel {
-  font-size: 9px; font-weight: 700; letter-spacing: .18em;
+  font-size: 10px; font-weight: 700; letter-spacing: .18em;
   text-transform: uppercase; color: var(--barn); margin-bottom: 8px;
 }
 .disclosureBox p {
@@ -122,7 +122,7 @@
   padding: 22px 24px; margin-top: 32px;
 }
 .questionLabel {
-  font-size: 9px; font-weight: 700; letter-spacing: .2em;
+  font-size: 10px; font-weight: 700; letter-spacing: .2em;
   text-transform: uppercase; color: var(--gold-lt); margin-bottom: 10px;
 }
 .questionBox p {
@@ -161,7 +161,7 @@
   gap: 12px; margin: 20px 0;
 }
 .stockStat {
-  background: var(--white, #FDFAF5);
+  background: var(--white);
   border: 1px solid var(--rule);
   border-top: 3px solid var(--barn);
   padding: 14px 16px;
@@ -173,7 +173,7 @@
   line-height: 1; margin-bottom: 6px;
 }
 .stockStatLabel {
-  font-size: 9px; font-weight: 600; letter-spacing: .04em;
+  font-size: 10px; font-weight: 600; letter-spacing: .04em;
   text-transform: uppercase; color: var(--ink-3); line-height: 1.4;
 }
 
@@ -185,7 +185,7 @@
   display: grid; grid-template-columns: 2fr 1.4fr 2.4fr;
   gap: 12px; padding: 10px 16px;
   background: var(--ink);
-  font-size: 8px; font-weight: 700; letter-spacing: .14em;
+  font-size: 10px; font-weight: 700; letter-spacing: .14em;
   text-transform: uppercase; color: var(--gold-lt);
 }
 .stockRow {
@@ -201,7 +201,7 @@
   display: flex; flex-direction: column; gap: 2px;
 }
 .stockTicker {
-  font-size: 9px; font-style: normal; font-weight: 700;
+  font-size: 10px; font-style: normal; font-weight: 700;
   letter-spacing: .1em; color: var(--barn);
 }
 .stockRange { font-size: 12px; color: var(--ink-3); }
@@ -228,26 +228,26 @@
 }
 .actionIntro {
   font-size: 14px; line-height: 1.8;
-  color: rgba(196,184,154,0.6); margin-bottom: 40px;
+  color: color-mix(in srgb, var(--rule) 60%, transparent); margin-bottom: 40px;
 }
 .actionGrid {
   display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
 }
 .actionCard {
-  background: rgba(244,239,228,0.04);
-  border: 1px solid rgba(196,184,154,0.12);
+  background: color-mix(in srgb, var(--cream) 4%, transparent);
+  border: 1px solid color-mix(in srgb, var(--rule) 12%, transparent);
   border-top: 3px solid var(--barn);
   padding: 22px;
 }
 .actionNum {
-  font-size: 9px; font-weight: 700; letter-spacing: .18em;
+  font-size: 10px; font-weight: 700; letter-spacing: .18em;
   color: var(--barn); margin-bottom: 8px;
 }
 .actionCard h3 {
   font-family: 'Playfair Display', serif;
   font-size: 16px; font-weight: 700; color: var(--cream); margin-bottom: 10px;
 }
-.actionCard p { font-size: 12.5px; line-height: 1.7; color: rgba(196,184,154,0.55); }
+.actionCard p { font-size: 12.5px; line-height: 1.7; color: color-mix(in srgb, var(--rule) 55%, transparent); }
 .actionLink {
   display: inline-block; margin-top: 12px;
   font-size: 10px; font-weight: 700; letter-spacing: .1em;
@@ -270,7 +270,7 @@
 }
 .closingSig {
   font-size: 11px; font-weight: 700; letter-spacing: .14em;
-  text-transform: uppercase; color: rgba(244,239,228,0.5);
+  text-transform: uppercase; color: color-mix(in srgb, var(--cream) 50%, transparent);
   margin-bottom: 32px;
 }
 .closingButtons {

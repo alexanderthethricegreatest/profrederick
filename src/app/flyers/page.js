@@ -108,10 +108,11 @@ export default function FlyersPage() {
       {/* Flyer grid */}
       <section className={styles.grid}>
         <div className={styles.gridInner}>
-          {FLYERS.map(flyer => {
+          {FLYERS.map((flyer, i) => {
             const catStyle = CATEGORY_COLORS[flyer.category] ?? CATEGORY_COLORS['Explainer']
+            const delay = i < 4 ? `delay-${i + 1}` : ''
             return (
-              <div key={flyer.id} className={styles.flyerCard}>
+              <div key={flyer.id} className={`${styles.flyerCard} fade-up ${delay}`}>
 
                 {/* Preview area */}
                 <div className={styles.flyerPreview}>

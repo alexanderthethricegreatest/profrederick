@@ -2,23 +2,23 @@
 .pageHeader {
   background: var(--ink);
   padding: 120px 48px 56px;
-  border-bottom: 3px double rgba(196,184,154,0.3);
+  border-bottom: 3px double color-mix(in srgb, var(--rule) 30%, transparent);
   text-align: center;
 }
 .pageHeaderVol {
-  font-size: 9px; font-weight: 700; letter-spacing: .22em;
+  font-size: 10px; font-weight: 700; letter-spacing: .22em;
   text-transform: uppercase; color: var(--gold-lt); margin-bottom: 18px;
 }
 .pageHeader h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 52px; font-weight: 900; line-height: 1.05;
+  font-size: clamp(32px, 5vw, 52px); font-weight: 900; line-height: 1.05;
   color: var(--cream); margin-bottom: 18px;
 }
 .pageHeader h1 em { font-style: italic; }
 .pageHeaderDeck {
   font-family: 'Lora', serif;
   font-size: 16px; line-height: 1.75;
-  color: rgba(196,184,154,0.75);
+  color: color-mix(in srgb, var(--rule) 75%, transparent);
   max-width: 600px; margin: 0 auto;
 }
 
@@ -27,7 +27,7 @@
 
 /* ── Section Headers ─────────────────────── */
 .sectionLabel {
-  font-size: 9px; font-weight: 700; letter-spacing: .22em;
+  font-size: 10px; font-weight: 700; letter-spacing: .22em;
   text-transform: uppercase; color: var(--gold);
   margin-bottom: 10px; display: block;
 }
@@ -53,7 +53,7 @@
   border-bottom: 2px solid var(--cream-3);
 }
 .profileOrg {
-  font-size: 9px; font-weight: 700; letter-spacing: .2em;
+  font-size: 10px; font-weight: 700; letter-spacing: .2em;
   text-transform: uppercase; color: var(--barn);
 }
 .profileName {
@@ -74,30 +74,30 @@
 .conflictTag {
   display: inline-block;
   background: var(--barn); color: var(--cream);
-  font-size: 9px; font-weight: 700; letter-spacing: .16em;
+  font-size: 10px; font-weight: 700; letter-spacing: .16em;
   text-transform: uppercase; padding: 4px 10px; margin-bottom: 16px;
 }
 
 /* ── Data Box ────────────────────────────── */
 .dataBox { background: var(--ink); padding: 24px 28px; margin: 24px 0; }
 .dataBoxLabel {
-  font-size: 9px; font-weight: 700; letter-spacing: .2em;
+  font-size: 10px; font-weight: 700; letter-spacing: .2em;
   text-transform: uppercase; color: var(--gold-lt); margin-bottom: 14px;
 }
 .dataRow {
   display: flex; justify-content: space-between; align-items: baseline;
   gap: 16px; padding: 8px 0;
-  border-bottom: 1px solid rgba(196,184,154,0.12); flex-wrap: wrap;
+  border-bottom: 1px solid color-mix(in srgb, var(--rule) 12%, transparent); flex-wrap: wrap;
 }
 .dataRow:last-child { border-bottom: none; }
-.dataKey { font-size: 12px; font-weight: 400; color: rgba(196,184,154,0.65); flex: 1; }
+.dataKey { font-size: 12px; font-weight: 400; color: color-mix(in srgb, var(--rule) 65%, transparent); flex: 1; }
 .dataVal { font-size: 13px; font-weight: 700; color: var(--cream); text-align: right; }
 
 /* ── Pull Quote ──────────────────────────── */
 .pullQuote {
   border-left: 4px solid var(--gold-lt);
   padding: 16px 24px; margin: 24px 0;
-  background: rgba(196,184,154,0.08);
+  background: color-mix(in srgb, var(--rule) 8%, transparent);
 }
 .pullQuote p {
   font-family: 'Lora', serif;
@@ -112,8 +112,8 @@
 
 /* ── Warning Box ─────────────────────────── */
 .warningBox {
-  background: rgba(139,46,26,0.08);
-  border: 1px solid rgba(139,46,26,0.3);
+  background: color-mix(in srgb, var(--barn) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--barn) 30%, transparent);
   border-left: 4px solid var(--barn);
   padding: 20px 24px; margin: 24px 0;
 }
@@ -135,7 +135,7 @@
 }
 .pageCtaText {
   font-family: 'Lora', serif;
-  font-size: 16px; line-height: 1.6; color: rgba(196,184,154,0.85);
+  font-size: 16px; line-height: 1.6; color: color-mix(in srgb, var(--rule) 85%, transparent);
 }
 .pageCtaText strong { color: var(--cream); font-weight: 600; }
 .pageCtaBtn {
@@ -159,17 +159,17 @@
 .refsSection {
   background: var(--ink);
   padding: 48px;
-  border-top: 3px double rgba(196,184,154,0.2);
+  border-top: 3px double color-mix(in srgb, var(--rule) 20%, transparent);
 }
 .refsInner { max-width: 860px; margin: 0 auto; }
 .refsLabel {
-  font-size: 9px; font-weight: 700; letter-spacing: .22em;
+  font-size: 10px; font-weight: 700; letter-spacing: .22em;
   text-transform: uppercase; color: var(--gold-lt); margin-bottom: 20px;
 }
 .refsList { display: grid; gap: 10px; }
 .refItem {
   font-family: 'Source Sans 3', sans-serif;
-  font-size: 12px; line-height: 1.6; color: rgba(196,184,154,0.7);
+  font-size: 12px; line-height: 1.6; color: color-mix(in srgb, var(--rule) 70%, transparent);
 }
 .refNum { color: var(--gold-lt); font-weight: 700; margin-right: 8px; }
 

@@ -182,7 +182,7 @@ export default function ComprehensivePlanPage() {
 
       {/* ── What is the Comp Plan ── */}
       <section className={styles.explainer}>
-        <div className={styles.explainerInner}>
+        <div className={`${styles.explainerInner} fade-up`}>
           <div className={styles.explainerText}>
             <div className={styles.sectionLabel}>What Is It</div>
             <h2 className={styles.sectionTitle}>The Comprehensive Plan is the rulebook for Frederick County's future</h2>
@@ -275,7 +275,7 @@ export default function ComprehensivePlanPage() {
             {INFRASTRUCTURE_GAPS.map((item, i) => (
               <div
                 key={i}
-                className={`${styles.gapCard} ${openGap === i ? styles.gapCardOpen : ''}`}
+                className={`${styles.gapCard} ${openGap === i ? styles.gapCardOpen : ''} fade-up delay-${Math.min(i + 1, 4)}`}
                 onClick={() => setOpenGap(openGap === i ? null : i)}
               >
                 <div className={styles.gapHeader}>
@@ -346,36 +346,36 @@ export default function ComprehensivePlanPage() {
           </p>
 
           <div className={styles.actionGrid}>
-            <div className={styles.actionCard}>
+            <div className={`${styles.actionCard} fade-up delay-1`}>
               <div className={styles.actionNum}>01</div>
-              <div className={styles.actionTitle}>Attend the Industry & Commerce session</div>
+              <h3 className={styles.actionTitle}>Attend the Industry & Commerce session</h3>
               <p className={styles.actionDesc}>
                 This is the topic area where data center language will be debated. Show up, bring neighbors,
                 and speak on the record. County staff is required to document all public input.
               </p>
               <a href="/events" className={styles.actionLink}>See upcoming meetings →</a>
             </div>
-            <div className={styles.actionCard}>
+            <div className={`${styles.actionCard} fade-up delay-2`}>
               <div className={styles.actionNum}>02</div>
-              <div className={styles.actionTitle}>Submit written comments</div>
+              <h3 className={styles.actionTitle}>Submit written comments</h3>
               <p className={styles.actionDesc}>
                 Can't attend in person? Written comments submitted to the Planning Department carry the
                 same weight. Email <a href="mailto:planning@fcva.us">planning@fcva.us</a> with
                 "2050 Comprehensive Plan" in the subject line.
               </p>
             </div>
-            <div className={styles.actionCard}>
+            <div className={`${styles.actionCard} fade-up delay-3`}>
               <div className={styles.actionNum}>03</div>
-              <div className={styles.actionTitle}>Ask specific questions on the record</div>
+              <h3 className={styles.actionTitle}>Ask specific questions on the record</h3>
               <p className={styles.actionDesc}>
                 At public meetings, ask directly: Will data centers be listed as a targeted industry?
                 What water impact assessments will be required? How will TM zoning be defined
                 in the new plan? Force these questions into the public record now.
               </p>
             </div>
-            <div className={styles.actionCard}>
+            <div className={`${styles.actionCard} fade-up delay-4`}>
               <div className={styles.actionNum}>04</div>
-              <div className={styles.actionTitle}>Sign the petition</div>
+              <h3 className={styles.actionTitle}>Sign the petition</h3>
               <p className={styles.actionDesc}>
                 Over 440 signatures from residents across all six districts. The petition demonstrates
                 the scale of community concern to every official involved in the planning process.

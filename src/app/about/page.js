@@ -19,7 +19,7 @@ export default function AboutPage() {
 
       {/* ── Opening ── */}
       <section className={styles.opening}>
-        <div className={styles.openingInner}>
+        <div className={`${styles.openingInner} fade-up`}>
           <p className={styles.openingLead}>
             Frederick County, Virginia sits in the northern Shenandoah Valley with
             farmland, forest, and water stretching across karst terrain that has
@@ -54,7 +54,7 @@ export default function AboutPage() {
           <h2 className={styles.stakesTitle}>The land. The water. The character of a place.</h2>
 
           <div className={styles.stakesGrid}>
-            <div className={styles.stakeCard}>
+            <div className={`${styles.stakeCard} fade-up delay-1`}>
               <h3>Water</h3>
               <p>
                 Frederick County sits almost entirely on karst terrain which islimestone
@@ -63,7 +63,7 @@ export default function AboutPage() {
                 through the aquifer that supplies wells across the county.
               </p>
             </div>
-            <div className={styles.stakeCard}>
+            <div className={`${styles.stakeCard} fade-up delay-2`}>
               <h3>Power</h3>
               <p>
                 REC projects 17 gigawatts of data center demand by 2040 which is 18 times more than
@@ -72,7 +72,7 @@ export default function AboutPage() {
                 subsidize industrial power consumption they never voted for.
               </p>
             </div>
-            <div className={styles.stakeCard}>
+            <div className={`${styles.stakeCard} fade-up delay-3`}>
               <h3>Land</h3>
               <p>
                 The proposals would convert hundreds of acres of agricultural land
@@ -81,7 +81,7 @@ export default function AboutPage() {
                 does not come back.
               </p>
             </div>
-            <div className={styles.stakeCard}>
+            <div className={`${styles.stakeCard} fade-up delay-4`}>
               <h3>Accountability</h3>
               <p>
                 The decision rests with seven supervisors, some of whom have ties
@@ -118,8 +118,8 @@ export default function AboutPage() {
               { num: '02', title: 'Fill the rooms', body: 'An empty chamber signals no opposition. A room full of residents with a sign-in sheet signals a political cost. Supervisors face re-election. Visibility matters. We need to show up.' },
               { num: '03', title: 'Hold officials accountable', body: 'Conflicts of interest, voting records, public statements. We need all of it documented and made available to voters. November 2026 is a referendum on this Board.' },
               { num: '04', title: 'Connect the dots', body: 'Frederick County is not alone. Data center campaigns are playing out across the region. What we learn here (what works, what doesn\'t) is useful to every community facing the same fight.' },
-            ].map(s => (
-              <div key={s.num} className={styles.howStep}>
+            ].map((s, i) => (
+              <div key={s.num} className={`${styles.howStep} fade-up delay-${i + 1}`}>
                 <div className={styles.howStepNum}>{s.num}</div>
                 <div className={styles.howStepContent}>
                   <h3>{s.title}</h3>
@@ -133,7 +133,7 @@ export default function AboutPage() {
 
       {/* ── Vision ── */}
       <section className={styles.vision}>
-        <div className={styles.visionInner}>
+        <div className={`${styles.visionInner} fade-up`}>
           <div className={styles.visionLabel}>Where this goes</div>
           <h2 className={styles.visionTitle}>
             A resource for every community<br />

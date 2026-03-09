@@ -1,5 +1,7 @@
 import './globals.css'
 import SiteChrome from '@/components/SiteChrome'
+import PageTransition from '@/components/PageTransition'
+import ScrollReveal from '@/components/ScrollReveal'
 
 export default function RootLayout({ children }) {
   return (
@@ -13,7 +15,12 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        <SiteChrome><main>{children}</main></SiteChrome>
+        <SiteChrome>
+          <ScrollReveal />
+          <PageTransition>
+            <main id="main-content">{children}</main>
+          </PageTransition>
+        </SiteChrome>
       </body>
     </html>
   )

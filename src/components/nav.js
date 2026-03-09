@@ -23,6 +23,7 @@ function Dropdown({ label, items, pathname }) {
         className={`nav-link nav-dropdown-trigger${isActive ? ' active' : ''}`}
         onClick={() => setOpen(o => !o)}
         aria-expanded={open}
+        aria-label={`${label} menu`}
       >
         {label}
         <span className={`nav-chevron${open ? ' open' : ''}`}>▾</span>
@@ -48,8 +49,6 @@ function Dropdown({ label, items, pathname }) {
 export default function Nav() {
   const pathname = usePathname()
   const [menuOpen, setMenuOpen] = useState(false)
-
-  if (pathname?.startsWith('/admin')) return null
 
   const learnItems = [
     { href: '/faq',       label: 'FAQ' },
@@ -81,6 +80,7 @@ export default function Nav() {
 
   return (
     <>
+      <a href="#main-content" className="skip-to-main">Skip to main content</a>
       <nav>
         <div className="nav-left">
           <div className="nav-title">Protect Frederick County</div>
@@ -150,30 +150,29 @@ export default function Nav() {
         .nav-dropdown-menu {
           position: absolute; top: calc(100% + 12px); left: 50%;
           transform: translateX(-50%);
-          background: var(--ink); border: 1px solid rgba(255,255,255,0.08);
+          background: var(--ink); border: 1px solid color-mix(in srgb, white 8%, transparent);
           min-width: 210px; z-index: 100;
-          box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+          box-shadow: 0 8px 24px color-mix(in srgb, var(--ink) 40%, transparent);
         }
         .nav-dropdown-item {
           display: block; padding: 11px 18px;
-          font-size: 13px; color: rgba(196,184,154,0.7); text-decoration: none;
-          transition: all .15s; border-bottom: 1px solid rgba(255,255,255,0.05);
+          font-size: 13px; color: color-mix(in srgb, var(--rule) 70%, transparent); text-decoration: none;
+          transition: all .15s; border-bottom: 1px solid color-mix(in srgb, white 5%, transparent);
           white-space: nowrap;
         }
         .nav-dropdown-item:last-child { border-bottom: none; }
-        .nav-dropdown-item:hover { color: var(--cream); background: rgba(255,255,255,0.05); }
+        .nav-dropdown-item:hover { color: var(--cream); background: color-mix(in srgb, white 5%, transparent); }
         .nav-dropdown-item.active { color: var(--gold); }
         .mobile-group-label {
           padding: 8px 24px 4px;
-          font-size: 8px; font-weight: 700; letter-spacing: .2em;
+          font-size: 10px; font-weight: 700; letter-spacing: .2em;
           text-transform: uppercase; color: var(--gold);
-          border-top: 1px solid rgba(196,184,154,0.1);
+          border-top: 1px solid color-mix(in srgb, var(--rule) 10%, transparent);
         }
         .mobile-group-item {
-          padding: 13px 24px 13px 36px !important;
-          border-left: 2px solid rgba(139,41,26,0.4);
+          padding: 13px 24px 13px 12px !important;
+          border-left: 2px solid color-mix(in srgb, var(--barn) 40%, transparent);
           margin-left: 24px;
-          padding-left: 12px !important;
         }
       `}</style>
     </>

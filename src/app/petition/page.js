@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { createBrowserClient } from '@supabase/ssr'
 import styles from '@/styles/petition.module.css'
+import useCountUp from '@/hooks/useCountUp'
 
 const DISTRICTS = ['Back Creek', 'Gainesboro', 'Opequon', 'Red Bud', 'Shawnee', 'Stonewall']
 
@@ -99,6 +100,9 @@ export default function Petition() {
     ? new Set(signatures.map(s => s.district).filter(d => knownDistricts.has(d))).size
     : 0
 
+  const [animatedCount, countRef] = useCountUp(signatures?.length ?? 0)
+  const [animatedDistricts, districtRef] = useCountUp(uniqueDistricts)
+
   return (
     <>
       {/* ── Header ── */}
@@ -120,12 +124,16 @@ export default function Petition() {
       {/* ── Counter Bar ── */}
       <div className={styles.counterBar}>
         <div className={styles.counterItem}>
-          <span className={styles.counterNum}>{signatures === null ? '—' : signatures.length.toLocaleString()}</span>
+          <span className={styles.counterNum} ref={countRef}>
+            {signatures === null ? '—' : animatedCount.toLocaleString()}
+          </span>
           <span className={styles.counterLabel}>Signatures</span>
         </div>
         <div className={styles.counterDivider}></div>
         <div className={styles.counterItem}>
-          <span className={styles.counterNum}>{signatures === null ? '—' : uniqueDistricts}</span>
+          <span className={styles.counterNum} ref={districtRef}>
+            {signatures === null ? '—' : animatedDistricts}
+          </span>
           <span className={styles.counterLabel}>Districts Represented</span>
         </div>
         <div className={styles.counterDivider}></div>
@@ -136,7 +144,7 @@ export default function Petition() {
       </div>
 
       {/* ── Main ── */}
-      <div className={styles.main}>
+      <div className={`${styles.main} fade-up`}>
 
         {/* ── Petition Text ── */}
         <div>

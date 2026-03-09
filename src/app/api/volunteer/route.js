@@ -12,18 +12,30 @@ const ACTIVITIES = [
   'Event organizing',
 ]
 
+const DISTRICTS = ['Back Creek', 'Gainesboro', 'Opequon', 'Red Bud', 'Shawnee', 'Stonewall']
+
 export async function POST(req) {
   try {
     const body = await req.json()
     const { name, email, phone, district, activities, message } = body
 
     if (!name?.trim())     return NextResponse.json({ error: 'Name is required.' }, { status: 400 })
+    if (name.length > 100) return NextResponse.json({ error: 'Name is too long.' }, { status: 400 })
     if (!email?.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
                            return NextResponse.json({ error: 'Valid email is required.' }, { status: 400 })
-    if (!district?.trim()) return NextResponse.json({ error: 'District is required.' }, { status: 400 })
+    if (!district?.trim() || !DISTRICTS.includes(district))
+                           return NextResponse.json({ error: 'Please select a valid district.' }, { status: 400 })
     if (!activities?.length) return NextResponse.json({ error: 'Please select at least one activity.' }, { status: 400 })
+    if (phone && !/^\+?[\d\s\-().]{7,20}$/.test(phone.trim()))
+                           return NextResponse.json({ error: 'Please enter a valid phone number.' }, { status: 400 })
+    if (message && message.length > 1000)
+                           return NextResponse.json({ error: 'Message must be 1000 characters or fewer.' }, { status: 400 })
 
-    const activityList = activities.map(a => `• ${a}`).join('\n')
+    // Whitelist activities against allowed values — reject any unknown entries
+    const safeActivities = activities.filter(a => ACTIVITIES.includes(a))
+    if (!safeActivities.length) return NextResponse.json({ error: 'Please select at least one valid activity.' }, { status: 400 })
+
+    const activityList = safeActivities.map(a => `• ${a}`).join('\n')
 
     await resend.emails.send({
       from: 'Protect Frederick <noreply@protectfrederick.org>',

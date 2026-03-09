@@ -13,17 +13,34 @@ export async function POST(req) {
     const body = await req.json()
     const { name, email, phone, address, city, zip, district, quantity, sponsorQty, message } = body
 
+    const DISTRICTS = ['Back Creek', 'Gainesboro', 'Opequon', 'Red Bud', 'Shawnee', 'Stonewall', 'Not sure']
+
     // Validation
     if (!name?.trim())
       return NextResponse.json({ error: 'Name is required.' }, { status: 400 })
+    if (name.length > 100)
+      return NextResponse.json({ error: 'Name is too long.' }, { status: 400 })
     if (!email?.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
       return NextResponse.json({ error: 'A valid email address is required.' }, { status: 400 })
-    if (!phone?.trim())
-      return NextResponse.json({ error: 'Phone number is required.' }, { status: 400 })
-    if (!address?.trim() || !city?.trim() || !zip?.trim())
-      return NextResponse.json({ error: 'Full delivery address is required.' }, { status: 400 })
-    if (!district?.trim())
-      return NextResponse.json({ error: 'Please select your district.' }, { status: 400 })
+    if (!phone?.trim() || !/^\+?[\d\s\-().]{7,20}$/.test(phone.trim()))
+      return NextResponse.json({ error: 'A valid phone number is required.' }, { status: 400 })
+    if (!address?.trim() || address.length > 200)
+      return NextResponse.json({ error: 'A valid delivery address is required.' }, { status: 400 })
+    if (!city?.trim() || city.length > 100)
+      return NextResponse.json({ error: 'A valid city is required.' }, { status: 400 })
+    if (!zip?.trim() || !/^\d{5}(-\d{4})?$/.test(zip.trim()))
+      return NextResponse.json({ error: 'A valid 5-digit ZIP code is required.' }, { status: 400 })
+    if (!district?.trim() || !DISTRICTS.includes(district.trim()))
+      return NextResponse.json({ error: 'Please select a valid district.' }, { status: 400 })
+    if (message && message.length > 1000)
+      return NextResponse.json({ error: 'Notes must be 1000 characters or fewer.' }, { status: 400 })
+
+    const qty = parseInt(quantity, 10)
+    const sponsorQtyInt = parseInt(sponsorQty, 10)
+    if (isNaN(qty) || qty < 1 || qty > 20)
+      return NextResponse.json({ error: 'Quantity must be between 1 and 20.' }, { status: 400 })
+    if (isNaN(sponsorQtyInt) || sponsorQtyInt < 0 || sponsorQtyInt > 20)
+      return NextResponse.json({ error: 'Sponsor quantity must be between 0 and 20.' }, { status: 400 })
 
     // Save to Supabase
     const { error: dbError } = await supabase
@@ -36,8 +53,8 @@ export async function POST(req) {
         city:     city.trim(),
         zip:      zip.trim(),
         district: district.trim(),
-        quantity:    quantity || '1',
-        sponsor_qty: sponsorQty || '0',
+        quantity:    String(qty),
+        sponsor_qty: String(sponsorQtyInt),
         message:  message?.trim() || null,
         status:   'pending',
       }])
@@ -52,7 +69,7 @@ export async function POST(req) {
       from:    'Protect Frederick <noreply@protectfrederick.org>',
       to:      'info@protectfrederick.org',
       replyTo: email,
-      subject: `New Sign Request: ${name} — ${district} District (qty: ${quantity})`,
+      subject: `New Sign Request: ${name} — ${district} District (qty: ${qty})`,
       text: `
 New yard sign request from protectfrederick.org
 
@@ -73,8 +90,8 @@ ${city}, VA ${zip}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ORDER
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Quantity:  ${quantity}
-Sponsoring: ${sponsorQty && sponsorQty !== '0' ? `${sponsorQty} additional sign(s) for neighbors` : 'None'}
+Quantity:  ${qty}
+Sponsoring: ${sponsorQtyInt > 0 ? `${sponsorQtyInt} additional sign(s) for neighbors` : 'None'}
 ${message ? `\nNotes: ${message}` : ''}
 
 ---
@@ -93,8 +110,8 @@ Hi ${name.split(' ')[0]},
 We received your sign request. Our signs coordinator will follow up with you shortly with pricing and delivery details.
 
 Your order:
-  Quantity:  ${quantity}
-Sponsoring: ${sponsorQty && sponsorQty !== '0' ? `${sponsorQty} additional sign(s) for neighbors` : 'None'}
+  Quantity:  ${qty}
+Sponsoring: ${sponsorQtyInt > 0 ? `${sponsorQtyInt} additional sign(s) for neighbors` : 'None'}
   Delivery: ${address}, ${city}, VA ${zip}
 
 In the meantime, if you haven't already — please sign and share our petition:

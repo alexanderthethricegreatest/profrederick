@@ -16,16 +16,16 @@
     -45deg,
     transparent,
     transparent 40px,
-    rgba(255,255,255,0.015) 40px,
-    rgba(255,255,255,0.015) 41px
+    color-mix(in srgb, white 1.5%, transparent) 40px,
+    color-mix(in srgb, white 1.5%, transparent) 41px
   );
   pointer-events: none;
 }
 .heroInner { max-width: 720px; margin: 0 auto; position: relative; }
 .heroLabel {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Source Sans 3', sans-serif;
   font-size: 10px; font-weight: 700; letter-spacing: .2em;
-  text-transform: uppercase; color: var(--gold);
+  text-transform: uppercase; color: var(--gold-lt);
   margin-bottom: 16px;
 }
 .heroTitle {
@@ -41,13 +41,13 @@
 }
 .heroNote {
   display: flex; align-items: center; gap: 10px;
-  font-size: 13px; color: var(--ink-3);
+  font-size: 13px; color: color-mix(in srgb, var(--cream) 60%, transparent);
 }
-.heroNote a { color: var(--ink-3); text-decoration: underline; }
-.heroNote a:hover { color: var(--gold); }
+.heroNote a { color: color-mix(in srgb, var(--cream) 75%, transparent); text-decoration: underline; }
+.heroNote a:hover { color: var(--cream); }
 .heroNoteDot {
   width: 6px; height: 6px; border-radius: 50%;
-  background: var(--gold); flex-shrink: 0;
+  background: var(--gold-lt); flex-shrink: 0;
 }
 
 /* ── Instructions ── */
@@ -65,7 +65,7 @@
 .instructionStep { display: flex; flex-direction: column; gap: 6px; }
 .instructionIcon { font-size: 22px; }
 .instructionStep_label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Source Sans 3', sans-serif;
   font-size: 11px; font-weight: 700; letter-spacing: .1em;
   text-transform: uppercase; color: var(--ink);
 }
@@ -88,7 +88,7 @@
   transition: box-shadow .2s, transform .2s;
 }
 .flyerCard:hover {
-  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 32px color-mix(in srgb, var(--ink) 10%, transparent);
   transform: translateY(-2px);
 }
 
@@ -119,8 +119,8 @@
 }
 .placeholderBadge {
   position: absolute; top: 12px; right: 12px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 9px; font-weight: 700; letter-spacing: .12em;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 10px; font-weight: 700; letter-spacing: .12em;
   background: var(--ink); color: var(--cream);
   padding: 3px 8px; border-radius: 2px;
 }
@@ -132,11 +132,11 @@
   margin-bottom: 10px;
 }
 .flyerCategory {
-  font-size: 9px; font-weight: 700; letter-spacing: .1em;
+  font-size: 10px; font-weight: 700; letter-spacing: .1em;
   text-transform: uppercase; padding: 3px 8px; border-radius: 3px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Source Sans 3', sans-serif;
 }
-.flyerPages { font-size: 11px; color: var(--rule-dark); }
+.flyerPages { font-size: 11px; color: var(--ink-3); }
 .flyerTitle {
   font-family: 'Playfair Display', serif;
   font-size: 17px; font-weight: 700;
@@ -147,7 +147,7 @@
 
 .downloadBtn {
   display: inline-block;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Source Sans 3', sans-serif;
   font-size: 11px; font-weight: 700; letter-spacing: .08em;
   text-transform: uppercase;
   background: var(--ink); color: var(--cream);
@@ -158,9 +158,9 @@
 .downloadBtn:hover { background: var(--ink-2); }
 
 .comingSoon {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Source Sans 3', sans-serif;
   font-size: 10px; font-weight: 600; letter-spacing: .1em;
-  text-transform: uppercase; color: var(--rule-dark);
+  text-transform: uppercase; color: var(--ink-3);
   border: 1px dashed var(--rule);
   padding: 9px 16px; display: inline-block;
   border-radius: 2px;
@@ -179,7 +179,7 @@
   font-weight: 700; color: var(--cream);
   margin-bottom: 16px; line-height: 1.2;
 }
-.cta p { font-size: 16px; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 32px; }
+.cta p { font-size: 16px; color: color-mix(in srgb, var(--cream) 70%, transparent); line-height: 1.7; margin-bottom: 32px; }
 .ctaButtons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
 /* ── Responsive ── */

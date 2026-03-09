@@ -103,7 +103,7 @@ const sourceSections = [
   },
   {
     label: 'Noise Pollution',
-    labelColor: '#8b4513',
+    labelColor: 'var(--barn)',
     links: [
       { href: 'https://www.npr.org/2025/07/17/nx-s1-5469933/virginia-data-centers-residents-saying-no', text: "Why more residents are saying 'No' to AI data centers in their backyard", date: 'NPR, July 2025' },
       { href: 'https://blog.castac.org/2024/08/the-cloud-is-too-loud-spotlighting-the-voices-of-community-activists-from-the-data-center-capital-of-the-world/', text: 'The Cloud is Too Loud: Community activists from the data center capital of the world', date: 'CASTAC / Platypus, August 2024' },

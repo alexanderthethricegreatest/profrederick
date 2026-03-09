@@ -1,7 +1,7 @@
 /* ── Hero ────────────────────────────────── */
 .hero {
   position: relative; z-index: 1;
-  padding: 120px 48px 64px;
+  padding: 96px 48px 64px;
   border-bottom: 1px solid var(--rule);
   max-width: 900px; margin: 0 auto;
 }
@@ -30,14 +30,14 @@
   padding: 16px 20px; max-width: 660px;
 }
 .forumBannerLabel {
-  font-size: 9px; font-weight: 700; letter-spacing: .2em;
+  font-size: 10px; font-weight: 700; letter-spacing: .2em;
   text-transform: uppercase; color: var(--gold-lt);
   display: block; margin-bottom: 6px;
 }
 .forumBanner p {
   font-family: 'Lora', serif;
   font-size: 13px; line-height: 1.65;
-  color: rgba(244,239,228,0.85);
+  color: color-mix(in srgb, var(--cream) 85%, transparent);
 }
 .forumBanner p strong { color: var(--cream); }
 
@@ -57,7 +57,7 @@
   display: flex; align-items: center; gap: 12px; margin-bottom: 24px;
 }
 .sectionRuleLabel {
-  font-size: 9px; font-weight: 700; letter-spacing: .2em;
+  font-size: 10px; font-weight: 700; letter-spacing: .2em;
   text-transform: uppercase; color: var(--ink-3); white-space: nowrap;
 }
 .sectionRuleLine { flex: 1; height: 1px; background: var(--rule); }
@@ -79,6 +79,11 @@
   border: 1px solid var(--rule);
   border-left: 3px solid var(--barn);
   padding: 18px 20px;
+  transition: box-shadow .2s, transform .2s;
+}
+.endorsementCard:hover {
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--ink) 8%, transparent);
+  transform: translateY(-2px);
 }
 .endorsementOrg {
   font-family: 'Playfair Display', serif;
@@ -86,18 +91,18 @@
   color: var(--ink); margin-bottom: 4px;
 }
 .endorsementMeta {
-  font-size: 9px; font-weight: 700; letter-spacing: .16em;
+  font-size: 10px; font-weight: 700; letter-spacing: .16em;
   text-transform: uppercase; color: var(--barn);
   margin-bottom: 10px; display: flex; gap: 12px; align-items: center;
 }
-.endorsementMeta span { color: var(--rule-dark); }
+.endorsementMeta span { color: var(--ink-3); }
 .endorsementStatement {
   font-family: 'Lora', serif;
   font-size: 13px; line-height: 1.7;
   color: var(--ink-3); font-style: italic;
 }
 .endorsementDate {
-  font-size: 9px; color: var(--rule-dark);
+  font-size: 10px; color: var(--ink-3);
   font-weight: 600; letter-spacing: .1em;
   text-transform: uppercase; margin-top: 10px; display: block;
 }
@@ -121,10 +126,10 @@
 .formCol { padding-top: 48px; }
 .formCard {
   background: var(--ink); padding: 32px 28px;
-  position: sticky; top: 72px;
+  position: sticky; top: 76px;
 }
 .formCardLabel {
-  font-size: 9px; font-weight: 700; letter-spacing: .2em;
+  font-size: 10px; font-weight: 700; letter-spacing: .2em;
   text-transform: uppercase; color: var(--gold-lt);
   display: block; margin-bottom: 10px;
 }
@@ -137,29 +142,32 @@
 .formCardDeck {
   font-family: 'Lora', serif;
   font-size: 13px; line-height: 1.65;
-  color: rgba(196,184,154,0.7); margin-bottom: 24px;
-  border-bottom: 1px solid rgba(196,184,154,0.15); padding-bottom: 20px;
+  color: color-mix(in srgb, var(--rule) 70%, transparent); margin-bottom: 24px;
+  border-bottom: 1px solid color-mix(in srgb, var(--rule) 15%, transparent); padding-bottom: 20px;
 }
 
 .formGroup { margin-bottom: 16px; }
 .formLabel {
   display: block;
   font-size: 10px; font-weight: 700; letter-spacing: .14em;
-  text-transform: uppercase; color: rgba(196,184,154,0.6); margin-bottom: 6px;
+  text-transform: uppercase; color: color-mix(in srgb, var(--rule) 60%, transparent); margin-bottom: 6px;
 }
 .formLabel span { color: var(--barn); }
 .formInput, .formSelect, .formTextarea {
   width: 100%;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(196,184,154,0.2);
+  background: color-mix(in srgb, white 6%, transparent);
+  border: 1px solid color-mix(in srgb, var(--rule) 20%, transparent);
   color: var(--cream);
   font-family: 'Source Sans 3', sans-serif;
   font-size: 14px; padding: 10px 14px;
   outline: none; transition: border-color .2s;
   -webkit-appearance: none;
 }
-.formInput::placeholder, .formTextarea::placeholder { color: rgba(196,184,154,0.3); }
-.formInput:focus, .formSelect:focus, .formTextarea:focus { border-color: var(--gold-lt); }
+.formInput::placeholder, .formTextarea::placeholder { color: color-mix(in srgb, var(--rule) 30%, transparent); }
+.formInput:focus, .formSelect:focus, .formTextarea:focus {
+  border-color: var(--gold-lt);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold-lt) 18%, transparent);
+}
 .formSelect {
   cursor: pointer;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C49A2A' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
@@ -167,7 +175,7 @@
 }
 .formSelect option { background: var(--ink-2); color: var(--cream); }
 .formTextarea { resize: vertical; min-height: 100px; line-height: 1.6; }
-.formNote { font-size: 10px; color: rgba(196,184,154,0.4); margin-top: 4px; line-height: 1.5; }
+.formNote { font-size: 10px; color: color-mix(in srgb, var(--rule) 40%, transparent); margin-top: 4px; line-height: 1.5; }
 
 .formSubmit {
   width: 100%; background: var(--barn); color: var(--cream);
@@ -175,9 +183,14 @@
   font-family: 'Source Sans 3', sans-serif;
   font-size: 12px; font-weight: 700; letter-spacing: .14em;
   text-transform: uppercase; padding: 14px; margin-top: 8px;
-  transition: background .2s;
+  transition: background .2s, transform .15s, box-shadow .2s;
 }
-.formSubmit:hover { background: var(--barn-dark); }
+.formSubmit:hover {
+  background: var(--barn-dark);
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--barn) 30%, transparent);
+  transform: translateY(-1px);
+}
+.formSubmit:active { transform: translateY(0); box-shadow: none; }
 .formSubmit:disabled { opacity: .5; cursor: not-allowed; }
 
 .formSuccess { text-align: center; padding: 24px 0; }
@@ -188,12 +201,20 @@
 }
 .formSuccess p {
   font-family: 'Lora', serif;
-  font-size: 13px; line-height: 1.65; color: rgba(196,184,154,0.7);
+  font-size: 13px; line-height: 1.65; color: color-mix(in srgb, var(--rule) 70%, transparent);
 }
 
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-6px); }
+  40%       { transform: translateX(6px); }
+  60%       { transform: translateX(-4px); }
+  80%       { transform: translateX(4px); }
+}
 .formError {
-  background: rgba(139,46,26,0.2); border: 1px solid var(--barn);
-  color: #ffb3a0; font-size: 12px; padding: 10px 14px; margin-top: 10px;
+  background: color-mix(in srgb, var(--barn) 20%, transparent); border: 1px solid var(--barn);
+  color: var(--cream); font-size: 12px; padding: 10px 14px; margin-top: 10px;
+  animation: shake .35s ease;
 }
 
 /* ── Responsive ──────────────────────────── */
