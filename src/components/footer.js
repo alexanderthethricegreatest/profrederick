@@ -6,7 +6,7 @@ export default function Footer() {
   return ( 
     <footer>
       <div>
-        <div className="footer-name">Protect Frederick County</div>
+        <div className="footer-name">Protect Frederick</div>
         <div className="footer-tag">Know the Facts · March 2026</div>
       </div>
       <div className="footer-sources">

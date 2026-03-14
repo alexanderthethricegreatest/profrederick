@@ -57,6 +57,15 @@ export default function Endorsements() {
     fetchEndorsements()
   }, [])
 
+  // Cards are async-loaded after ScrollReveal's observer runs, so manually trigger visibility
+  useEffect(() => {
+    if (!endorsements) return
+    const t = setTimeout(() => {
+      document.querySelectorAll('.fade-up:not(.visible)').forEach(el => el.classList.add('visible'))
+    }, 50)
+    return () => clearTimeout(t)
+  }, [endorsements])
+
   function handleChange(e) {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
   }
@@ -156,8 +165,8 @@ export default function Endorsements() {
                 <div className={styles.endorsementOrg}>{e.org_name}</div>
                 <div className={styles.endorsementMeta}>
                   {e.org_type}
-                  {e.person_title && (
-                    <><span>&middot;</span> {e.person_name}, {e.person_title}</>
+                  {e.person_name && (
+                    <><span>&middot;</span> {e.person_name}{e.person_title && `, ${e.person_title}`}</>
                   )}
                 </div>
                 <div className={styles.endorsementStatement}>{e.comment}</div>

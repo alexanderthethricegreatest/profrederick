@@ -83,7 +83,7 @@ export default function Nav() {
       <a href="#main-content" className="skip-to-main">Skip to main content</a>
       <nav>
         <div className="nav-left">
-          <div className="nav-title">Protect Frederick County</div>
+          <div className="nav-title">Protect Frederick </div>
           <div className="nav-sub">Community Forum · March 2026</div>
         </div>
 
@@ -96,6 +96,7 @@ export default function Nav() {
           <Link href="/events" className={`nav-link${pathname === '/events' ? ' active' : ''}`}>Events</Link>
           <Link href="/sign-order" className={`nav-link${pathname === '/sign-order' ? ' active' : ''}`}>Request A Sign</Link>
           <Dropdown label="Community" items={communityItems} pathname={pathname} />
+          <Link href="/donate" className={`nav-link${pathname === '/donate' ? ' active' : ''}`}>Donate</Link>
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
@@ -132,6 +133,8 @@ export default function Nav() {
         {communityItems.map(({ href, label }) => (
           <Link key={href} href={href} className={`mobile-group-item${pathname === href ? ' active' : ''}`} onClick={() => setMenuOpen(false)}>{label}</Link>
         ))}
+
+        <Link href="/donate" className={pathname === '/donate' ? 'active' : ''} onClick={() => setMenuOpen(false)}>Donate</Link>
 
         <Link href="/petition" className="mobile-petition" onClick={() => setMenuOpen(false)}>
           Sign the Petition →
