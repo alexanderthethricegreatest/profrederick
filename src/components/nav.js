@@ -55,7 +55,7 @@ export default function Nav() {
     { href: '/forums',    label: "Who's Behind the Forums?" },
     { href: '/documents', label: 'Learning Resources & Media' },
     { href: '/comprehensive-plan', label: 'The 2050 Plan' },
-    { href: '/the-board',          label: 'The Board'}, 
+    { href: '/the-board',          label: 'The Board'},
   ]
 
   const resourcesItems = [
@@ -74,6 +74,7 @@ export default function Nav() {
     ...resourcesItems,
     { href: '/news',               label: 'News' },
     { href: '/events',             label: 'Events' },
+    { href: '/community-forum',    label: 'April 15 Forum' },
     { href: '/sign-order',         label: 'Request A Sign' },
     ...communityItems,
   ]
@@ -94,6 +95,7 @@ export default function Nav() {
           <Dropdown label="Resources" items={resourcesItems} pathname={pathname} />
           <Link href="/news"   className={`nav-link${pathname === '/news'   ? ' active' : ''}`}>News</Link>
           <Link href="/events" className={`nav-link${pathname === '/events' ? ' active' : ''}`}>Events</Link>
+          <Link href="/community-forum" className={`nav-link${pathname === '/community-forum' ? ' active' : ''}`}>April 15 Forum</Link>
           <Link href="/sign-order" className={`nav-link${pathname === '/sign-order' ? ' active' : ''}`}>Request A Sign</Link>
           <Dropdown label="Community" items={communityItems} pathname={pathname} />
           <Link href="/donate" className={`nav-link${pathname === '/donate' ? ' active' : ''}`}>Donate</Link>
@@ -127,6 +129,7 @@ export default function Nav() {
 
         <Link href="/news" className={pathname === '/news' ? 'active' : ''} onClick={() => setMenuOpen(false)}>News</Link>
         <Link href="/events" className={pathname === '/events' ? 'active' : ''} onClick={() => setMenuOpen(false)}>Events</Link>
+        <Link href="/community-forum" className={pathname === '/community-forum' ? 'active' : ''} onClick={() => setMenuOpen(false)}>April 15 Forum</Link>
         <Link href="/sign-order" className={pathname === '/sign-order' ? 'active' : ''} onClick={() => setMenuOpen(false)}>Request A Sign</Link>
 
         <div className="mobile-group-label">Community</div>

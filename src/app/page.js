@@ -263,6 +263,49 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Community Forum Banner ── */}
+      <section className={styles.communityForumSection}>
+        <div className={styles.communityForumInner}>
+          <div className={styles.communityForumLeft}>
+            <div className={styles.communityForumEyebrow}>Community-Led Event · April 15, 2026</div>
+            <h2 className={styles.communityForumTitle}>Fact vs. Fiction:<br /><em>An Independent Forum</em></h2>
+            <p className={styles.communityForumDeck}>
+              Experts you can trust. A panel of industrial hygienists, a geologist, and a land use advocate with decades of independent experience with no financial stake in the outcome or industry sponsors.
+            </p>
+            <div className={styles.communityForumPanelists}>
+              <span>Tammy Clark</span>
+              <span>Kristen Meghan Kelly, MS-OSH</span>
+              <span>Martha Saddlick</span>
+              <span>Elena Schlossberg-Kunkel</span>
+            </div>
+            <Link href="/community-forum" className={styles.communityForumBtn}>Event Details & Panelist Bios →</Link>
+          </div>
+          <div className={styles.communityForumRight}>
+            <div className={styles.communityForumMetaLabel}>Event Details</div>
+            <div className={styles.communityForumMetaItem}>
+              <span className={styles.communityForumMetaKey}>Date</span>
+              <span className={styles.communityForumMetaVal}>Tuesday, April 15, 2026</span>
+            </div>
+            <div className={styles.communityForumMetaItem}>
+              <span className={styles.communityForumMetaKey}>Time</span>
+              <span className={styles.communityForumMetaVal}>6:30 PM – 9:00 PM</span>
+            </div>
+            <div className={styles.communityForumMetaItem}>
+              <span className={styles.communityForumMetaKey}>Location</span>
+              <span className={styles.communityForumMetaVal}>To Be Announced</span>
+            </div>
+            <div className={styles.communityForumMetaItem}>
+              <span className={styles.communityForumMetaKey}>Format</span>
+              <span className={styles.communityForumMetaVal}>Panel + Moderated Q&amp;A</span>
+            </div>
+            <div className={styles.communityForumMetaItem}>
+              <span className={styles.communityForumMetaKey}>Admission</span>
+              <span className={styles.communityForumMetaVal}>Free · Open to All</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── Stats ── */}
       <section className={styles.statsSection} id="facts">
         <div className="section-inner">
