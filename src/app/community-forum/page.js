@@ -16,7 +16,7 @@ const panelists = [
   },
   {
     credential: 'Senior Industrial Hygienist & Environmental Specialist',
-    name: 'Kristen Meghan Kelly, MS-OSH',
+    name: 'Meghan Kelly, MS-OSH',
     title: 'Senior Industrial Hygienist, Environmental Specialist & Nationally Recognized Expert',
     bio: [
       'Kristen Meghan Kelly holds a Master of Science in Occupational Safety and Health and brings 20+ years of experience as a senior industrial hygienist and environmental specialist. She is a consultant and nationally recognized expert, featured in media and documentary work for her advocacy and professional insight.',
