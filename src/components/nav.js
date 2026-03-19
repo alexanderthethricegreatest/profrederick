@@ -65,6 +65,7 @@ export default function Nav() {
   const communityItems = [
     { href: '/endorsements', label: 'Endorsements' },
     { href: '/volunteer',    label: 'Volunteer' },
+    { href: '/survey',       label: 'Take the Survey' },
   ]
 
   const allLinks = [

@@ -1,0 +1,237 @@
+/* ── Page ────────────────────────────────────────────────────────── */
+.page { background: var(--cream); min-height: 100vh; }
+
+/* ── Hero ────────────────────────────────────────────────────────── */
+.hero {
+  background: var(--ink);
+  border-bottom: 3px solid var(--barn);
+  padding: 80px 0 56px;
+}
+.heroInner { max-width: 760px; margin: 0 auto; padding: 0 32px; }
+
+.heroEyebrow {
+  font-size: 10px; font-weight: 700; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--gold-lt); margin-bottom: 16px;
+}
+.heroTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(34px, 5vw, 56px);
+  font-weight: 700; line-height: 1.1;
+  color: var(--cream); margin-bottom: 20px;
+}
+.heroTitle em { font-style: italic; color: var(--gold-lt); }
+.heroDeck {
+  font-size: 15px; line-height: 1.7;
+  color: color-mix(in srgb, var(--cream) 70%, transparent);
+  max-width: 620px;
+}
+
+/* ── Form Section ────────────────────────────────────────────────── */
+.formSection { padding: 64px 0 96px; }
+.formInner { max-width: 720px; margin: 0 auto; padding: 0 32px; }
+
+.formError {
+  background: color-mix(in srgb, var(--barn) 8%, var(--cream));
+  border: 1px solid var(--barn); border-left: 3px solid var(--barn);
+  color: var(--barn); padding: 12px 16px;
+  font-size: 13px; margin-bottom: 28px;
+}
+
+/* ── Contact Block ───────────────────────────────────────────────── */
+.contactBlock {
+  margin-bottom: 40px; padding-bottom: 40px;
+  border-bottom: 2px solid var(--rule);
+}
+.fieldRow {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.field { display: flex; flex-direction: column; gap: 7px; }
+
+.label {
+  font-size: 11px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-3);
+}
+.input {
+  border: 1px solid var(--cream-3); background: var(--white);
+  padding: 11px 14px; font-size: 14px; color: var(--ink);
+  font-family: inherit; outline: none;
+  transition: border-color .15s; width: 100%;
+  appearance: none;
+}
+.input:focus { border-color: var(--barn); }
+.textarea { resize: vertical; }
+.inputError { border-color: var(--barn) !important; }
+.fieldError { font-size: 12px; color: var(--barn); margin-top: 2px; }
+
+/* ── Survey Sections ─────────────────────────────────────────────── */
+.surveySection {
+  border-top: 2px solid var(--rule);
+  margin-top: 40px; padding-top: 40px; padding-bottom: 8px;
+}
+.sectionHeader {
+  display: flex; align-items: flex-start;
+  gap: 16px; margin-bottom: 32px;
+}
+.sectionNum {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px; font-weight: 700;
+  color: var(--cream-3); line-height: 1; flex-shrink: 0;
+}
+.sectionTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px; font-weight: 700; color: var(--ink);
+  margin-top: 4px;
+}
+
+/* ── Questions ───────────────────────────────────────────────────── */
+.question { margin-bottom: 36px; }
+.questionLabel {
+  display: block; font-size: 14px; font-weight: 600;
+  color: var(--ink); line-height: 1.5; margin-bottom: 14px;
+}
+.capNote {
+  font-weight: 400; color: var(--ink-3); font-size: 13px;
+}
+
+/* ── Radio Groups ────────────────────────────────────────────────── */
+.radioGroup { display: flex; flex-direction: column; gap: 10px; }
+.radioItem {
+  display: flex; align-items: flex-start;
+  gap: 10px; cursor: pointer;
+}
+.radioItem input[type="radio"] {
+  margin-top: 2px; accent-color: var(--barn);
+  width: 16px; height: 16px; flex-shrink: 0; cursor: pointer;
+}
+.radioLabel { font-size: 14px; color: var(--ink); line-height: 1.45; }
+
+/* ── Checkbox Grid ───────────────────────────────────────────────── */
+.checkGrid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.checkItemOther { grid-column: 1 / -1; }
+
+.checkItem {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 12px 14px; cursor: pointer;
+  background: var(--white); border: 1px solid var(--cream-3);
+  transition: border-color .15s, background .15s;
+  user-select: none;
+}
+.checkItem input[type="checkbox"] { display: none; }
+
+.checkBox {
+  width: 18px; height: 18px; flex-shrink: 0;
+  border: 1.5px solid var(--rule-dark);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; color: var(--cream);
+  transition: all .15s; margin-top: 1px;
+  background: transparent;
+}
+.checkChecked .checkBox {
+  background: var(--barn); border-color: var(--barn);
+}
+.checkItem:hover:not(.checkCapped) { border-color: var(--ink-3); }
+.checkChecked { border-color: var(--barn) !important; background: color-mix(in srgb, var(--barn) 5%, var(--white)); }
+
+.checkCapped {
+  opacity: 0.38; cursor: not-allowed; pointer-events: none;
+}
+.checkLabel { font-size: 13px; color: var(--ink); line-height: 1.45; }
+
+.otherInput {
+  margin-top: 8px; width: 100%;
+  border: 1px solid var(--cream-3); background: var(--white);
+  padding: 10px 14px; font-size: 14px; color: var(--ink);
+  font-family: inherit; outline: none;
+  transition: border-color .15s;
+}
+.otherInput:focus { border-color: var(--barn); }
+
+/* ── Slider (Q8) ─────────────────────────────────────────────────── */
+.sliderWrap { padding: 4px 0; }
+.sliderNumRow {
+  display: flex; align-items: baseline; gap: 16px; margin-bottom: 20px;
+}
+.sliderNum {
+  font-family: 'Playfair Display', serif;
+  font-size: 64px; font-weight: 700;
+  color: var(--barn); line-height: 1; min-width: 2ch; text-align: right;
+}
+.sliderTextLabel {
+  font-size: 18px; font-weight: 600; color: var(--ink-3);
+}
+.slider {
+  -webkit-appearance: none; appearance: none;
+  width: 100%; height: 5px;
+  border-radius: 0; border: none; outline: none;
+  cursor: pointer;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--barn);
+  border: 3px solid var(--white); cursor: pointer;
+  box-shadow: 0 1px 4px color-mix(in srgb, var(--ink) 25%, transparent);
+}
+.slider::-moz-range-thumb {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--barn);
+  border: 3px solid var(--white); cursor: pointer;
+  box-shadow: 0 1px 4px color-mix(in srgb, var(--ink) 25%, transparent);
+}
+.sliderTicks {
+  display: flex; justify-content: space-between;
+  font-size: 11px; font-weight: 700; letter-spacing: .06em;
+  color: var(--ink-3); margin-top: 8px;
+}
+
+/* ── Submit ──────────────────────────────────────────────────────── */
+.submitBtn {
+  background: var(--barn); color: var(--cream);
+  border: none; cursor: pointer; margin-top: 16px;
+  padding: 16px 36px; font-size: 14px;
+  font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; transition: background .2s;
+  width: 100%; font-family: inherit;
+}
+.submitBtn:hover:not(:disabled) { background: var(--barn-dark); }
+.submitBtn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* ── Success ─────────────────────────────────────────────────────── */
+.successSection {
+  min-height: 100vh; display: flex;
+  align-items: center; justify-content: center;
+  background: var(--ink); padding: 80px 32px;
+}
+.successInner { max-width: 560px; text-align: center; }
+.successIcon {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: var(--forest); color: var(--cream);
+  font-size: 28px; display: flex; align-items: center;
+  justify-content: center; margin: 0 auto 24px;
+}
+.successTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px; font-weight: 700; color: var(--cream);
+  margin-bottom: 16px;
+}
+.successDeck {
+  font-size: 16px; line-height: 1.65;
+  color: color-mix(in srgb, var(--cream) 70%, transparent);
+  margin-bottom: 36px;
+}
+.successActions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+/* ── Mobile ──────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .heroInner, .formInner { padding: 0 20px; }
+  .hero { padding-top: 56px; padding-bottom: 36px; }
+  .fieldRow { grid-template-columns: 1fr; }
+  .checkGrid { grid-template-columns: 1fr; }
+  .checkItemOther { grid-column: auto; }
+  .sliderNum { font-size: 48px; }
+  .sliderTextLabel { font-size: 15px; }
+}
