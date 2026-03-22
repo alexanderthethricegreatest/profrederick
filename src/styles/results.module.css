@@ -1,0 +1,112 @@
+/* ── Page ────────────────────────────────────────────────────────── */
+.page { background: var(--cream); min-height: 100vh; }
+
+/* ── Hero ────────────────────────────────────────────────────────── */
+.hero {
+  background: var(--ink);
+  border-bottom: 3px solid var(--barn);
+  padding: 80px 0 56px;
+}
+.heroInner { max-width: 800px; margin: 0 auto; padding: 0 32px; }
+
+.heroEyebrow {
+  font-size: 10px; font-weight: 700; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--gold-lt); margin-bottom: 16px;
+}
+.heroTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(34px, 5vw, 52px);
+  font-weight: 700; line-height: 1.1;
+  color: var(--cream); margin-bottom: 32px;
+}
+.heroTitle em { font-style: italic; color: var(--gold-lt); }
+
+.totalBlock { display: flex; align-items: baseline; gap: 16px; }
+.totalNum {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(72px, 12vw, 112px);
+  font-weight: 900; color: var(--gold-lt); line-height: 1;
+}
+.totalLabel {
+  font-size: 18px; font-weight: 600;
+  color: color-mix(in srgb, var(--cream) 55%, transparent);
+}
+
+/* ── Charts Section ──────────────────────────────────────────────── */
+.chartsSection { padding: 48px 0 96px; }
+.chartsInner { max-width: 800px; margin: 0 auto; padding: 0 32px; }
+
+/* ── Meta bar ────────────────────────────────────────────────────── */
+.metaBar {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 40px; padding-bottom: 16px;
+  border-bottom: 1px solid var(--rule);
+}
+.metaTimestamp { font-size: 12px; color: var(--ink-3); }
+.refreshBtn {
+  background: none; border: 1px solid var(--rule-dark);
+  color: var(--ink-3); cursor: pointer; font-family: inherit;
+  font-size: 11px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; padding: 7px 14px;
+  transition: border-color .15s, color .15s;
+}
+.refreshBtn:hover:not(:disabled) { border-color: var(--barn); color: var(--barn); }
+.refreshBtn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ── Loading / Error / Empty states ─────────────────────────────── */
+.stateBlock {
+  text-align: center; padding: 64px 32px;
+}
+.stateTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px; color: var(--ink); margin-bottom: 8px;
+}
+.stateDesc { font-size: 14px; color: var(--ink-3); }
+.spinner {
+  font-size: 28px; margin-bottom: 16px;
+  display: inline-block;
+  animation: spin 1.2s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Chart blocks ────────────────────────────────────────────────── */
+.chartBlock {
+  margin-bottom: 52px; padding-bottom: 52px;
+  border-bottom: 1px solid var(--rule);
+}
+.chartBlock:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+.blockHeadline {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px; font-weight: 700;
+  color: var(--ink); margin-bottom: 6px;
+}
+.blockDesc {
+  font-size: 14px; color: var(--ink-3);
+  line-height: 1.55; margin-bottom: 24px; max-width: 580px;
+}
+.emptyChart {
+  font-size: 13px; color: var(--ink-3);
+  font-style: italic; padding: 16px 0;
+}
+
+/* ── Avg display (Q8) ────────────────────────────────────────────── */
+.avgDisplay {
+  display: flex; align-items: baseline;
+  gap: 12px; margin-bottom: 24px;
+}
+.avgNum {
+  font-family: 'Playfair Display', serif;
+  font-size: 64px; font-weight: 700;
+  color: var(--barn); line-height: 1;
+}
+.avgLabel { font-size: 17px; font-weight: 600; color: var(--ink-3); }
+
+/* ── Mobile ──────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .heroInner, .chartsInner { padding: 0 20px; }
+  .hero { padding-top: 56px; padding-bottom: 36px; }
+  .totalLabel { font-size: 15px; }
+  .metaBar { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .avgNum { font-size: 48px; }
+}

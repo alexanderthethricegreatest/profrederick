@@ -200,6 +200,16 @@
 .submitBtn:hover:not(:disabled) { background: var(--barn-dark); }
 .submitBtn:disabled { opacity: 0.6; cursor: not-allowed; }
 
+/* ── Results link ────────────────────────────────────────────────── */
+.resultsLink {
+  text-align: center; margin-top: 14px;
+}
+.resultsLink a {
+  font-size: 13px; color: var(--ink-3); text-decoration: none;
+  transition: color .15s;
+}
+.resultsLink a:hover { color: var(--barn); }
+
 /* ── Success ─────────────────────────────────────────────────────── */
 .successSection {
   min-height: 100vh; display: flex;

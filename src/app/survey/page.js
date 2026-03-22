@@ -199,6 +199,7 @@ export default function SurveyPage() {
             </p>
             <div className={styles.successActions}>
               <a href="/petition" className="btn-primary">Sign the Petition</a>
+              <a href="/survey/results" className="btn-outline">View Results</a>
               <a href="/" className="btn-outline">Back to Home</a>
             </div>
           </div>
@@ -553,6 +554,9 @@ export default function SurveyPage() {
           <button className={styles.submitBtn} onClick={handleSubmit} disabled={submitting}>
             {submitting ? 'Submitting…' : 'Submit Survey →'}
           </button>
+          <p className={styles.resultsLink}>
+            <a href="/survey/results">See how others responded →</a>
+          </p>
 
         </div>
       </section>
