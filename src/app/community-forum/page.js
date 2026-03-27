@@ -115,7 +115,7 @@ export default function CommunityForum() {
           <div className={styles.eventMetaDivider} />
           <div className={styles.eventMetaItem}>
             <span className={styles.eventMetaLabel}>Location</span>
-            <span className={styles.eventMetaValue}>To Be Announced</span>
+            <span className={styles.eventMetaValue}>Trumpet Vine Farm</span>
           </div>
         </div>
       </div>
