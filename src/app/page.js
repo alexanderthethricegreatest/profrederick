@@ -292,7 +292,7 @@ export default function Home() {
             </div>
             <div className={styles.communityForumMetaItem}>
               <span className={styles.communityForumMetaKey}>Location</span>
-              <span className={styles.communityForumMetaVal}>To Be Announced</span>
+              <span className={styles.communityForumMetaVal}>Trumpet Vine Farm</span>
             </div>
             <div className={styles.communityForumMetaItem}>
               <span className={styles.communityForumMetaKey}>Format</span>

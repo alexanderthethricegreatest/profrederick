@@ -41,6 +41,7 @@ const panelists = [
       'Elena Schlossberg-Kunkel holds a BA in Psychology and an MA in School Counseling from Marymount University. After moving to the Rural Crescent in Prince William County in 2002, she witnessed firsthand how land use decisions can shape and permanently alter the quality of life for entire communities.',
       'She established The Coalition to Protect Prince William County and has since become a leading voice on smart growth policy and conservation. Her work offers Frederick County residents a direct window into how similar fights have unfolded in neighboring jurisdictions—and what strategies have been most effective.',
     ],
+  
   },
 ]
 
@@ -196,8 +197,8 @@ export default function CommunityForum() {
         <div className={`${styles.locationNotice} fade-up`} ref={fadeRef}>
           <div className={styles.locationNoticeInner}>
             <div className={styles.locationNoticeLabel}>Location</div>
-            <div className={styles.locationNoticeText}>To Be Announced</div>
-            <div className={styles.locationNoticeSub}>Check back here and follow us on social media for venue details as they become available. This event is free and open to all Frederick County community members.</div>
+            <div className={styles.locationNoticeText}>Trumpet Vine Farm</div>
+            <div className={styles.locationNoticeSub}> This event is free and open to all Frederick County community members.</div>
           </div>
         </div>
 
