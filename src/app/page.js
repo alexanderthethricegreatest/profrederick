@@ -277,6 +277,7 @@ export default function Home() {
               <span>Kristen Meghan Kelly, MS-OSH</span>
               <span>Martha Saddlick</span>
               <span>Elena Schlossberg-Kunkel</span>
+              <span>Nathan Russell, MA</span>
             </div>
             <Link href="/community-forum" className={styles.communityForumBtn}>Event Details & Panelist Bios →</Link>
           </div>

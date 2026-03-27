@@ -41,8 +41,15 @@ const panelists = [
       'Elena Schlossberg-Kunkel holds a BA in Psychology and an MA in School Counseling from Marymount University. After moving to the Rural Crescent in Prince William County in 2002, she witnessed firsthand how land use decisions can shape and permanently alter the quality of life for entire communities.',
       'She established The Coalition to Protect Prince William County and has since become a leading voice on smart growth policy and conservation. Her work offers Frederick County residents a direct window into how similar fights have unfolded in neighboring jurisdictions—and what strategies have been most effective.',
     ],
-  
   },
+  { credential: 'Economist and Professor',
+    name: 'Nathan Russell, MA',
+    title: 'Assistant Professor of Economics at Patrick Henry College ',
+    bio: [
+      'His work focuses on public choice, public finance, and the practical application of economic ideas, particularly as they relate to policy and real-world decision-making.', 
+      'Prior to his academic career, he worked with organizations including the Charles G. Koch Foundation, the Regulatory Economics Group, and the Mackinac Center for Public Policy, where his work included economic education methodology, corporate cost and profitability analysis, and assessment of state economic and educational policy.',
+      ]
+  }
 ]
 
 function PanelistCard({ panelist }) {
