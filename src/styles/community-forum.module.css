@@ -245,6 +245,84 @@
 }
 .pageCtaBtn:hover { background: var(--barn-dark); }
 
+/* ── RSVP Form ───────────────────────────── */
+.rsvpForm {
+  margin-top: 32px;
+  display: flex; flex-direction: column; gap: 20px;
+}
+.rsvpRow {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+}
+.rsvpField {
+  display: flex; flex-direction: column; gap: 6px;
+}
+.rsvpLabel {
+  font-size: 10px; font-weight: 700; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--ink);
+}
+.rsvpRequired { color: var(--barn); }
+.rsvpOptional {
+  font-weight: 400; letter-spacing: 0; text-transform: none;
+  font-size: 10px; color: var(--ink-3);
+}
+.rsvpInput,
+.rsvpSelect,
+.rsvpTextarea {
+  width: 100%; padding: 11px 14px;
+  border: 1px solid var(--rule); background: var(--cream);
+  font-family: inherit; font-size: 14px; color: var(--ink);
+  outline: none; transition: border-color .15s;
+  -webkit-appearance: none; appearance: none;
+}
+.rsvpSelect {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23333' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+.rsvpInput:focus,
+.rsvpSelect:focus,
+.rsvpTextarea:focus { border-color: var(--ink); }
+.rsvpTextarea { resize: vertical; min-height: 88px; }
+.rsvpError {
+  font-size: 13px; color: #b91c1c;
+  border-left: 3px solid #b91c1c; padding-left: 12px;
+}
+.rsvpBtn {
+  align-self: flex-start;
+  background: var(--barn); color: var(--cream);
+  font-size: 11px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; padding: 14px 28px;
+  border: none; cursor: pointer; font-family: inherit;
+  transition: background .15s;
+}
+.rsvpBtn:hover:not(:disabled) { background: var(--barn-dark); }
+.rsvpBtn:disabled { opacity: .6; cursor: not-allowed; }
+
+.rsvpSuccess {
+  margin-top: 32px; padding: 40px;
+  background: var(--cream-2, #f7f4ef);
+  border: 1px solid var(--rule);
+  border-top: 3px solid var(--barn);
+  text-align: center;
+}
+.rsvpSuccessIcon {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--barn); color: var(--cream);
+  font-size: 20px; line-height: 44px;
+  margin: 0 auto 16px;
+}
+.rsvpSuccessTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px; font-weight: 700; color: var(--ink);
+  margin-bottom: 10px;
+}
+.rsvpSuccessText {
+  font-family: 'Lora', serif;
+  font-size: 14px; line-height: 1.75; color: var(--ink-3);
+  max-width: 440px; margin: 0 auto;
+}
+
 /* ── Responsive ──────────────────────────── */
 @media (max-width: 700px) {
   .pageHeader { padding: 100px 24px 48px; }
@@ -259,6 +337,8 @@
   .formatItem:last-child { border-bottom: none; }
   .topicGrid { grid-template-columns: 1fr; }
   .pageCta { flex-direction: column; text-align: center; }
+  .rsvpRow { grid-template-columns: 1fr; }
+  .rsvpBtn { align-self: stretch; text-align: center; }
 }
 
 @media (max-width: 480px) {

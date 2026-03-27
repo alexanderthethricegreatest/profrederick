@@ -4,6 +4,145 @@ import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import styles from '@/styles/community-forum.module.css'
 
+const DISTRICTS = [
+  'Back Creek',
+  'Gainesboro',
+  'Opequon',
+  'Red Bud',
+  'Shawnee',
+  'Stonewall',
+]
+
+function RsvpForm() {
+  const [form, setForm] = useState({ fullName: '', email: '', district: '', guestCount: 1, questions: '' })
+  const [error, setError] = useState(null)
+  const [loading, setLoading] = useState(false)
+  const [success, setSuccess] = useState(false)
+
+  function set(field, value) {
+    setForm(f => ({ ...f, [field]: value }))
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault()
+    setError(null)
+
+    if (!form.fullName.trim()) return setError('Please enter your name.')
+    if (!form.email.trim()) return setError('Please enter your email address.')
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) return setError('Please enter a valid email address.')
+
+    setLoading(true)
+    try {
+      const res = await fetch('/api/forum-rsvp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fullName: form.fullName,
+          email: form.email,
+          district: form.district || null,
+          guestCount: Number(form.guestCount),
+          questions: form.questions || null,
+        }),
+      })
+      const data = await res.json()
+      if (!res.ok) return setError(data.error || 'Something went wrong. Please try again.')
+      setSuccess(true)
+    } catch {
+      setError('Something went wrong. Please try again.')
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  if (success) {
+    return (
+      <div className={styles.rsvpSuccess}>
+        <div className={styles.rsvpSuccessIcon}>✓</div>
+        <h3 className={styles.rsvpSuccessTitle}>You're on the list.</h3>
+        <p className={styles.rsvpSuccessText}>We've recorded your RSVP for the April 15 community forum at Trumpet Vine Farm. We'll see you there.</p>
+      </div>
+    )
+  }
+
+  return (
+    <form className={styles.rsvpForm} onSubmit={handleSubmit} noValidate>
+      <div className={styles.rsvpRow}>
+        <div className={styles.rsvpField}>
+          <label className={styles.rsvpLabel} htmlFor="rsvp-name">Full Name <span className={styles.rsvpRequired}>*</span></label>
+          <input
+            id="rsvp-name"
+            className={styles.rsvpInput}
+            type="text"
+            value={form.fullName}
+            onChange={e => set('fullName', e.target.value)}
+            placeholder="Jane Smith"
+            maxLength={100}
+            required
+          />
+        </div>
+        <div className={styles.rsvpField}>
+          <label className={styles.rsvpLabel} htmlFor="rsvp-email">Email Address <span className={styles.rsvpRequired}>*</span></label>
+          <input
+            id="rsvp-email"
+            className={styles.rsvpInput}
+            type="email"
+            value={form.email}
+            onChange={e => set('email', e.target.value)}
+            placeholder="jane@example.com"
+            required
+          />
+        </div>
+      </div>
+
+      <div className={styles.rsvpRow}>
+        <div className={styles.rsvpField}>
+          <label className={styles.rsvpLabel} htmlFor="rsvp-district">District <span className={styles.rsvpOptional}>(optional)</span></label>
+          <select
+            id="rsvp-district"
+            className={styles.rsvpSelect}
+            value={form.district}
+            onChange={e => set('district', e.target.value)}
+          >
+            <option value="">Select your district</option>
+            {DISTRICTS.map(d => <option key={d} value={d}>{d}</option>)}
+          </select>
+        </div>
+        <div className={styles.rsvpField}>
+          <label className={styles.rsvpLabel} htmlFor="rsvp-guests">Number of Attendees</label>
+          <input
+            id="rsvp-guests"
+            className={styles.rsvpInput}
+            type="number"
+            min={1}
+            max={10}
+            value={form.guestCount}
+            onChange={e => set('guestCount', e.target.value)}
+          />
+        </div>
+      </div>
+
+      <div className={styles.rsvpField}>
+        <label className={styles.rsvpLabel} htmlFor="rsvp-questions">Questions for the Panel <span className={styles.rsvpOptional}>(optional)</span></label>
+        <textarea
+          id="rsvp-questions"
+          className={styles.rsvpTextarea}
+          value={form.questions}
+          onChange={e => set('questions', e.target.value)}
+          placeholder="Submit a question in advance for the panel discussion."
+          maxLength={1000}
+          rows={3}
+        />
+      </div>
+
+      {error && <div className={styles.rsvpError}>{error}</div>}
+
+      <button className={styles.rsvpBtn} type="submit" disabled={loading}>
+        {loading ? 'Submitting…' : 'RSVP for the Forum →'}
+      </button>
+    </form>
+  )
+}
+
 const panelists = [
   {
     credential: 'Industrial Hygienist',
@@ -207,6 +346,16 @@ export default function CommunityForum() {
             <div className={styles.locationNoticeText}>Trumpet Vine Farm</div>
             <div className={styles.locationNoticeSub}> This event is free and open to all Frederick County community members. Address is 266 Vaucluse Rd, Stephens City, VA 22655 </div>
           </div>
+        </div>
+
+        <hr className={styles.sectionDivider} />
+
+        {/* ── RSVP ── */}
+        <div className="fade-up" ref={fadeRef}>
+          <span className={styles.sectionLabel}>RSVP</span>
+          <h2 className={styles.sectionTitle}>Reserve Your Spot</h2>
+          <p className={styles.sectionIntroText}>The forum is free and open to all Frederick County community members. Submit an RSVP so we know to expect you, and submit a question for the panel in advance if you have one.</p>
+          <RsvpForm />
         </div>
 
         {/* ── CTA ── */}
