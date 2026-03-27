@@ -5,8 +5,6 @@ import { createBrowserClient } from '@supabase/ssr'
 import styles from '@/styles/news.module.css'
 
 // ── Hardcoded seed updates ────────────────────────────────────────────────────
-// Add new ones here, or post them via /admin/news for convenience.
-// These always show up regardless of the database.
 const SEEDED_UPDATES = [
   {
     id: 'seed-3',
@@ -33,10 +31,58 @@ const SEEDED_UPDATES = [
 
 function formatDate(dateStr) {
   return new Date(dateStr).toLocaleDateString('en-US', {
-    month: 'long', day: 'numeric', year: 'numeric'
+    month: 'long', day: 'numeric', year: 'numeric',
   })
 }
 
+const CARD_EXCERPT_LEN = 160
+const FEATURED_EXCERPT_LEN = 420
+
+// ── Grid article card ─────────────────────────────────────────────────────────
+function ArticleCard({ article, expanded, onToggle }) {
+  const isLong = article.body.length > CARD_EXCERPT_LEN
+  const bodyText = expanded || !isLong
+    ? article.body
+    : article.body.slice(0, CARD_EXCERPT_LEN).trimEnd() + '…'
+
+  return (
+    <article className={styles.card}>
+      <span className={styles.cardDate}>{formatDate(article.created_at)}</span>
+      <h3 className={styles.cardTitle}>{article.title}</h3>
+      <div className={styles.cardAuthor}>By Campaign Staff</div>
+      <p className={styles.cardBody}>{bodyText}</p>
+      {isLong && (
+        <button className={styles.expandBtn} onClick={onToggle} aria-expanded={expanded}>
+          {expanded ? 'Read less ▲' : 'Read more ▼'}
+        </button>
+      )}
+    </article>
+  )
+}
+
+// ── Featured article ──────────────────────────────────────────────────────────
+function FeaturedArticle({ article, expanded, onToggle }) {
+  const isLong = article.body.length > FEATURED_EXCERPT_LEN
+  const bodyText = expanded || !isLong
+    ? article.body
+    : article.body.slice(0, FEATURED_EXCERPT_LEN).trimEnd() + '…'
+
+  return (
+    <article className={styles.featured}>
+      <span className={styles.featuredDate}>{formatDate(article.created_at)}</span>
+      <h2 className={styles.featuredTitle}>{article.title}</h2>
+      <div className={styles.featuredAuthor}>By Campaign Staff</div>
+      <p className={styles.featuredBody}>{bodyText}</p>
+      {isLong && (
+        <button className={styles.featuredExpandBtn} onClick={onToggle} aria-expanded={expanded}>
+          {expanded ? 'Read less ▲' : 'Read more ▼'}
+        </button>
+      )}
+    </article>
+  )
+}
+
+// ── Page ──────────────────────────────────────────────────────────────────────
 export default function NewsPage() {
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL,
@@ -44,6 +90,7 @@ export default function NewsPage() {
   )
 
   const [dbUpdates, setDbUpdates] = useState(null) // null = loading
+  const [expandedIds, setExpandedIds] = useState(new Set())
 
   useEffect(() => {
     async function fetchUpdates() {
@@ -51,17 +98,26 @@ export default function NewsPage() {
         .from('news')
         .select('id, title, body, created_at')
         .order('created_at', { ascending: false })
-
       setDbUpdates(error ? [] : data)
     }
     fetchUpdates()
   }, [])
 
-  // Merge db updates with seeded ones, sort newest first
   const allUpdates = dbUpdates === null
     ? null
-    : [...(dbUpdates.map(u => ({ ...u, seeded: false }))), ...SEEDED_UPDATES]
+    : [...dbUpdates.map(u => ({ ...u, seeded: false })), ...SEEDED_UPDATES]
         .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+
+  const featured = allUpdates?.[0] ?? null
+  const gridArticles = allUpdates?.slice(1) ?? []
+
+  function toggleExpanded(id) {
+    setExpandedIds(prev => {
+      const next = new Set(prev)
+      next.has(id) ? next.delete(id) : next.add(id)
+      return next
+    })
+  }
 
   return (
     <>
@@ -75,26 +131,38 @@ export default function NewsPage() {
 
       <main className={styles.pageMain}>
         {allUpdates === null && (
-          <div className={styles.loadingState}>Loading updates...</div>
+          <div className={styles.loadingState}>Loading updates…</div>
         )}
+
         {allUpdates !== null && allUpdates.length === 0 && (
           <div className={styles.emptyState}>
             <p>No updates yet. Check back after the February forums.</p>
           </div>
         )}
+
         {allUpdates !== null && allUpdates.length > 0 && (
-          <div className={styles.updatesList}>
-            {allUpdates.map(update => (
-              <div
-                key={update.id}
-                className={`${styles.updateItem} ${update.seeded ? styles.seeded : ''}`}
-              >
-                <span className={styles.updateDate}>{formatDate(update.created_at)}</span>
-                <div className={styles.updateTitle}>{update.title}</div>
-                <div className={styles.updateBody}>{update.body}</div>
+          <>
+            {featured && (
+              <FeaturedArticle
+                article={featured}
+                expanded={expandedIds.has(featured.id)}
+                onToggle={() => toggleExpanded(featured.id)}
+              />
+            )}
+
+            {gridArticles.length > 0 && (
+              <div className={styles.grid}>
+                {gridArticles.map(article => (
+                  <ArticleCard
+                    key={article.id}
+                    article={article}
+                    expanded={expandedIds.has(article.id)}
+                    onToggle={() => toggleExpanded(article.id)}
+                  />
+                ))}
               </div>
-            ))}
-          </div>
+            )}
+          </>
         )}
       </main>
     </>

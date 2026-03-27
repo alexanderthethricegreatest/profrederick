@@ -284,7 +284,7 @@ export default function Home() {
             <div className={styles.communityForumMetaLabel}>Event Details</div>
             <div className={styles.communityForumMetaItem}>
               <span className={styles.communityForumMetaKey}>Date</span>
-              <span className={styles.communityForumMetaVal}>Tuesday, April 15, 2026</span>
+              <span className={styles.communityForumMetaVal}>Wednesday, April 15, 2026</span>
             </div>
             <div className={styles.communityForumMetaItem}>
               <span className={styles.communityForumMetaKey}>Time</span>

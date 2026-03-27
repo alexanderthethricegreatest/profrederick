@@ -104,7 +104,7 @@ export default function CommunityForum() {
         <div className={styles.eventMeta}>
           <div className={styles.eventMetaItem}>
             <span className={styles.eventMetaLabel}>Date</span>
-            <span className={styles.eventMetaValue}>Tuesday, April 15, 2026</span>
+            <span className={styles.eventMetaValue}>Wednesday, April 15, 2026</span>
           </div>
           <div className={styles.eventMetaDivider} />
           <div className={styles.eventMetaItem}>
