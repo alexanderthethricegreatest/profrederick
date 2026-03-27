@@ -198,7 +198,7 @@ export default function CommunityForum() {
           <div className={styles.locationNoticeInner}>
             <div className={styles.locationNoticeLabel}>Location</div>
             <div className={styles.locationNoticeText}>Trumpet Vine Farm</div>
-            <div className={styles.locationNoticeSub}> This event is free and open to all Frederick County community members.</div>
+            <div className={styles.locationNoticeSub}> This event is free and open to all Frederick County community members. Address is 266 Vaucluse Rd, Stephens City, VA 22655 </div>
           </div>
         </div>
 
