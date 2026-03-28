@@ -159,28 +159,35 @@
 
 /* ── Format Grid ─────────────────────────── */
 .formatGrid {
-  display: grid; grid-template-columns: repeat(4, 1fr);
+  display: grid; grid-template-columns: 1fr;
   gap: 0; border: 1px solid var(--rule); margin-top: 32px;
 }
 .formatItem {
   padding: 28px 24px;
-  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  display: grid; grid-template-columns: 120px 220px 1fr;
+  gap: 0 24px; align-items: start;
 }
-.formatItem:last-child { border-right: none; }
+.formatItem:last-child { border-bottom: none; }
 .formatTime {
   font-family: 'Playfair Display', serif;
-  font-size: 20px; font-weight: 700; color: var(--barn);
-  margin-bottom: 6px;
+  font-size: 18px; font-weight: 700; color: var(--barn);
+  padding-top: 2px;
 }
 .formatLabel {
   font-size: 10px; font-weight: 700; letter-spacing: .16em;
   text-transform: uppercase; color: var(--ink);
-  margin-bottom: 10px;
+  padding-top: 4px;
 }
 .formatDesc {
   font-family: 'Lora', serif;
   font-size: 13px; line-height: 1.7; color: var(--ink-3);
 }
+.formatSpeakerList {
+  margin: 8px 0 0 0; padding-left: 18px;
+  font-size: 13px; line-height: 1.7;
+}
+.formatSpeakerList li { margin-bottom: 4px; }
 
 /* ── Topic Grid ──────────────────────────── */
 .topicGrid {
@@ -332,15 +339,10 @@
   .pageMain { padding: 40px 24px 60px; }
   .sectionTitle { font-size: 24px; }
   .cardGrid { grid-template-columns: 1fr; }
-  .formatGrid { grid-template-columns: 1fr 1fr; }
-  .formatItem { border-right: none; border-bottom: 1px solid var(--rule); }
-  .formatItem:last-child { border-bottom: none; }
+  .formatItem { grid-template-columns: 1fr; gap: 4px; }
   .topicGrid { grid-template-columns: 1fr; }
   .pageCta { flex-direction: column; text-align: center; }
   .rsvpRow { grid-template-columns: 1fr; }
   .rsvpBtn { align-self: stretch; text-align: center; }
 }
 
-@media (max-width: 480px) {
-  .formatGrid { grid-template-columns: 1fr; }
-}

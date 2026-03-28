@@ -290,24 +290,50 @@ export default function CommunityForum() {
           <h2 className={styles.sectionTitle}>An Evening of Informed Discussion</h2>
           <div className={styles.formatGrid}>
             <div className={styles.formatItem}>
-              <div className={styles.formatTime}>6:30 PM</div>
+              <div className={styles.formatTime}>6:00 PM</div>
               <div className={styles.formatLabel}>Doors Open</div>
-              <div className={styles.formatDesc}>Arrive, find a seat, meet neighbors.</div>
+              <div className={styles.formatDesc}>Guests arrive, sign in, find seating. Display materials, handouts, and resource table available.</div>
             </div>
             <div className={styles.formatItem}>
-              <div className={styles.formatTime}>6:45 PM</div>
-              <div className={styles.formatLabel}>Panel Presentations</div>
-              <div className={styles.formatDesc}>Each panelist presents their area of expertise: industrial hygiene, environmental health, geology and aquifer systems, and regional land use lessons.</div>
+              <div className={styles.formatTime}>6:30 PM</div>
+              <div className={styles.formatLabel}>Welcome &amp; Opening Remarks</div>
+              <div className={styles.formatDesc}>Introduction of the purpose of the evening and brief overview. This is an informed, civil, community-first conversation. All are welcome, including Board of Supervisors members.</div>
             </div>
             <div className={styles.formatItem}>
-              <div className={styles.formatTime}>~7:45 PM</div>
-              <div className={styles.formatLabel}>Moderated Q&amp;A</div>
-              <div className={styles.formatDesc}>Community members and local officials are invited to ask questions directly. This is an open forum. Bring your questions.</div>
+              <div className={styles.formatTime}>6:35 PM</div>
+              <div className={styles.formatLabel}>Introduction of Panel</div>
+              <div className={styles.formatDesc}>Moderator introduces each panelist by name, title, and brief credential summary.</div>
+            </div>
+            <div className={styles.formatItem}>
+              <div className={styles.formatTime}>6:40 PM</div>
+              <div className={styles.formatLabel}>Block 1: Health &amp; Environmental Impact</div>
+              <div className={styles.formatDesc}>What does large-scale data center development actually mean for the air, water, and people of Frederick County?
+                <ul className={styles.formatSpeakerList}>
+                  <li><strong>Tammy Clark</strong> — Occupational health, air quality, regulatory compliance and what it means for surrounding residents (15 min)</li>
+                  <li><strong>Kristen Meghan Kelly</strong> — Environmental health impacts, what industrial hygiene data from similar developments shows (15 min)</li>
+                  <li><strong>Martha Saddlick</strong> — Frederick County's karst geology and aquifer vulnerability, what subsurface development risk looks like here specifically (15 min)</li>
+                </ul>
+              </div>
+            </div>
+            <div className={styles.formatItem}>
+              <div className={styles.formatTime}>7:25 PM</div>
+              <div className={styles.formatLabel}>Block 2: What Are Communities Actually Being Promised?</div>
+              <div className={styles.formatDesc}>A broader look at data center development across Virginia and the country — what the economic promises typically look like versus reality, what the fight looks like in other communities, and what winning actually means.
+                <ul className={styles.formatSpeakerList}>
+                  <li><strong>Elena Schlossberg-Kunkel</strong> — The Prince William County coalition model, how they organized, what worked, and what Frederick County can replicate</li>
+                  <li><strong>Nathan Russell</strong> — Economic analysis, what counties are actually promised versus what they receive, and the public finance reality behind the data centers or higher taxes argument</li>
+                </ul>
+              </div>
+            </div>
+            <div className={styles.formatItem}>
+              <div className={styles.formatTime}>7:45 PM</div>
+              <div className={styles.formatLabel}>Moderated Q&amp;A — Community Open Mic</div>
+              <div className={styles.formatDesc}>Frederick County residents ask questions — 1 minute each. Moderated to ensure all voices are heard. Open mic through 9:00 PM.</div>
             </div>
             <div className={styles.formatItem}>
               <div className={styles.formatTime}>9:00 PM</div>
-              <div className={styles.formatLabel}>Close</div>
-              <div className={styles.formatDesc}>Informal conversation continues.</div>
+              <div className={styles.formatLabel}>Adjourn</div>
+              <div className={styles.formatDesc}>Panel available for informal conversation. Resource table remains open. Media availability if applicable.</div>
             </div>
           </div>
         </div>
