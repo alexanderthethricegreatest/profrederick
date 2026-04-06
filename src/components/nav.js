@@ -56,6 +56,7 @@ export default function Nav() {
     { href: '/documents', label: 'Learning Resources & Media' },
     { href: '/comprehensive-plan', label: 'The 2050 Plan' },
     { href: '/the-board',          label: 'The Board'},
+    { href: '/budget',             label: 'FY2027 Budget Analysis' },
   ]
 
   const resourcesItems = [

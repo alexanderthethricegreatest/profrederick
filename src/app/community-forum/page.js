@@ -167,8 +167,10 @@ const panelists = [
     name: 'Martha Saddlick',
     title: 'Geologist (JMU) · Oil & Gas Geophysicist · Generational Farmer, Shenandoah Valley',
     bio: [
-      'Martha Saddlick holds a geology degree from James Madison University and brings 45+ years of experience as an oil and gas geophysicist. Her deep expertise in subsurface analysis, including karst geology, aquifer systems, and land use, is directly relevant to the infrastructure and water risks posed by large-scale industrial development in the Valley.',
-      'As a generational farmer in the Shenandoah Valley, Saddlick also brings the perspective of someone with roots in the land, someone who understands what is at stake beyond the spreadsheets and economic projections.',
+      'Martha Saddlick holds a geology degree from James Madison University and brings 45+ years of experience as a senior geophysicist/geologist, including work with Shell, Total, and Conoco.',
+      'Her career has focused on geologic and geophysical analysis for exploration and development projects across the North Sea, Philippines, Côte d’Ivoire, Gulf of America, and Pennsylvania.',
+      'Raised on a family farm near Strasburg, VA, she brings deep knowledge of Shenandoah Valley geology and a strong understanding of subsurface systems, fluid flow, and environmental considerations.',
+      'She brings with her the perspective of someone with roots in the land, who understands what is at stake beyond the spreadsheets and economic projections.', 
     ],
     note: 'Much of Frederick County sits atop karst terrain, a landscape formed from soluble bedrock like limestone, characterized by caves, sinkholes, and underground aquifers that are particularly vulnerable to contamination from heavy industrial activity.',
   },
@@ -187,6 +189,14 @@ const panelists = [
     bio: [
       'His work focuses on public choice, public finance, and the practical application of economic ideas, particularly as they relate to policy and real-world decision-making.', 
       'Prior to his academic career, he worked with organizations including the Charles G. Koch Foundation, the Regulatory Economics Group, and the Mackinac Center for Public Policy, where his work included economic education methodology, corporate cost and profitability analysis, and assessment of state economic and educational policy.',
+      ]
+  },
+  { credential: 'Moderator · Technology & Cybersecurity Expert',
+    name: 'Tony Cole',
+    title: 'Technology Leadership, Cybersecurity, and Global Risk Expert · Frederick County Resident',
+    bio: [
+      'With nearly 40 years of experience at the highest levels of cybersecurity, global risk, and technology leadership, Mr. Cole brings a depth of insight that few can match, from helping stand up the Pentagon’s cyber response team to advising international organizations and major corporations on digital risk.',
+      'Mr. Cole’s understanding of the long-term implications of data centers and his status as a Frederick County resident enable him to help us navigate this citical discussion with our panel of experts ranging in industrial hygiene, water/noise/sound/air quality, electric grid management, our region’s karst geology, and small business and economic impacts.  '
       ]
   }
 ]

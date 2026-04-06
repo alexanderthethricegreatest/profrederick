@@ -1,0 +1,77 @@
+/* ── Page ─────────────────────────────── */
+.page {
+  background: var(--cream);
+  min-height: 100vh;
+  padding-top: 56px; /* site nav height */
+}
+
+/* ── CSS variable bridge ──────────────────
+   Maps the dashboard's generic tokens to the
+   site's actual design-system values.
+   All inline styles inside BudgetDashboard
+   inherit these via CSS custom-property cascade.
+─────────────────────────────────────────── */
+.wrapper {
+  --color-background-primary:   var(--cream);
+  --color-background-secondary: var(--cream-2);
+  --color-text-primary:         var(--ink);
+  --color-text-secondary:       var(--ink-3);
+  --color-border-primary:       var(--rule-dark);
+  --color-border-secondary:     var(--rule);
+  --color-border-tertiary:      color-mix(in srgb, var(--rule) 45%, transparent);
+  --border-radius-lg:           8px;
+  --border-radius-md:           4px;
+  --font-sans:                  'Source Sans 3', sans-serif;
+}
+
+/* ── Override globals.css nav rule ────────
+   globals.css applies `nav { position: fixed;
+   padding: 0 48px; height: 56px; … }` to ALL
+   nav elements. The section nav inside the
+   dashboard is sticky, not fixed, and needs
+   different sizing.
+─────────────────────────────────────────── */
+.wrapper nav[aria-label="Page sections"] {
+  position: sticky;
+  left: auto;
+  right: auto;
+  padding: 0;
+  height: auto;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* ── Range input styling ──────────────────
+   Gives the interactive sliders a look that
+   feels at home on the cream/ink palette.
+─────────────────────────────────────────── */
+.wrapper input[type="range"] {
+  appearance: none;
+  -webkit-appearance: none;
+  height: 4px;
+  background: var(--rule);
+  border-radius: 2px;
+  cursor: pointer;
+  outline: none;
+}
+
+.wrapper input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--ink);
+  border: 2px solid var(--cream);
+  box-shadow: 0 0 0 1px var(--rule-dark);
+  cursor: pointer;
+}
+
+.wrapper input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--ink);
+  border: 2px solid var(--cream);
+  box-shadow: 0 0 0 1px var(--rule-dark);
+  cursor: pointer;
+}

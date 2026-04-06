@@ -278,6 +278,8 @@ export default function Home() {
               <span>Martha Saddlick</span>
               <span>Elena Schlossberg-Kunkel</span>
               <span>Nathan Russell, MA</span>
+              <span>Tony Cole (Moderator)</span>
+              
             </div>
             <Link href="/community-forum" className={styles.communityForumBtn}>Event Details & Panelist Bios →</Link>
           </div>
