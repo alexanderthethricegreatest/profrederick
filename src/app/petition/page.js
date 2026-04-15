@@ -8,7 +8,9 @@ import useCountUp from '@/hooks/useCountUp'
 const DISTRICTS = ['Back Creek', 'Gainesboro', 'Opequon', 'Red Bud', 'Shawnee', 'Stonewall']
 
 function formatShortDate(dateStr) {
-  return new Date(dateStr).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+  // Supabase returns timestamptz without a timezone suffix; append Z to force UTC parsing
+  const utc = dateStr.endsWith('Z') || dateStr.includes('+') ? dateStr : dateStr + 'Z'
+  return new Date(utc).toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'America/New_York' })
 }
 
 export default function Petition() {
@@ -32,13 +34,24 @@ export default function Petition() {
 
   useEffect(() => {
     async function fetchSignatures() {
-      const { data, error } = await supabase
-        .from('signatures')
-        .select('name, district, created_at')
-        .order('created_at', { ascending: false })
+      const pageSize = 1000
+      let allData = []
+      let from = 0
 
-      if (!error) setSignatures(data)
-      else setSignatures([])
+      while (true) {
+        const { data, error } = await supabase
+          .from('signatures')
+          .select('name, district, created_at')
+          .order('created_at', { ascending: false })
+          .range(from, from + pageSize - 1)
+
+        if (error || !data || data.length === 0) break
+        allData = [...allData, ...data]
+        if (data.length < pageSize) break
+        from += pageSize
+      }
+
+      setSignatures(allData)
     }
     fetchSignatures()
   }, [])
@@ -75,11 +88,21 @@ export default function Petition() {
     setSubmitted(true)
 
     // Refresh signatures after successful submission
-    const { data: refreshed } = await supabase
-      .from('signatures')
-      .select('name, district, created_at')
-      .order('created_at', { ascending: false })
-    if (refreshed) setSignatures(refreshed)
+    const pageSize = 1000
+    let refreshed = []
+    let from = 0
+    while (true) {
+      const { data: batch } = await supabase
+        .from('signatures')
+        .select('name, district, created_at')
+        .order('created_at', { ascending: false })
+        .range(from, from + pageSize - 1)
+      if (!batch || batch.length === 0) break
+      refreshed = [...refreshed, ...batch]
+      if (batch.length < pageSize) break
+      from += pageSize
+    }
+    if (refreshed.length > 0) setSignatures(refreshed)
   }
 
   async function copyLink() {
@@ -125,14 +148,14 @@ export default function Petition() {
       <div className={styles.counterBar}>
         <div className={styles.counterItem}>
           <span className={styles.counterNum} ref={countRef}>
-            {signatures === null ? '—' : animatedCount.toLocaleString()}
+            {signatures === null || (signatures.length > 0 && animatedCount === 0) ? '—' : animatedCount.toLocaleString()}
           </span>
           <span className={styles.counterLabel}>Signatures</span>
         </div>
         <div className={styles.counterDivider}></div>
         <div className={styles.counterItem}>
           <span className={styles.counterNum} ref={districtRef}>
-            {signatures === null ? '—' : animatedDistricts}
+            {signatures === null || (uniqueDistricts > 0 && animatedDistricts === 0) ? '—' : animatedDistricts}
           </span>
           <span className={styles.counterLabel}>Districts Represented</span>
         </div>
