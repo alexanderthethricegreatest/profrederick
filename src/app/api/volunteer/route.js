@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { rateLimit } from '@/lib/ratelimit'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
@@ -15,6 +16,9 @@ const ACTIVITIES = [
 const DISTRICTS = ['Back Creek', 'Gainesboro', 'Opequon', 'Red Bud', 'Shawnee', 'Stonewall']
 
 export async function POST(req) {
+  if (!rateLimit(req).ok)
+    return NextResponse.json({ error: 'Too many requests. Please try again later.' }, { status: 429 })
+
   try {
     const body = await req.json()
     const { name, email, phone, district, activities, message } = body

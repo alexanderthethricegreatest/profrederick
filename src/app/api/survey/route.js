@@ -1,5 +1,6 @@
 import { createClient } from '@supabase/supabase-js'
 import { NextResponse } from 'next/server'
+import { rateLimit } from '@/lib/ratelimit'
 
 // Server-side only — service role key never exposed to client
 const supabase = createClient(
@@ -8,6 +9,9 @@ const supabase = createClient(
 )
 
 export async function POST(request) {
+  if (!rateLimit(request).ok)
+    return NextResponse.json({ error: 'Too many requests. Please try again later.' }, { status: 429 })
+
   try {
     const {
       fullName,

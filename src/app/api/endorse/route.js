@@ -1,5 +1,6 @@
 import { createClient } from '@supabase/supabase-js'
 import { NextResponse } from 'next/server'
+import { rateLimit } from '@/lib/ratelimit'
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
@@ -18,6 +19,9 @@ const ALLOWED_ORG_TYPES = [
 ]
 
 export async function POST(request) {
+  if (!rateLimit(request).ok)
+    return NextResponse.json({ error: 'Too many requests. Please try again later.' }, { status: 429 })
+
   try {
     const { orgName, orgType, contactName, contactTitle, contactEmail, statement } = await request.json()
 

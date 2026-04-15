@@ -26,7 +26,7 @@ function isRelevant(title) {
 
 async function scrapeMonth(year, month) {
   const target = encodeURIComponent(`https://www.fcva.us/services/calendar/-curm-${month}/-cury-${year}`)
-  const url = `http://api.scraperapi.com?api_key=${process.env.SCRAPER_API_KEY}&url=${target}`
+  const url = `https://api.scraperapi.com?api_key=${process.env.SCRAPER_API_KEY}&url=${target}`
   const res = await fetch(url, { next: { revalidate: 3600 } })
   if (!res.ok) throw new Error(`ScraperAPI failed: ${res.status}`)
   const html = await res.text()

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
+import { rateLimit } from '@/lib/ratelimit'
 
 const supabasePublic = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
@@ -26,6 +27,9 @@ export async function GET() {
 
 // POST — submit a new community event
 export async function POST(req) {
+  if (!rateLimit(req).ok)
+    return NextResponse.json({ error: 'Too many requests. Please try again later.' }, { status: 429 })
+
   try {
     const body = await req.json()
     const { title, description, date, time, location, organizer_name, organizer_email, external_link } = body

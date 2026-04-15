@@ -1,5 +1,6 @@
 import { createClient } from '@supabase/supabase-js'
 import { NextResponse } from 'next/server'
+import { rateLimit } from '@/lib/ratelimit'
 
 // This runs server-side only — safe to use the service role key here
 const supabase = createClient(
@@ -8,6 +9,9 @@ const supabase = createClient(
 )
 
 export async function POST(request) {
+  if (!rateLimit(request).ok)
+    return NextResponse.json({ error: 'Too many requests. Please try again later.' }, { status: 429 })
+
   try {
     const { name, email, district } = await request.json()
 
