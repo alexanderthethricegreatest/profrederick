@@ -177,7 +177,7 @@ export default function CommunityForum() {
             <div className={styles.formatItem}>
               <div className={styles.formatTime}>6:30 PM</div>
               <div className={styles.formatLabel}>Welcome &amp; Opening Remarks</div>
-              <div className={styles.formatDesc}>The evening opened with an introduction of its purpose and a brief overview — an informed, civil, community-first conversation, open to all including Board of Supervisors members.</div>
+              <div className={styles.formatDesc}>The evening opened with an introduction of its purpose and a brief overview: an informed, civil, community-first conversation, open to all including Board of Supervisors members.</div>
             </div>
             <div className={styles.formatItem}>
               <div className={styles.formatTime}>6:35 PM</div>
@@ -198,7 +198,7 @@ export default function CommunityForum() {
             <div className={styles.formatItem}>
               <div className={styles.formatTime}>7:25 PM</div>
               <div className={styles.formatLabel}>Block 2: What Are Communities Actually Being Promised?</div>
-              <div className={styles.formatDesc}>A broader look at data center development across Virginia and the country — what the economic promises typically look like versus reality, what the fight looks like in other communities, and what winning actually means.
+              <div className={styles.formatDesc}>A broader look at data center development across Virginia and the country: what the economic promises typically look like versus reality, what the fight looks like in other communities, and what winning actually means.
                 <ul className={styles.formatSpeakerList}>
                   <li><strong>Elena Schlossberg-Kunkel</strong> — The Prince William County coalition model, how they organized, what worked, and what Frederick County can learn from it</li>
                   <li><strong>Nathan Russell</strong> — Economic analysis, what counties are actually promised versus what they receive, and the public finance reality behind the data centers or higher taxes argument</li>
@@ -208,7 +208,7 @@ export default function CommunityForum() {
             <div className={styles.formatItem}>
               <div className={styles.formatTime}>7:45 PM</div>
               <div className={styles.formatLabel}>Moderated Q&amp;A — Community Open Mic</div>
-              <div className={styles.formatDesc}>Frederick County residents asked questions — 1 minute each. Moderated to ensure all voices were heard. Open mic ran through 9:00 PM.</div>
+              <div className={styles.formatDesc}>Frederick County residents asked questions, about 1 minute each. Moderated to ensure all voices were heard. Open mic ran through 9:00 PM.</div>
             </div>
             <div className={styles.formatItem}>
               <div className={styles.formatTime}>9:00 PM</div>
