@@ -7,7 +7,7 @@ export default function Footer() {
     <footer>
       <div>
         <div className="footer-name">Protect Frederick</div>
-        <div className="footer-tag">Know the Facts · March 2026</div>
+        <div className="footer-tag">Know the Facts · April 2026</div>
       </div>
       <div className="footer-sources">
         <strong>Sources:</strong> Virginia SCC Order (Nov. 2025) · Dominion Energy 2024–2025

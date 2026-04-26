@@ -7,9 +7,30 @@ import styles from '@/styles/news.module.css'
 // ── Hardcoded seed updates ────────────────────────────────────────────────────
 const SEEDED_UPDATES = [
   {
+    id: 'seed-6',
+    title: 'County Schedules May 7 Community Information Exchange on Data Centers',
+    body: 'Frederick County is hosting a Community Information Exchange on Data Centers on Thursday, May 7 at 6:30 p.m. at James Wood High School. The event will feature a question-and-answer format with brief introductions from panelists including experts in acoustics, land use, water management, and county planning.\n\nResidents are invited to attend and ask general questions about data centers. The county has noted the session is not intended to address specific projects. Additional FAQs, papers, and reports are available online at fcva.us.\n\nThis forum was originally scheduled for February 26 but was postponed after resident backlash over the format. The rescheduled session comes as two new data center applications — Virginia Technology Park in Clear Brook and a proposed campus near the Kernstown battlefield — are working their way through the county\'s review process.',
+    created_at: '2026-04-23T00:00:00Z',
+    seeded: true,
+  },
+  {
+    id: 'seed-4',
+    title: 'Historic Resources Board Recommends Denial of Kernstown Data Center',
+    body: 'Frederick County\'s Historic Resources Advisory Board (HRAB) voted 7–1 last week to recommend denial of a conditional-use permit (CUP) for a proposed 72-acre data center campus near the Second Battle of Kernstown battlefield in the Back Creek District.\n\nThe applicant, Winchester Gateway LLC, is seeking to build three data center buildings up to 60 feet tall, plus a 45-foot electrical substation, on land at the intersection of Apple Valley and Middle Roads, bounded by Route 37. The site sits within core battlefield area from the 1864 Civil War engagement.\n\nHRAB members cited concerns well beyond historic preservation alone. Board member Gary Crawford raised the impact on neighboring homeowners along Apple Valley Road: "What happens to their property values with the ambient noise levels and height?" Member Delane Karalow warned of precedent-setting consequences: "If you allow a data center to be built in an area like this, you\'re opening a whole can of worms."\n\nThe nonprofit Kernstown Battlefield Association, which preserves the adjacent Sandy Ridge and Pritchard\'s Hill, had requested a viewshed analysis showing what visitors would see from the battlefield. The applicant did not provide it. County Planning Director Wyatt Pearson confirmed that a person standing on Pritchard\'s Hill would likely be able to see the tops of the data center buildings over the treeline.\n\nWater use was also flagged as a concern. The applicant\'s CUP application estimates up to 35,000 gallons per day, with the cooling wastewater requiring removal by a third-party contractor rather than discharge into the public system.\n\nThe CUP now moves to the Planning Commission, where a hearing date has not yet been set. The Board of Supervisors will have final say. This is the second time a data center has been proposed near this site — the Board rejected a 105-acre proposal across Route 37 just last June.',
+    created_at: '2026-04-21T00:00:00Z',
+    seeded: true,
+  },
+  {
+    id: 'seed-5',
+    title: 'Applicant Claims Virginia Technology Park Would Generate $237M for Frederick County',
+    body: 'Pennsylvania-based Equus Capital Partners has filed a rezoning application with Frederick County for Virginia Technology Park, a proposed 220-acre data center campus in Clear Brook. The April 10 filing seeks to rezone three parcels from Rural Areas to Technology Manufacturing in the Stonewall District, south of Rest Church Road off I-81.\n\nThe project would include 10 data center buildings and three substation pads, situated next to the planned Woodside electrical substation being built by NextEra Energy. A financial impact report prepared by McGuireWoods Consulting and included in the application projects $237 million in tax revenue to the county over 20 years.\n\nEquus Senior Vice President Daniel DiLella said the company has tried to get ahead of common concerns about data centers. On noise, the application proffers low-emission fans and an acoustic perimeter. On water, the company estimates 200,000 to 300,000 gallons per day for the full complex using air-cooled and closed-loop systems, and has proffered not to draw from groundwater. Diesel generators would be restricted to emergencies and testing cycles.\n\nSome of the buildings in the generalized development plan border homes in the adjacent Ridgeway Estates subdivision, whose residents previously opposed the nearby Woodside substation over health and property value concerns. Equus has proffered an eight-foot berm along residential property lines and a 65-dBA sound limit on those borders.\n\nThis is the third attempt to rezone these parcels. A 2023 mixed-use proposal was withdrawn before reaching the Board of Supervisors, and a revised version was rejected by supervisors on a 4-3 vote in September 2024. DiLella said the project is at least two to three years from development, pending county approval.',
+    created_at: '2026-04-16T00:00:00Z',
+    seeded: true,
+  },
+  {
     id: 'seed-3',
     title: 'Petition launches with 80+ signatures in first day',
-    body: 'The protectfrederick.org petition went live on February 22. Within hours, residents from across all six districts had signed. The petition will be presented at the upcoming public forums on February 24 and 26.',
+    body: 'The protectfrederick.org petition went live on February 22. Within hours, residents from across all six districts had signed. The petition has been presented at public forums and will continue to be delivered to the Board of Supervisors.',
     created_at: '2026-02-22T09:00:00Z',
     seeded: true,
   },
@@ -50,7 +71,9 @@ function ArticleCard({ article, expanded, onToggle }) {
       <span className={styles.cardDate}>{formatDate(article.created_at)}</span>
       <h3 className={styles.cardTitle}>{article.title}</h3>
       <div className={styles.cardAuthor}>By Campaign Staff</div>
-      <p className={styles.cardBody}>{bodyText}</p>
+      <div className={styles.cardBody}>
+        {bodyText.split('\n\n').map((para, i) => <p key={i}>{para}</p>)}
+      </div>
       {isLong && (
         <button className={styles.expandBtn} onClick={onToggle} aria-expanded={expanded}>
           {expanded ? 'Read less ▲' : 'Read more ▼'}
@@ -72,7 +95,9 @@ function FeaturedArticle({ article, expanded, onToggle }) {
       <span className={styles.featuredDate}>{formatDate(article.created_at)}</span>
       <h2 className={styles.featuredTitle}>{article.title}</h2>
       <div className={styles.featuredAuthor}>By Campaign Staff</div>
-      <p className={styles.featuredBody}>{bodyText}</p>
+      <div className={styles.featuredBody}>
+        {bodyText.split('\n\n').map((para, i) => <p key={i}>{para}</p>)}
+      </div>
       {isLong && (
         <button className={styles.featuredExpandBtn} onClick={onToggle} aria-expanded={expanded}>
           {expanded ? 'Read less ▲' : 'Read more ▼'}
@@ -136,7 +161,7 @@ export default function NewsPage() {
 
         {allUpdates !== null && allUpdates.length === 0 && (
           <div className={styles.emptyState}>
-            <p>No updates yet. Check back after the February forums.</p>
+            <p>No updates yet. Check back soon.</p>
           </div>
         )}
 

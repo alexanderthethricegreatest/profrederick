@@ -127,7 +127,7 @@ export default function Endorsements() {
           <strong>Residents have signed.</strong> Add your organization's voice before the next public forum.
         </p>
         <div className={styles.forumBanner}>
-          <span className={styles.forumBannerLabel}>Rescheduled Public Forum · TBD</span>
+          <span className={styles.forumBannerLabel}>Rescheduled Public Forum · May 7th</span>
           <p>
             <strong>James Wood High School</strong> &mdash;{' '}
             161 Apple Pie Ridge Road, Winchester, VA 22603.

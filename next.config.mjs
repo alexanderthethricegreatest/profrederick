@@ -18,7 +18,7 @@ const nextConfig = {
               "font-src 'self' https://fonts.gstatic.com",
               "img-src 'self' data: https://img.youtube.com https://i.ytimg.com",
               "connect-src 'self' https://*.supabase.co wss://*.supabase.co",
-              "frame-src 'none'",
+              "frame-src https://www.youtube.com https://www.youtube-nocookie.com",
               "frame-ancestors 'none'",
               "object-src 'none'",
               "base-uri 'self'",

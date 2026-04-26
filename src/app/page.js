@@ -222,7 +222,7 @@ export default function Home() {
       {/* ── Hero ── */}
       <section className={styles.hero}>
         <div className={styles.heroLeft}>
-          <div className={styles.heroDateline}>Frederick County, Virginia · March 2026</div>
+          <div className={styles.heroDateline}>Frederick County, Virginia · April 2026</div>
           <h1 className={styles.heroHeadline}>
             Know the Facts<br />
             on <em>Data</em>
@@ -248,16 +248,16 @@ export default function Home() {
             <polygon points="330,124 378,124 354,105" fill="#5C1E0F" opacity="0.55"/>
             <rect x="348" y="130" width="6" height="16" fill="#2A2118" opacity="0.6"/>
           </svg>
-          <div className={styles.forumLabel}>Forum Update · February 26, 2026</div>
+          <div className={styles.forumLabel}>Forum Update · April 26, 2026</div>
           <div className={styles.forumCard}>
             <span className={styles.forumDate}>Feb. 24 · Sherando High School</span>
             <div className={styles.forumLoc}>~250–300 residents attended. Vocal, unified opposition.</div>
             <span className={styles.forumTime}>Completed</span>
           </div>
           <div className={styles.forumCard}>
-            <span className={styles.forumDate}>Feb. 26 · James Wood High School</span>
-            <div className={styles.forumLoc}>Postponed after resident backlash on forum format. No new date set.</div>
-            <span className={styles.forumTime}>Rescheduled: date TBD</span>
+            <span className={styles.forumDate}>May 7th · James Wood High School</span>
+            <div className={styles.forumLoc}>Originally postponed after resident backlash on forum format. Set for 6:30 PM.</div>
+            <span className={styles.forumTime}>Rescheduled: May 7th</span>
           </div>
           <div className={styles.heroFcva}>Hosted by Frederick County Government · fcva.us</div>
         </div>
@@ -267,10 +267,10 @@ export default function Home() {
       <section className={styles.communityForumSection}>
         <div className={styles.communityForumInner}>
           <div className={styles.communityForumLeft}>
-            <div className={styles.communityForumEyebrow}>Community-Led Event · April 15, 2026</div>
+            <div className={styles.communityForumEyebrow}>Community Event · April 15, 2026 · Completed</div>
             <h2 className={styles.communityForumTitle}>Fact vs. Fiction:<br /><em>An Independent Forum</em></h2>
             <p className={styles.communityForumDeck}>
-              Experts you can trust. A panel of industrial hygienists, a geologist, and a land use advocate with decades of independent experience with no financial stake in the outcome or industry sponsors.
+              The forum was held on April 15 at Trumpet Vine Farm. A panel of industrial hygienists, a geologist, and a land use advocate, all with decades of independent experience and no financial stake in the outcome, addressed the community. The full recording is now available.
             </p>
             <div className={styles.communityForumPanelists}>
               <span>Tammy Clark</span>
@@ -279,31 +279,26 @@ export default function Home() {
               <span>Elena Schlossberg-Kunkel</span>
               <span>Nathan Russell, MA</span>
               <span>Tony Cole (Moderator)</span>
-              
             </div>
-            <Link href="/community-forum" className={styles.communityForumBtn}>Event Details & Panelist Bios →</Link>
+            <Link href="/community-forum" className={styles.communityForumBtn}>Watch the Recording →</Link>
           </div>
           <div className={styles.communityForumRight}>
-            <div className={styles.communityForumMetaLabel}>Event Details</div>
+            <div className={styles.communityForumMetaLabel}>Recording Available</div>
             <div className={styles.communityForumMetaItem}>
-              <span className={styles.communityForumMetaKey}>Date</span>
+              <span className={styles.communityForumMetaKey}>Held</span>
               <span className={styles.communityForumMetaVal}>Wednesday, April 15, 2026</span>
             </div>
             <div className={styles.communityForumMetaItem}>
-              <span className={styles.communityForumMetaKey}>Time</span>
-              <span className={styles.communityForumMetaVal}>6:30 PM – 9:00 PM</span>
-            </div>
-            <div className={styles.communityForumMetaItem}>
-              <span className={styles.communityForumMetaKey}>Location</span>
+              <span className={styles.communityForumMetaKey}>Venue</span>
               <span className={styles.communityForumMetaVal}>Trumpet Vine Farm</span>
             </div>
             <div className={styles.communityForumMetaItem}>
-              <span className={styles.communityForumMetaKey}>Format</span>
-              <span className={styles.communityForumMetaVal}>Panel + Moderated Q&amp;A</span>
+              <span className={styles.communityForumMetaKey}>Coverage</span>
+              <span className={styles.communityForumMetaVal}>6 recordings of Panel &amp; Q&amp;A</span>
             </div>
             <div className={styles.communityForumMetaItem}>
-              <span className={styles.communityForumMetaKey}>Admission</span>
-              <span className={styles.communityForumMetaVal}>Free · Open to All</span>
+              <span className={styles.communityForumMetaKey}>Access</span>
+              <span className={styles.communityForumMetaVal}>Free · Available Now</span>
             </div>
           </div>
         </div>
@@ -376,7 +371,7 @@ export default function Home() {
           <div className={styles.actionGrid}>
             <div className={`${styles.stepsCol} fade-up`} ref={fadeRef}>
               {[
-                { num: '1', title: 'Attend the rescheduled forum.', desc: <>The James Wood High School forum was postponed after resident pushback on the format. No new date yet. <a href="https://www.fcva.us" target="_blank" rel="noopener">Watch fcva.us</a> for the announcement. When it's set, show up.</> },
+                { num: '1', title: 'Attend the rescheduled forum.', desc: <>The James Wood High School forum was postponed after resident pushback on the format. Rescheduled for May 7th. <a href="https://www.fcva.us/departments/public-information/dc-faq" target="_blank" rel="noopener">Visit https://www.fcva.us/departments/public-information/dc-faq</a> for the announcement. Show up.</> },
                 { num: '2', title: 'Submit written comment to the Board.', desc: <>Written correspondence to your supervisor becomes part of the official public record. Use the tool below to find your rep and contact them now.</> },
                 { num: '3', title: 'Contact your supervisor directly.', desc: <>Use the tool to find your Board representative. The postponement shows officials are listening. Keep the pressure on.</> },
                 { num: '4', title: 'Bring a neighbor.', desc: <>Invite someone from your road, your church, your feed store. Most residents still don't know what's happening. Higher turnout at the rescheduled forum sends an unmistakable signal.</> },
@@ -449,7 +444,7 @@ export default function Home() {
                 <li>Your name and district become part of the <b>official public record.</b> The Board cannot ignore it.</li>
                 <li>A petition with hundreds of signatures from across all six districts <b>demonstrates countywide opposition</b>, not just one neighborhood.</li>
                 <li>If the Board delays a decision, the petition keeps pressure on between meetings.</li>
-                <li>Signatures can be <b>printed and delivered</b> directly to the Board at the February forums.</li>
+                <li>Signatures can be <b>printed and delivered</b> directly to the Board at public meetings.</li>
                 <li>Takes less than <b>60 seconds</b> to sign.</li>
               </ul>
             </div>
@@ -474,7 +469,7 @@ export default function Home() {
                   'Two data center proposals were rejected by the Board 5-1 in June 2025: a 644-acre campus south of Stephens City (Tract Capital) and a 105-acre site south of Winchester.',
                   'Frederick County sits almost entirely on karst terrain, a geological formation that makes groundwater uniquely vulnerable to contamination from industrial activity.',
                   'The county is served by two member-owned electric cooperatives: REC and SVEC. REC projects 17 GW of data center demand by 2040, 18× its current peak load.',
-                  'The Feb. 24 forum at Sherando High School drew 250–300 residents. The Feb. 26 forum at James Wood High School was postponed after backlash on the format. No new date has been set. You can check fcva.us for updates.',
+                  'The Feb. 24 forum at Sherando High School drew 250–300 residents. The Feb. 26 forum at James Wood High School was postponed after backlash on the format. It has been rescheduled for May 7, 2026 at James Wood High School at 6:30 PM.',
                   'All statistics on this site are sourced to primary documents: JLARC, Virginia Energy, USGS, Consumer Federation of America, NPR, and local Virginia press.',
                 ].map((fact, i) => (
                   <li key={i} style={{fontSize:'13px',lineHeight:'1.65',color:'var(--ink-2)',paddingLeft:'18px',position:'relative'}}>
@@ -499,7 +494,7 @@ export default function Home() {
       <section className={styles.shareSection}>
         <div className="section-inner">
           <h2 className={styles.shareTitle}>Spread the Word<br /><em>Across the Valley</em></h2>
-          <p className={styles.shareSub}>The county postponed the James Wood forum after community backlash. Share this page so neighbors know what happened and what's coming next.</p>
+          <p className={styles.shareSub}>The April 15 community forum recording is now available. The county forum at James Wood High School is rescheduled for May 7. Share this page so neighbors are informed before that meeting.</p>
           <div className={styles.shareButtons}>
             <a className={`${styles.shareBtn} ${styles.shareFacebook}`} href="https://www.facebook.com/sharer/sharer.php?u=https://protectfrederick.org" target="_blank" rel="noopener">
               <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>

@@ -4,144 +4,14 @@ import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import styles from '@/styles/community-forum.module.css'
 
-const DISTRICTS = [
-  'Back Creek',
-  'Gainesboro',
-  'Opequon',
-  'Red Bud',
-  'Shawnee',
-  'Stonewall',
+const videos = [
+  { id: 'jlRhRjAGMMA', title: 'The Real Cost of Data Centers — Part 1' },
+  { id: 'bF3nsJWFk9A', title: 'The Real Cost of Data Centers — Part 2' },
+  { id: 'vGJfJ4PWmYo', title: 'The Real Cost of Data Centers — Part 3' },
+  { id: 'Dv3okxBFg3g', title: 'Martha Sadlick — Karst Geology & Aquifer Vulnerability' },
+  { id: 'edU_RtIE1jo', title: 'Community Q&A — Session 1' },
+  { id: 'KWi-mcqST4E', title: 'Community Q&A — Session 2' },
 ]
-
-function RsvpForm() {
-  const [form, setForm] = useState({ fullName: '', email: '', district: '', guestCount: 1, questions: '' })
-  const [error, setError] = useState(null)
-  const [loading, setLoading] = useState(false)
-  const [success, setSuccess] = useState(false)
-
-  function set(field, value) {
-    setForm(f => ({ ...f, [field]: value }))
-  }
-
-  async function handleSubmit(e) {
-    e.preventDefault()
-    setError(null)
-
-    if (!form.fullName.trim()) return setError('Please enter your name.')
-    if (!form.email.trim()) return setError('Please enter your email address.')
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) return setError('Please enter a valid email address.')
-
-    setLoading(true)
-    try {
-      const res = await fetch('/api/forum-rsvp', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          fullName: form.fullName,
-          email: form.email,
-          district: form.district || null,
-          guestCount: Number(form.guestCount),
-          questions: form.questions || null,
-        }),
-      })
-      const data = await res.json()
-      if (!res.ok) return setError(data.error || 'Something went wrong. Please try again.')
-      setSuccess(true)
-    } catch {
-      setError('Something went wrong. Please try again.')
-    } finally {
-      setLoading(false)
-    }
-  }
-
-  if (success) {
-    return (
-      <div className={styles.rsvpSuccess}>
-        <div className={styles.rsvpSuccessIcon}>✓</div>
-        <h3 className={styles.rsvpSuccessTitle}>You're on the list.</h3>
-        <p className={styles.rsvpSuccessText}>We've recorded your RSVP for the April 15 community forum at Trumpet Vine Farm. We'll see you there.</p>
-      </div>
-    )
-  }
-
-  return (
-    <form className={styles.rsvpForm} onSubmit={handleSubmit} noValidate>
-      <div className={styles.rsvpRow}>
-        <div className={styles.rsvpField}>
-          <label className={styles.rsvpLabel} htmlFor="rsvp-name">Full Name <span className={styles.rsvpRequired}>*</span></label>
-          <input
-            id="rsvp-name"
-            className={styles.rsvpInput}
-            type="text"
-            value={form.fullName}
-            onChange={e => set('fullName', e.target.value)}
-            placeholder="Jane Smith"
-            maxLength={100}
-            required
-          />
-        </div>
-        <div className={styles.rsvpField}>
-          <label className={styles.rsvpLabel} htmlFor="rsvp-email">Email Address <span className={styles.rsvpRequired}>*</span></label>
-          <input
-            id="rsvp-email"
-            className={styles.rsvpInput}
-            type="email"
-            value={form.email}
-            onChange={e => set('email', e.target.value)}
-            placeholder="jane@example.com"
-            required
-          />
-        </div>
-      </div>
-
-      <div className={styles.rsvpRow}>
-        <div className={styles.rsvpField}>
-          <label className={styles.rsvpLabel} htmlFor="rsvp-district">District <span className={styles.rsvpOptional}>(optional)</span></label>
-          <select
-            id="rsvp-district"
-            className={styles.rsvpSelect}
-            value={form.district}
-            onChange={e => set('district', e.target.value)}
-          >
-            <option value="">Select your district</option>
-            {DISTRICTS.map(d => <option key={d} value={d}>{d}</option>)}
-          </select>
-        </div>
-        <div className={styles.rsvpField}>
-          <label className={styles.rsvpLabel} htmlFor="rsvp-guests">Number of Attendees</label>
-          <input
-            id="rsvp-guests"
-            className={styles.rsvpInput}
-            type="number"
-            min={1}
-            max={10}
-            value={form.guestCount}
-            onChange={e => set('guestCount', e.target.value)}
-          />
-        </div>
-      </div>
-
-      <div className={styles.rsvpField}>
-        <label className={styles.rsvpLabel} htmlFor="rsvp-questions">Questions for the Panel <span className={styles.rsvpOptional}>(optional)</span></label>
-        <textarea
-          id="rsvp-questions"
-          className={styles.rsvpTextarea}
-          value={form.questions}
-          onChange={e => set('questions', e.target.value)}
-          placeholder="Submit a question in advance for the panel discussion."
-          maxLength={1000}
-          rows={3}
-        />
-      </div>
-
-      {error && <div className={styles.rsvpError}>{error}</div>}
-
-      <button className={styles.rsvpBtn} type="submit" disabled={loading}>
-        {loading ? 'Submitting…' : 'RSVP for the Forum →'}
-      </button>
-    </form>
-  )
-}
 
 const panelists = [
   {
@@ -280,7 +150,7 @@ export default function CommunityForum() {
 
         {/* ── Intro ── */}
         <div className={`${styles.sectionIntro} fade-up`} ref={fadeRef}>
-          Join us for an in-depth community discussion featuring a panel of experienced professionals who will provide insight into the key issues facing Frederick County. A moderated Q&amp;A session will follow, offering attendees, including community members and local officials, the opportunity to ask questions and engage directly with the panel. All community members are encouraged to attend.
+          On April 15, 2026, community members gathered at Trumpet Vine Farm for an in-depth forum featuring a panel of experienced professionals. Topics included the health and environmental impacts of large-scale data center development, Frederick County's karst geology and aquifer vulnerability, what neighboring communities have experienced, and the economic reality behind the promises. The full recordings are available below.
         </div>
 
         {/* ── Panelists ── */}
@@ -297,27 +167,27 @@ export default function CommunityForum() {
         {/* ── Format ── */}
         <div className="fade-up" ref={fadeRef}>
           <span className={styles.sectionLabel}>Event Format</span>
-          <h2 className={styles.sectionTitle}>An Evening of Informed Discussion</h2>
+          <h2 className={styles.sectionTitle}>How the Evening Unfolded</h2>
           <div className={styles.formatGrid}>
             <div className={styles.formatItem}>
               <div className={styles.formatTime}>6:00 PM</div>
-              <div className={styles.formatLabel}>Doors Open</div>
-              <div className={styles.formatDesc}>Guests arrive, sign in, find seating. Display materials, handouts, and resource table available.</div>
+              <div className={styles.formatLabel}>Doors Opened</div>
+              <div className={styles.formatDesc}>Guests arrived, signed in, and found seating. Display materials, handouts, and a resource table were available.</div>
             </div>
             <div className={styles.formatItem}>
               <div className={styles.formatTime}>6:30 PM</div>
               <div className={styles.formatLabel}>Welcome &amp; Opening Remarks</div>
-              <div className={styles.formatDesc}>Introduction of the purpose of the evening and brief overview. This is an informed, civil, community-first conversation. All are welcome, including Board of Supervisors members.</div>
+              <div className={styles.formatDesc}>The evening opened with an introduction of its purpose and a brief overview — an informed, civil, community-first conversation, open to all including Board of Supervisors members.</div>
             </div>
             <div className={styles.formatItem}>
               <div className={styles.formatTime}>6:35 PM</div>
               <div className={styles.formatLabel}>Introduction of Panel</div>
-              <div className={styles.formatDesc}>Moderator introduces each panelist by name, title, and brief credential summary.</div>
+              <div className={styles.formatDesc}>The moderator introduced each panelist by name, title, and credential summary.</div>
             </div>
             <div className={styles.formatItem}>
               <div className={styles.formatTime}>6:40 PM</div>
               <div className={styles.formatLabel}>Block 1: Health &amp; Environmental Impact</div>
-              <div className={styles.formatDesc}>What does large-scale data center development actually mean for the air, water, and people of Frederick County?
+              <div className={styles.formatDesc}>What large-scale data center development actually means for the air, water, and people of Frederick County.
                 <ul className={styles.formatSpeakerList}>
                   <li><strong>Tammy Clark</strong> — Occupational health, air quality, regulatory compliance and what it means for surrounding residents (15 min)</li>
                   <li><strong>Kristen Meghan Kelly</strong> — Environmental health impacts, what industrial hygiene data from similar developments shows (15 min)</li>
@@ -330,7 +200,7 @@ export default function CommunityForum() {
               <div className={styles.formatLabel}>Block 2: What Are Communities Actually Being Promised?</div>
               <div className={styles.formatDesc}>A broader look at data center development across Virginia and the country — what the economic promises typically look like versus reality, what the fight looks like in other communities, and what winning actually means.
                 <ul className={styles.formatSpeakerList}>
-                  <li><strong>Elena Schlossberg-Kunkel</strong> — The Prince William County coalition model, how they organized, what worked, and what Frederick County can replicate</li>
+                  <li><strong>Elena Schlossberg-Kunkel</strong> — The Prince William County coalition model, how they organized, what worked, and what Frederick County can learn from it</li>
                   <li><strong>Nathan Russell</strong> — Economic analysis, what counties are actually promised versus what they receive, and the public finance reality behind the data centers or higher taxes argument</li>
                 </ul>
               </div>
@@ -338,12 +208,12 @@ export default function CommunityForum() {
             <div className={styles.formatItem}>
               <div className={styles.formatTime}>7:45 PM</div>
               <div className={styles.formatLabel}>Moderated Q&amp;A — Community Open Mic</div>
-              <div className={styles.formatDesc}>Frederick County residents ask questions — 1 minute each. Moderated to ensure all voices are heard. Open mic through 9:00 PM.</div>
+              <div className={styles.formatDesc}>Frederick County residents asked questions — 1 minute each. Moderated to ensure all voices were heard. Open mic ran through 9:00 PM.</div>
             </div>
             <div className={styles.formatItem}>
               <div className={styles.formatTime}>9:00 PM</div>
               <div className={styles.formatLabel}>Adjourn</div>
-              <div className={styles.formatDesc}>Panel available for informal conversation. Resource table remains open. Media availability if applicable.</div>
+              <div className={styles.formatDesc}>The panel remained available for informal conversation. The resource table stayed open and media availability followed.</div>
             </div>
           </div>
         </div>
@@ -375,28 +245,33 @@ export default function CommunityForum() {
           </div>
         </div>
 
-        {/* ── Location notice ── */}
-        <div className={`${styles.locationNotice} fade-up`} ref={fadeRef}>
-          <div className={styles.locationNoticeInner}>
-            <div className={styles.locationNoticeLabel}>Location</div>
-            <div className={styles.locationNoticeText}>Trumpet Vine Farm</div>
-            <div className={styles.locationNoticeSub}> This event is free and open to all Frederick County community members. Address is 266 Vaucluse Rd, Stephens City, VA 22655 </div>
-          </div>
-        </div>
-
         <hr className={styles.sectionDivider} />
 
-        {/* ── RSVP ── */}
+        {/* ── Recordings ── */}
         <div className="fade-up" ref={fadeRef}>
-          <span className={styles.sectionLabel}>RSVP</span>
-          <h2 className={styles.sectionTitle}>Reserve Your Spot</h2>
-          <p className={styles.sectionIntroText}>The forum is free and open to all Frederick County community members. Submit an RSVP so we know to expect you, and submit a question for the panel in advance if you have one.</p>
-          <RsvpForm />
+          <span className={styles.sectionLabel}>Watch the Recording</span>
+          <h2 className={styles.sectionTitle}>Full Event Coverage</h2>
+          <p className={styles.sectionIntroText}>The forum was recorded and posted in full. Watch the panel presentations and community Q&A sessions below.</p>
+          <div className={styles.videoGrid}>
+            {videos.map(v => (
+              <div key={v.id} className={styles.videoItem}>
+                <div className={styles.videoEmbed}>
+                  <iframe
+                    src={`https://www.youtube.com/embed/${v.id}`}
+                    title={v.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+                <div className={styles.videoTitle}>{v.title}</div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* ── CTA ── */}
         <div className={`${styles.pageCta} fade-up`} ref={fadeRef}>
-          <div className={styles.pageCtaText}><strong>Make your voice heard.</strong> Attend the forum, ask your questions, and sign the petition before the next Board of Supervisors vote.</div>
+          <div className={styles.pageCtaText}><strong>Make your voice heard.</strong> Share this recording with neighbors, and sign the petition before the next Board of Supervisors vote.</div>
           <Link href="/petition" className={styles.pageCtaBtn}>Sign the Petition →</Link>
         </div>
 

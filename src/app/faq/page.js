@@ -118,7 +118,7 @@ export default function FAQ() {
 
         <div className={`${styles.faqCta} fade-up`} ref={fadeRef}>
           <div className={styles.faqCtaText}>
-            <strong>Ready to take action?</strong> Sign the petition and make your voice part of the official record. The February 24 forum is done and now we wait for the rescheduled James Wood session. Every signature counts going into that room
+            <strong>Ready to take action?</strong> Sign the petition and make your voice part of the official record. The February 24 forum is done and now we wait for the rescheduled James Wood session on May 7th. Every signature counts going into that room
           </div>
           <Link href="/petition" className={styles.faqCtaBtn}>Sign the Petition →</Link>
         </div>

@@ -50,11 +50,11 @@ const FLYERS = [
   },
   {
     id: 6,
-    title: 'Door Hanger: Sign the Petition',
-    description: 'Print-ready door hanger for canvassing. Directs neighbors to protectfrederick.org to sign the petition.',
+    title: 'Informational Flyer for Canvassing',
+    description: 'Print-ready flyer for canvassing. Directs neighbors to protectfrederick.org to sign the petition.',
     category: 'Canvassing',
     pages: '1 page',
-    file: null,
+    file: '/flyers/protect-frederick-flyer.pdf',
     preview: null,
   },
 ]

@@ -76,6 +76,8 @@
   font-size: 16px; line-height: 1.85;
   color: color-mix(in srgb, var(--cream) 80%, transparent);
 }
+.featuredBody p { margin: 0 0 1em; }
+.featuredBody p:last-child { margin-bottom: 0; }
 .featuredExpandBtn {
   display: inline-block; margin-top: 20px;
   font-family: 'Source Sans 3', sans-serif;
@@ -129,6 +131,8 @@
   font-size: 14px; line-height: 1.8; color: var(--ink-2);
   flex: 1;
 }
+.cardBody p { margin: 0 0 .85em; }
+.cardBody p:last-child { margin-bottom: 0; }
 .expandBtn {
   display: inline-block; margin-top: 14px; align-self: flex-start;
   font-family: 'Source Sans 3', sans-serif;
