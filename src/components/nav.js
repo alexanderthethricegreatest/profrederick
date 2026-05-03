@@ -50,6 +50,11 @@ export default function Nav() {
   const pathname = usePathname()
   const [menuOpen, setMenuOpen] = useState(false)
 
+  const dataCenterItems = [
+    { href: '/data-center-watch/virginia-technology-park', label: 'Virginia Technology Park' },
+    { href: '/data-center-watch/winchester-gateway',       label: 'Winchester Gateway LLC' },
+  ]
+
   const learnItems = [
     { href: '/faq',       label: 'FAQ' },
     { href: '/forums',    label: "Who's Behind the Forums?" },
@@ -74,6 +79,7 @@ export default function Nav() {
     { href: '/about',              label: 'About' },
     ...learnItems,
     ...resourcesItems,
+    ...dataCenterItems,
     { href: '/news',               label: 'News' },
     { href: '/events',             label: 'Events' },
     { href: '/community-forum',    label: 'April 15 Forum' },
@@ -95,6 +101,7 @@ export default function Nav() {
           <Link href="/about" className={`nav-link${pathname === '/about' ? ' active' : ''}`}>About</Link>
           <Dropdown label="Learn"     items={learnItems}     pathname={pathname} />
           <Dropdown label="Resources" items={resourcesItems} pathname={pathname} />
+          <Dropdown label="Data Center Watch" items={dataCenterItems} pathname={pathname} />
           <Link href="/news"   className={`nav-link${pathname === '/news'   ? ' active' : ''}`}>News</Link>
           <Link href="/events" className={`nav-link${pathname === '/events' ? ' active' : ''}`}>Events</Link>
           <Link href="/community-forum" className={`nav-link${pathname === '/community-forum' ? ' active' : ''}`}>April 15 Forum</Link>
@@ -126,6 +133,11 @@ export default function Nav() {
 
         <div className="mobile-group-label">Resources</div>
         {resourcesItems.map(({ href, label }) => (
+          <Link key={href} href={href} className={`mobile-group-item${pathname === href ? ' active' : ''}`} onClick={() => setMenuOpen(false)}>{label}</Link>
+        ))}
+
+        <div className="mobile-group-label">Data Center Watch</div>
+        {dataCenterItems.map(({ href, label }) => (
           <Link key={href} href={href} className={`mobile-group-item${pathname === href ? ' active' : ''}`} onClick={() => setMenuOpen(false)}>{label}</Link>
         ))}
 
