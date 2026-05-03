@@ -161,7 +161,7 @@ export default function Petition() {
         </div>
         <div className={styles.counterDivider}></div>
         <div className={styles.counterItem}>
-          <span className={styles.counterNum}>Postponed</span>
+          <span className={styles.counterNum}>May 7</span>
           <span className={styles.counterLabel}>Public Forum</span>
         </div>
       </div>
