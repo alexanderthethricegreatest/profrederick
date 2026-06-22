@@ -90,10 +90,91 @@
   color: color-mix(in srgb, var(--rule) 35%, transparent);
 }
 
+/* ── Project Status ──────────────────────── */
+.projectStatusSection {
+  background: var(--cream);
+  border-top: 4px solid var(--barn);
+  border-bottom: 3px double var(--rule-dark);
+  padding: 56px 0 60px;
+}
+.projectStatusInner {
+  max-width: 1200px; margin: 0 auto;
+  padding: 0 64px;
+}
+.projectStatusEyebrow {
+  font-size: 10px; font-weight: 700; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--barn);
+  margin-bottom: 10px;
+}
+.projectStatusTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3.5vw, 40px); font-weight: 900;
+  line-height: 1.08; color: var(--ink);
+  margin-bottom: 36px; padding-bottom: 28px;
+  border-bottom: 1px solid var(--rule);
+}
+.projectStatusTitle em { font-style: italic; color: var(--barn); }
+.projectCards { display: flex; flex-direction: column; gap: 3px; }
+.projectCard {
+  display: grid; grid-template-columns: 260px 1fr;
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--barn);
+}
+.projectCardLeft {
+  padding: 28px 28px 24px;
+  border-right: 1px solid var(--rule);
+  display: flex; flex-direction: column;
+}
+.projectCardRight {
+  padding: 28px 32px 24px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.projectCardName {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px; font-weight: 900;
+  color: var(--ink); margin-bottom: 4px; line-height: 1.2;
+}
+.projectCardMeta {
+  font-size: 10px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--ink-3);
+  margin-bottom: 18px; padding-bottom: 16px;
+  border-bottom: 1px solid var(--rule);
+}
+.projectBadge {
+  display: inline-block;
+  font-size: 9px; font-weight: 700; letter-spacing: .15em;
+  text-transform: uppercase; padding: 5px 10px;
+  margin-top: auto;
+}
+.projectBadgeDenied { background: var(--forest); color: var(--cream); }
+.projectBadgeStalled { background: var(--gold); color: var(--ink); }
+.projectEvents { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+.projectEvent { display: flex; gap: 16px; align-items: baseline; }
+.projectEventDate {
+  font-size: 10px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-3);
+  flex-shrink: 0; min-width: 68px;
+}
+.projectEventText { font-size: 13px; line-height: 1.55; color: var(--ink-2); }
+.projectEventText strong { color: var(--ink); font-weight: 700; }
+.projectCardLink {
+  display: inline-block;
+  font-size: 11px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--barn);
+  text-decoration: none; border-bottom: 1px solid var(--barn);
+  padding-bottom: 1px; align-self: flex-start;
+}
+.projectCardLink:hover { color: var(--barn-dark); border-color: var(--barn-dark); }
+@media (max-width: 860px) {
+  .projectStatusInner { padding: 0 24px; }
+  .projectCard { grid-template-columns: 1fr; }
+  .projectCardLeft { border-right: none; border-bottom: 1px solid var(--rule); }
+}
+
 /* ── Community Forum Banner ──────────────── */
 .communityForumSection {
   background: var(--cream, #faf7f2);
-  border-top: 4px solid var(--barn);
   border-bottom: 1px solid var(--rule);
 }
 .communityForumInner {

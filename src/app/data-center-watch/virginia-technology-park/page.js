@@ -179,7 +179,8 @@ export default function VirginiaTPPage() {
               <div className={styles.metaItem}><strong>Location</strong>S. of Rest Church Rd, W. of Zachary Ann Ln, E. of Ruebuck Ln (Stonewall District)</div>
               <div className={styles.metaItem}><strong>Parcels</strong>33-A-89 · 33-A-90 · 33-9-1A</div>
               <div className={styles.metaItem}><strong>Acreage</strong>~220 acres (RA → TM rezoning)</div>
-              <div className={styles.metaItem}><strong>PC Work Session</strong>Monday, May 5, 2026 · 7 p.m.</div>
+              <div className={styles.metaItem}><strong>PC Vote</strong>June 3, 2026 — 10-0 recommending denial</div>
+              <div className={styles.metaItem}><strong>BOS Hearing</strong>Postponed indefinitely (applicant withdrew)</div>
             </div>
           </div>
         </section>
@@ -303,12 +304,12 @@ export default function VirginiaTPPage() {
                     body: <>HRAB reviews the new application (originally 238.57 acres) seeking rezoning from RA to TM for 11 data center buildings <Cite id="gdp-c3" /> and three 300 MW substations.</> },
                   { v: 'completed', tag: 'Nov 2025', date: 'November 21–24, 2025',title: 'HRAB Outcome: Parcel Removed, Minor Suggestions Only',
                     body: <>The applicant announces removal of the 18.51-acre Thistle Lane parcel, reducing the project to ~220 acres. HRAB supports the Phase II historic study commitment <Cite id="proffer-8" /> but imposes no blocking conditions. Application advances.</> },
-                  { v: 'active',   tag: 'Confirmed', date: 'Monday, May 5, 2026, 7:00 p.m.', title: 'Planning Commission Work Session: Rezoning #04-26',
-                    body: 'The Planning Commission will hold a work session on Rezoning #04-26. 107 N. Kent Street, Winchester, VA. Work sessions are not formal public hearings. There is no public comment period. Commissioners review the application with staff.' },
-                  { v: 'pending',  tag: 'TBD', date: 'June 3, 2026 (tentative)', title: 'Planning Commission Public Hearing: Rezoning #04-26',
-                    body: 'The first formal public hearing on the rezoning application. This is when residents may speak on the record and written comments are entered into the official file. The PC\'s vote is advisory; it goes to the Board of Supervisors as a recommendation.' },
-                  { v: 'decision', tag: 'TBD', date: 'July 8, 2026 (tentative)', title: 'Board of Supervisors Public Hearing and Vote: Rezoning #04-26',
-                    body: 'The binding vote. The BOS holds its own public hearing before voting. Gary Oates (Stonewall District) has announced he will recuse due to business interests; six supervisors will decide. If approved, the proffers are recorded with the deed permanently and the county\'s leverage ends.' },
+                  { v: 'completed', tag: 'May 2026', date: 'Monday, May 5, 2026, 7:00 p.m.', title: 'Planning Commission Work Session: Rezoning #04-26',
+                    body: 'The Planning Commission held a work session on Rezoning #04-26. 107 N. Kent Street, Winchester, VA. Work sessions are not formal public hearings; there is no public comment period. Commissioners reviewed the application with staff.' },
+                  { v: 'completed', tag: 'Jun 2026', date: 'June 3, 2026', title: 'Planning Commission Votes 10-0 to Recommend Denial',
+                    body: 'The Planning Commission voted unanimously, 10-0, to recommend denial of Rezoning #04-26 after a nearly four-hour meeting. Commissioners cited a lack of detail and enforceable proffers. Roughly 30 residents marched in opposition beforehand. The recommendation was set to go to the Board of Supervisors on July 8.' },
+                  { v: 'pending',  tag: 'TBD', date: 'Postponed indefinitely', title: 'Board of Supervisors Hearing: Postponed',
+                    body: 'Equus Capital Partners pulled its Virginia Technology Park rezoning from the July 8 Board of Supervisors agenda, postponing it indefinitely. No new hearing date has been set. Monitor fcva.us for updates.' },
                   { v: 'pending',  tag: 'If Approved', date: 'Post-Vote',         title: 'Master Development Plan (MDP) Submission',
                     body: 'If approved, the applicant moves to MDP where specific building configurations, generator placement, and noise mitigation are finalized within the bounds already set by the proffers. The county cannot impose new conditions at this stage.' },
                 ].map(({ v, tag, date, title, body }, i) => {
@@ -327,11 +328,7 @@ export default function VirginiaTPPage() {
               </div>
               <Alert icon="📅">
                 <p>
-
-                  <strong>Key dates for Rezoning #04-26:</strong> PC Work Session on May 5, 2026;
-                  PC Public Hearing on June 3, 2026 (tentative); BOS Public Hearing and Vote on
-                  July 8, 2026 (tentative). The June 3 hearing is the first opportunity to speak
-                  on the record. Confirm dates at <a href="https://www.fcva.us/government/meeting-portal">fcva.us</a>.
+                  <strong>Status update:</strong> The Planning Commission voted 10-0 on June 3, 2026 to recommend denial of Rezoning #04-26. Equus Capital Partners subsequently pulled the application from the July 8 Board of Supervisors agenda. The BOS hearing is postponed indefinitely. Monitor <a href="https://www.fcva.us/government/meeting-portal">fcva.us</a> for updates.
                 </p>
               </Alert>
             </Accordion>
@@ -747,10 +744,7 @@ export default function VirginiaTPPage() {
             {/* 14 */}
             <Accordion num="14" title="What You Can Do" subtitle="How to make your voice part of the official public record">
               <p>
-                The rezoning process includes a Planning Commission public hearing and a Board of
-                Supervisors public hearing. Both are opportunities to put your concerns on the
-                official record. The BOS hearing is the binding vote. The May 5 Planning Commission
-                meeting is a work session. A formal public hearing will be scheduled separately.
+                The Planning Commission voted 10-0 on June 3, 2026 to recommend denial. Equus Capital Partners has since pulled the application from the July 8 Board of Supervisors agenda, postponing it indefinitely. When a new BOS hearing is scheduled, that will be the binding vote. Supervisors and written comments still matter.
               </p>
               <div className={styles.actionGrid}>
                 <div className={`${styles.actionCard} ${styles.actionCardPrimary}`}>
@@ -762,19 +756,19 @@ export default function VirginiaTPPage() {
                 <div className={`${styles.actionCard} ${styles.actionCardPrimary}`}>
                   <div className={styles.actionStep}>Do This Now</div>
                   <div className={styles.actionTitle}>Sign Up for Hearing Notifications</div>
-                  <div className={styles.actionDesc}>PC Work Session: <strong>May 5</strong>. PC Public Hearing: <strong>June 3 (tentative)</strong>. BOS Vote: <strong>July 8 (tentative)</strong>. Sign up for e-notifications to confirm dates as they're posted.</div>
+                  <div className={styles.actionDesc}>The BOS hearing has been postponed indefinitely. Sign up for e-notifications so you know the moment a new date is posted.</div>
                   <a className={styles.actionLink} href="https://www.fcva.us/services/sign-up-for-e-notifications" target="_blank" rel="noopener noreferrer">Sign up at fcva.us ↗</a>
                 </div>
                 <div className={styles.actionCard}>
-                  <div className={styles.actionStep}>Planning Commission Public Hearing: June 3, 2026 (tentative)</div>
-                  <div className={styles.actionTitle}>Speak at the Planning Commission</div>
-                  <div className={styles.actionDesc}>The first formal public hearing where residents may speak on the record. Individuals are allotted 3 minutes; state your name and address. The May 5 meeting is a work session with no public comment. 107 N. Kent Street, Winchester, VA.</div>
+                  <div className={styles.actionStep}>Planning Commission: Voted 10-0, June 3, 2026</div>
+                  <div className={styles.actionTitle}>Planning Commission Recommended Denial</div>
+                  <div className={styles.actionDesc}>The Planning Commission voted unanimously 10-0 to recommend denial on June 3, 2026. The recommendation was advisory. The binding vote remains with the Board of Supervisors.</div>
                   <a className={styles.actionLink} href="https://www.fcva.us/departments/planning-development/boards-committees/planning-commission" target="_blank" rel="noopener noreferrer">Planning Commission info ↗</a>
                 </div>
                 <div className={styles.actionCard}>
-                  <div className={styles.actionStep}>BOS Public Hearing and Vote: July 8, 2026 (tentative)</div>
+                  <div className={styles.actionStep}>BOS Hearing: Postponed indefinitely</div>
                   <div className={styles.actionTitle}>Speak at the Board of Supervisors</div>
-                  <div className={styles.actionDesc}>This is the binding vote. Six supervisors will decide; Gary Oates is recusing. The BOS meets at 107 N. Kent Street, Winchester, VA. Two citizen comment periods are held at every regular meeting.</div>
+                  <div className={styles.actionDesc}>Equus pulled the application from the July 8 agenda. When a new date is set, this will be the binding vote. Six supervisors will decide; Gary Oates is recusing. The BOS meets at 107 N. Kent Street, Winchester, VA.</div>
                   <a className={styles.actionLink} href="https://www.fcva.us/departments/board-of-supervisors" target="_blank" rel="noopener noreferrer">Board of Supervisors info ↗</a>
                 </div>
                 <div className={styles.actionCard}>
@@ -786,7 +780,7 @@ export default function VirginiaTPPage() {
                 <div className={styles.actionCard}>
                   <div className={styles.actionStep}>Anytime</div>
                   <div className={styles.actionTitle}>Share This Page</div>
-                  <div className={styles.actionDesc}>PC Public Hearing is tentatively <strong>June 3</strong>, BOS vote tentatively <strong>July 8</strong>. Share now so neighbors know the timeline and show up when it counts.</div>
+                  <div className={styles.actionDesc}>The BOS hearing date is TBD. Share now so neighbors are ready when a new date is announced.</div>
                   <a className={styles.actionLink} href="/petition">Sign the petition while you're here ↗</a>
                 </div>
               </div>

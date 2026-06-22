@@ -93,7 +93,7 @@ export default function Nav() {
       <nav>
         <div className="nav-left">
           <div className="nav-title">Protect Frederick </div>
-          <div className="nav-sub">Know the Facts· April 2026</div>
+          <div className="nav-sub">Know the Facts · June 2026</div>
         </div>
 
         <div className="nav-links">

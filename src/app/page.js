@@ -222,7 +222,7 @@ export default function Home() {
       {/* ── Hero ── */}
       <section className={styles.hero}>
         <div className={styles.heroLeft}>
-          <div className={styles.heroDateline}>Frederick County, Virginia · April 2026</div>
+          <div className={styles.heroDateline}>Frederick County, Virginia · June 2026</div>
           <h1 className={styles.heroHeadline}>
             Know the Facts<br />
             on <em>Data</em>
@@ -248,18 +248,79 @@ export default function Home() {
             <polygon points="330,124 378,124 354,105" fill="#5C1E0F" opacity="0.55"/>
             <rect x="348" y="130" width="6" height="16" fill="#2A2118" opacity="0.6"/>
           </svg>
-          <div className={styles.forumLabel}>Forum Update · April 26, 2026</div>
+          <div className={styles.forumLabel}>Forum Update · June 2026</div>
           <div className={styles.forumCard}>
             <span className={styles.forumDate}>Feb. 24 · Sherando High School</span>
             <div className={styles.forumLoc}>~250–300 residents attended. Vocal, unified opposition.</div>
             <span className={styles.forumTime}>Completed</span>
           </div>
           <div className={styles.forumCard}>
-            <span className={styles.forumDate}>May 7th · James Wood High School</span>
-            <div className={styles.forumLoc}>Originally postponed after resident backlash on forum format. Set for 6:30 PM.</div>
-            <span className={styles.forumTime}>Rescheduled: May 7th</span>
+            <span className={styles.forumDate}>May 7 · James Wood High School</span>
+            <div className={styles.forumLoc}>County-hosted data center information forum. 6:30 PM.</div>
+            <span className={styles.forumTime}>Completed</span>
           </div>
           <div className={styles.heroFcva}>Hosted by Frederick County Government · fcva.us</div>
+        </div>
+      </section>
+
+      {/* ── Project Status ── */}
+      <section className={styles.projectStatusSection}>
+        <div className={styles.projectStatusInner}>
+          <div className={styles.projectStatusEyebrow}>Data Center Watch · June 2026</div>
+          <h2 className={styles.projectStatusTitle}>Where the <em>Proposals</em> Stand</h2>
+          <div className={styles.projectCards}>
+
+            <div className={styles.projectCard}>
+              <div className={styles.projectCardLeft}>
+                <div className={styles.projectCardName}>Virginia Technology Park</div>
+                <div className={styles.projectCardMeta}>Rezoning #04-26 · Clear Brook · Stonewall District</div>
+                <span className={`${styles.projectBadge} ${styles.projectBadgeDenied}`}>PC: 10-0 Denial Recommendation</span>
+              </div>
+              <div className={styles.projectCardRight}>
+                <div className={styles.projectEvents}>
+                  <div className={styles.projectEvent}>
+                    <span className={styles.projectEventDate}>May 5</span>
+                    <span className={styles.projectEventText}>Planning Commission work session</span>
+                  </div>
+                  <div className={styles.projectEvent}>
+                    <span className={styles.projectEventDate}>Jun 3</span>
+                    <span className={styles.projectEventText}><strong>Planning Commission voted 10-0</strong> to recommend denial. Commissioners cited lack of detail and enforceable proffers.</span>
+                  </div>
+                  <div className={styles.projectEvent}>
+                    <span className={styles.projectEventDate}>Jun 2026</span>
+                    <span className={styles.projectEventText}><strong>Equus pulled the application</strong> from the July 8 Board of Supervisors agenda. BOS hearing postponed indefinitely.</span>
+                  </div>
+                </div>
+                <Link href="/data-center-watch/virginia-technology-park" className={styles.projectCardLink}>Full analysis →</Link>
+              </div>
+            </div>
+
+            <div className={styles.projectCard}>
+              <div className={styles.projectCardLeft}>
+                <div className={styles.projectCardName}>Winchester Gateway LLC</div>
+                <div className={styles.projectCardMeta}>Conditional Use Permit · Kernstown · Back Creek District</div>
+                <span className={`${styles.projectBadge} ${styles.projectBadgeStalled}`}>PC Hearing Withdrawn</span>
+              </div>
+              <div className={styles.projectCardRight}>
+                <div className={styles.projectEvents}>
+                  <div className={styles.projectEvent}>
+                    <span className={styles.projectEventDate}>Apr 17</span>
+                    <span className={styles.projectEventText}><strong>HRAB voted 7-1</strong> to recommend denial, citing battlefield visibility, unresolved water disposal, and incomplete archaeology.</span>
+                  </div>
+                  <div className={styles.projectEvent}>
+                    <span className={styles.projectEventDate}>Jun 2026</span>
+                    <span className={styles.projectEventText}><strong>Applicant withdrew</strong> from the July 1 Planning Commission hearing after concerns raised at a work session. Issues: power infrastructure, building height, screening, and low-frequency noise.</span>
+                  </div>
+                  <div className={styles.projectEvent}>
+                    <span className={styles.projectEventDate}>TBD</span>
+                    <span className={styles.projectEventText}>No new hearing date set. Board of Supervisors makes the final call.</span>
+                  </div>
+                </div>
+                <Link href="/data-center-watch/winchester-gateway" className={styles.projectCardLink}>Full analysis →</Link>
+              </div>
+            </div>
+
+          </div>
         </div>
       </section>
 
@@ -371,7 +432,7 @@ export default function Home() {
           <div className={styles.actionGrid}>
             <div className={`${styles.stepsCol} fade-up`} ref={fadeRef}>
               {[
-                { num: '1', title: 'Attend the rescheduled forum.', desc: <>The James Wood High School forum was postponed after resident pushback on the format. Rescheduled for May 7th. <a href="https://www.fcva.us/departments/public-information/dc-faq" target="_blank" rel="noopener">Visit https://www.fcva.us/departments/public-information/dc-faq</a> for the announcement. Show up.</> },
+                { num: '1', title: 'Submit written comment to the county.', desc: <>Both county-hosted forums have now been held (Feb. 24 and May 7). Written comments submitted to the Board of Supervisors remain part of the official public record. Use the tool below to find your representative and contact them directly.</> },
                 { num: '2', title: 'Submit written comment to the Board.', desc: <>Written correspondence to your supervisor becomes part of the official public record. Use the tool below to find your rep and contact them now.</> },
                 { num: '3', title: 'Contact your supervisor directly.', desc: <>Use the tool to find your Board representative. The postponement shows officials are listening. Keep the pressure on.</> },
                 { num: '4', title: 'Bring a neighbor.', desc: <>Invite someone from your road, your church, your feed store. Most residents still don't know what's happening. Higher turnout at the rescheduled forum sends an unmistakable signal.</> },
@@ -469,7 +530,7 @@ export default function Home() {
                   'Two data center proposals were rejected by the Board 5-1 in June 2025: a 644-acre campus south of Stephens City (Tract Capital) and a 105-acre site south of Winchester.',
                   'Frederick County sits almost entirely on karst terrain, a geological formation that makes groundwater uniquely vulnerable to contamination from industrial activity.',
                   'The county is served by two member-owned electric cooperatives: REC and SVEC. REC projects 17 GW of data center demand by 2040, 18× its current peak load.',
-                  'The Feb. 24 forum at Sherando High School drew 250–300 residents. The Feb. 26 forum at James Wood High School was postponed after backlash on the format. It has been rescheduled for May 7, 2026 at James Wood High School at 6:30 PM.',
+                  'Two county-hosted data center information forums have been held: Feb. 24 at Sherando High School (~250–300 residents, vocal opposition) and May 7, 2026 at James Wood High School (originally postponed after backlash on the format).',
                   'All statistics on this site are sourced to primary documents: JLARC, Virginia Energy, USGS, Consumer Federation of America, NPR, and local Virginia press.',
                 ].map((fact, i) => (
                   <li key={i} style={{fontSize:'13px',lineHeight:'1.65',color:'var(--ink-2)',paddingLeft:'18px',position:'relative'}}>
@@ -494,7 +555,7 @@ export default function Home() {
       <section className={styles.shareSection}>
         <div className="section-inner">
           <h2 className={styles.shareTitle}>Spread the Word<br /><em>Across the Valley</em></h2>
-          <p className={styles.shareSub}>The April 15 community forum recording is now available. The county forum at James Wood High School is rescheduled for May 7. Share this page so neighbors are informed before that meeting.</p>
+          <p className={styles.shareSub}>The April 15 community forum recording is now available. Both county-hosted forums have been held. Share this page so neighbors stay informed as the Board of Supervisors continues to weigh these proposals.</p>
           <div className={styles.shareButtons}>
             <a className={`${styles.shareBtn} ${styles.shareFacebook}`} href="https://www.facebook.com/sharer/sharer.php?u=https://protectfrederick.org" target="_blank" rel="noopener">
               <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>

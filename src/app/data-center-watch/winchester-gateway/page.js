@@ -88,8 +88,11 @@ export default function WinchesterGatewayPage() {
           <p>
             Frederick County's Historic Resources Advisory Board voted 7 to 1 to recommend denial
             on April 17, 2026, citing unresolved battlefield visibility, unanswered water disposal
-            questions, and incomplete archaeological work. That recommendation now moves to the
-            Planning Commission and then to the Board of Supervisors.
+            questions, and incomplete archaeological work. The application was set for a Planning
+            Commission public hearing on July 1, 2026, but the applicant withdrew from that
+            hearing after concerns were raised at a commission work session. The applicant cited
+            the need for more time to address power infrastructure, building height, screening,
+            and low-frequency noise. No new hearing date has been set.
           </p>
         </div>
 
@@ -383,9 +386,9 @@ export default function WinchesterGatewayPage() {
                 { v: 'completed', tag: 'Apr 2026', date: 'April 17, 2026',
                   title: 'HRAB Votes 7-1 to Recommend Denial',
                   body: 'HRAB votes 7 to 1 to recommend denial of the CUP. The applicant did not provide the requested viewshed analysis. Lone dissent: Dana Newcomb. HRAB members cited battlefield visibility, unresolved water disposal, and the incomplete archaeological record.' },
-                { v: 'pending', tag: 'TBD', date: 'Date not yet set',
-                  title: 'Planning Commission Review',
-                  body: 'The application moves to the Planning Commission for review. A public hearing date has not been scheduled. The PC\'s recommendation is advisory.' },
+                { v: 'pending', tag: 'TBD', date: 'July 1, 2026 hearing withdrawn; date TBD',
+                  title: 'Planning Commission: July 1 Hearing Withdrawn',
+                  body: 'The application was scheduled for a Planning Commission public hearing on July 1, 2026, but the applicant withdrew before that hearing after concerns raised at a commission work session. The applicant stated it needed more time to address power infrastructure, building height, screening, and low-frequency noise. A new hearing date has not been set.' },
                 { v: 'decision', tag: 'TBD', date: 'Date not yet set',
                   title: 'Board of Supervisors Public Hearing and Vote',
                   body: 'The Board of Supervisors holds its own public hearing and casts the binding vote. The BOS previously rejected the Winchester Gateway 2 proposal on the adjacent parcel, demonstrating it is not obligated to approve data center development in this corridor.' },
@@ -405,10 +408,9 @@ export default function WinchesterGatewayPage() {
             </div>
             <Alert icon="📅">
               <p>
-                No Planning Commission hearing date has been set. Sign up for e-notifications
-                at <a href="https://www.fcva.us/services/sign-up-for-e-notifications">fcva.us</a>{' '}
-                to be alerted when it is posted. Written comments submitted via the county's
-                e-Comment system become part of the official public record.
+                The applicant withdrew from the July 1, 2026 Planning Commission hearing after concerns raised at a work session. Issues cited: power infrastructure, building height, screening, and low-frequency noise. No new hearing date has been set. Sign up for e-notifications at{' '}
+                <a href="https://www.fcva.us/services/sign-up-for-e-notifications">fcva.us</a>{' '}
+                to be alerted when a new date is posted.
               </p>
             </Alert>
           </Accordion>
@@ -594,7 +596,7 @@ export default function WinchesterGatewayPage() {
               <div className={`${styles.actionCard} ${styles.actionCardPrimary}`}>
                 <div className={styles.actionStep}>Do This Now</div>
                 <div className={styles.actionTitle}>Sign Up for Hearing Notifications</div>
-                <div className={styles.actionDesc}>No Planning Commission or BOS hearing dates have been set. Sign up for e-notifications from Frederick County so you know the moment they are posted.</div>
+                <div className={styles.actionDesc}>The applicant withdrew from the July 1 Planning Commission hearing. No new date has been set. Sign up for e-notifications from Frederick County so you know the moment one is posted.</div>
                 <a className={styles.actionLink} href="https://www.fcva.us/services/sign-up-for-e-notifications" target="_blank" rel="noopener noreferrer">Sign up at fcva.us ↗</a>
               </div>
               <div className={styles.actionCard}>
