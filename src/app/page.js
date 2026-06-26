@@ -324,42 +324,39 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Community Forum Banner ── */}
+      {/* ── Transmission Lines Preview ── */}
       <section className={styles.communityForumSection}>
         <div className={styles.communityForumInner}>
           <div className={styles.communityForumLeft}>
-            <div className={styles.communityForumEyebrow}>Community Event · April 15, 2026 · Completed</div>
-            <h2 className={styles.communityForumTitle}>Fact vs. Fiction:<br /><em>An Independent Forum</em></h2>
+            <div className={styles.communityForumEyebrow}>Transmission Lines · June 2026</div>
+            <h2 className={styles.communityForumTitle}>Three New High-Voltage Lines<br /><em>Through Frederick County</em></h2>
             <p className={styles.communityForumDeck}>
-              The forum was held on April 15 at Trumpet Vine Farm. A panel of industrial hygienists, a geologist, and a land use advocate, all with decades of independent experience and no financial stake in the outcome, addressed the community. The full recording is now available.
+              Three separate transmission projects are being routed through Frederick County to carry power from West Virginia to Loudoun County's data centers. Most of the power does not stay here. Frederick County absorbs the cleared land and lost views for power that serves another county's tax base.
             </p>
             <div className={styles.communityForumPanelists}>
-              <span>Tammy Clark</span>
-              <span>Kristen Meghan Kelly, MS-OSH</span>
-              <span>Martha Saddlick</span>
-              <span>Elena Schlossberg-Kunkel</span>
-              <span>Nathan Russell, MA</span>
-              <span>Tony Cole (Moderator)</span>
+              <span>Valley North (765 kV)</span>
+              <span>MARL / Mid-Atlantic Resiliency Link (500 kV)</span>
+              <span>Gore-Doubs-Goose Creek (500 kV)</span>
             </div>
-            <Link href="/community-forum" className={styles.communityForumBtn}>Watch the Recording →</Link>
+            <Link href="/transmission-lines" className={styles.communityForumBtn}>Read the Full Briefing →</Link>
           </div>
           <div className={styles.communityForumRight}>
-            <div className={styles.communityForumMetaLabel}>Recording Available</div>
+            <div className={styles.communityForumMetaLabel}>At a Glance</div>
             <div className={styles.communityForumMetaItem}>
-              <span className={styles.communityForumMetaKey}>Held</span>
-              <span className={styles.communityForumMetaVal}>Wednesday, April 15, 2026</span>
+              <span className={styles.communityForumMetaKey}>Valley North · Open House</span>
+              <span className={styles.communityForumMetaVal}>June 29, James Wood H.S.</span>
             </div>
             <div className={styles.communityForumMetaItem}>
-              <span className={styles.communityForumMetaKey}>Venue</span>
-              <span className={styles.communityForumMetaVal}>Trumpet Vine Farm</span>
+              <span className={styles.communityForumMetaKey}>MARL · Active SCC Case</span>
+              <span className={styles.communityForumMetaVal}>PUR-2026-00018</span>
             </div>
             <div className={styles.communityForumMetaItem}>
-              <span className={styles.communityForumMetaKey}>Coverage</span>
-              <span className={styles.communityForumMetaVal}>6 recordings of Panel &amp; Q&amp;A</span>
+              <span className={styles.communityForumMetaKey}>Valley North · Easement</span>
+              <span className={styles.communityForumMetaVal}>200 ft new corridor</span>
             </div>
             <div className={styles.communityForumMetaItem}>
-              <span className={styles.communityForumMetaKey}>Access</span>
-              <span className={styles.communityForumMetaVal}>Free · Available Now</span>
+              <span className={styles.communityForumMetaKey}>All Three · Destination</span>
+              <span className={styles.communityForumMetaVal}>Loudoun Data Center Alley</span>
             </div>
           </div>
         </div>

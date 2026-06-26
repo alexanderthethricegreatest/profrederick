@@ -53,6 +53,7 @@ export default function Nav() {
   const dataCenterItems = [
     { href: '/data-center-watch/virginia-technology-park', label: 'Virginia Technology Park' },
     { href: '/data-center-watch/winchester-gateway',       label: 'Winchester Gateway LLC' },
+    { href: '/transmission-lines',                         label: 'Transmission Line Projects' },
   ]
 
   const learnItems = [
